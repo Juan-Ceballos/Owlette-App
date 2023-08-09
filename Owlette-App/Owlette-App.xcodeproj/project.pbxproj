@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3ECCA31B2A7CB18400D553D6 /* Owlette_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA31A2A7CB18400D553D6 /* Owlette_AppApp.swift */; };
-		3ECCA31D2A7CB18400D553D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCA31C2A7CB18400D553D6 /* ContentView.swift */; };
-		3ECCA31F2A7CB18700D553D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCA31E2A7CB18700D553D6 /* Assets.xcassets */; };
-		3ECCA3232A7CB18700D553D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCA3222A7CB18700D553D6 /* Preview Assets.xcassets */; };
+		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
+		3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */; };
+		3EDAFD502A845C5800A2C276 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4F2A845C5800A2C276 /* ViewController.swift */; };
+		3EDAFD532A845C5800A2C276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDAFD512A845C5800A2C276 /* Main.storyboard */; };
+		3EDAFD552A845C5C00A2C276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDAFD542A845C5C00A2C276 /* Assets.xcassets */; };
+		3EDAFD582A845C5C00A2C276 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3ECCA3172A7CB18400D553D6 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ECCA31A2A7CB18400D553D6 /* Owlette_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owlette_AppApp.swift; sourceTree = "<group>"; };
-		3ECCA31C2A7CB18400D553D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3ECCA31E2A7CB18700D553D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3ECCA3202A7CB18700D553D6 /* Owlette_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owlette_App.entitlements; sourceTree = "<group>"; };
-		3ECCA3222A7CB18700D553D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3EDAFD4F2A845C5800A2C276 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EDAFD522A845C5800A2C276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3EDAFD542A845C5C00A2C276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EDAFD572A845C5C00A2C276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3EDAFD592A845C5C00A2C276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3ECCA3142A7CB18400D553D6 /* Frameworks */ = {
+		3EDAFD452A845C5800A2C276 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,52 +37,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3ECCA30E2A7CB18400D553D6 = {
+		3EDAFD3F2A845C5800A2C276 = {
 			isa = PBXGroup;
 			children = (
-				3ECCA3192A7CB18400D553D6 /* Owlette-App */,
-				3ECCA3182A7CB18400D553D6 /* Products */,
+				3EDAFD4A2A845C5800A2C276 /* Owlette-App */,
+				3EDAFD492A845C5800A2C276 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3ECCA3182A7CB18400D553D6 /* Products */ = {
+		3EDAFD492A845C5800A2C276 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3ECCA3172A7CB18400D553D6 /* Owlette-App.app */,
+				3EDAFD482A845C5800A2C276 /* Owlette-App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3ECCA3192A7CB18400D553D6 /* Owlette-App */ = {
+		3EDAFD4A2A845C5800A2C276 /* Owlette-App */ = {
 			isa = PBXGroup;
 			children = (
-				3ECCA31A2A7CB18400D553D6 /* Owlette_AppApp.swift */,
-				3ECCA31C2A7CB18400D553D6 /* ContentView.swift */,
-				3ECCA31E2A7CB18700D553D6 /* Assets.xcassets */,
-				3ECCA3202A7CB18700D553D6 /* Owlette_App.entitlements */,
-				3ECCA3212A7CB18700D553D6 /* Preview Content */,
+				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
+				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
+				3EDAFD4F2A845C5800A2C276 /* ViewController.swift */,
+				3EDAFD512A845C5800A2C276 /* Main.storyboard */,
+				3EDAFD542A845C5C00A2C276 /* Assets.xcassets */,
+				3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */,
+				3EDAFD592A845C5C00A2C276 /* Info.plist */,
 			);
 			path = "Owlette-App";
-			sourceTree = "<group>";
-		};
-		3ECCA3212A7CB18700D553D6 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3ECCA3222A7CB18700D553D6 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3ECCA3162A7CB18400D553D6 /* Owlette-App */ = {
+		3EDAFD472A845C5800A2C276 /* Owlette-App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3ECCA3262A7CB18700D553D6 /* Build configuration list for PBXNativeTarget "Owlette-App" */;
+			buildConfigurationList = 3EDAFD5C2A845C5C00A2C276 /* Build configuration list for PBXNativeTarget "Owlette-App" */;
 			buildPhases = (
-				3ECCA3132A7CB18400D553D6 /* Sources */,
-				3ECCA3142A7CB18400D553D6 /* Frameworks */,
-				3ECCA3152A7CB18400D553D6 /* Resources */,
+				3EDAFD442A845C5800A2C276 /* Sources */,
+				3EDAFD452A845C5800A2C276 /* Frameworks */,
+				3EDAFD462A845C5800A2C276 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -86,25 +84,25 @@
 			);
 			name = "Owlette-App";
 			productName = "Owlette-App";
-			productReference = 3ECCA3172A7CB18400D553D6 /* Owlette-App.app */;
+			productReference = 3EDAFD482A845C5800A2C276 /* Owlette-App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3ECCA30F2A7CB18400D553D6 /* Project object */ = {
+		3EDAFD402A845C5800A2C276 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					3ECCA3162A7CB18400D553D6 = {
+					3EDAFD472A845C5800A2C276 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 3ECCA3122A7CB18400D553D6 /* Build configuration list for PBXProject "Owlette-App" */;
+			buildConfigurationList = 3EDAFD432A845C5800A2C276 /* Build configuration list for PBXProject "Owlette-App" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,42 +110,63 @@
 				en,
 				Base,
 			);
-			mainGroup = 3ECCA30E2A7CB18400D553D6;
-			productRefGroup = 3ECCA3182A7CB18400D553D6 /* Products */;
+			mainGroup = 3EDAFD3F2A845C5800A2C276;
+			productRefGroup = 3EDAFD492A845C5800A2C276 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3ECCA3162A7CB18400D553D6 /* Owlette-App */,
+				3EDAFD472A845C5800A2C276 /* Owlette-App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3ECCA3152A7CB18400D553D6 /* Resources */ = {
+		3EDAFD462A845C5800A2C276 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ECCA3232A7CB18700D553D6 /* Preview Assets.xcassets in Resources */,
-				3ECCA31F2A7CB18700D553D6 /* Assets.xcassets in Resources */,
+				3EDAFD582A845C5C00A2C276 /* LaunchScreen.storyboard in Resources */,
+				3EDAFD552A845C5C00A2C276 /* Assets.xcassets in Resources */,
+				3EDAFD532A845C5800A2C276 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3ECCA3132A7CB18400D553D6 /* Sources */ = {
+		3EDAFD442A845C5800A2C276 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ECCA31D2A7CB18400D553D6 /* ContentView.swift in Sources */,
-				3ECCA31B2A7CB18400D553D6 /* Owlette_AppApp.swift in Sources */,
+				3EDAFD502A845C5800A2C276 /* ViewController.swift in Sources */,
+				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
+				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		3EDAFD512A845C5800A2C276 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EDAFD522A845C5800A2C276 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EDAFD572A845C5C00A2C276 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		3ECCA3242A7CB18700D553D6 /* Debug */ = {
+		3EDAFD5A2A845C5C00A2C276 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -197,15 +216,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		3ECCA3252A7CB18700D553D6 /* Release */ = {
+		3EDAFD5B2A845C5C00A2C276 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -249,79 +270,64 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3ECCA3272A7CB18700D553D6 /* Debug */ = {
+		3EDAFD5D2A845C5C00A2C276 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Owlette-App/Owlette_App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Owlette-App/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_FILE = "Owlette-App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "JuanTheProducer.Owlette-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3ECCA3282A7CB18700D553D6 /* Release */ = {
+		3EDAFD5E2A845C5C00A2C276 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Owlette-App/Owlette_App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Owlette-App/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_FILE = "Owlette-App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "JuanTheProducer.Owlette-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,25 +337,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3ECCA3122A7CB18400D553D6 /* Build configuration list for PBXProject "Owlette-App" */ = {
+		3EDAFD432A845C5800A2C276 /* Build configuration list for PBXProject "Owlette-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3ECCA3242A7CB18700D553D6 /* Debug */,
-				3ECCA3252A7CB18700D553D6 /* Release */,
+				3EDAFD5A2A845C5C00A2C276 /* Debug */,
+				3EDAFD5B2A845C5C00A2C276 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3ECCA3262A7CB18700D553D6 /* Build configuration list for PBXNativeTarget "Owlette-App" */ = {
+		3EDAFD5C2A845C5C00A2C276 /* Build configuration list for PBXNativeTarget "Owlette-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3ECCA3272A7CB18700D553D6 /* Debug */,
-				3ECCA3282A7CB18700D553D6 /* Release */,
+				3EDAFD5D2A845C5C00A2C276 /* Debug */,
+				3EDAFD5E2A845C5C00A2C276 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3ECCA30F2A7CB18400D553D6 /* Project object */;
+	rootObject = 3EDAFD402A845C5800A2C276 /* Project object */;
 }
