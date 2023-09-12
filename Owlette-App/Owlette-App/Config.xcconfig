@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Owlette-App
+//
+//  Created by Juan ceballos on 9/12/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = 2tmFV9lr4yP9nJLb3eUhZCRhK3tgugAZmIbCtsOS
