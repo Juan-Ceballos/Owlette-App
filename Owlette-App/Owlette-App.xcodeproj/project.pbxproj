@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */; };
+		3E0673D92AB0EAB300F58832 /* CongressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D82AB0EAB300F58832 /* CongressModel.swift */; };
+		3E0673E12AB0EBEB00F58832 /* Owlette_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */; };
 		3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */; };
 		3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */; };
@@ -17,8 +20,22 @@
 		3EDAFD582A845C5C00A2C276 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3E0673E22AB0EBEB00F58832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EDAFD402A845C5800A2C276 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EDAFD472A845C5800A2C276;
+			remoteInfo = "Owlette-App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3E0673D52AB01B2700F58832 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProPublicaAPI.swift; sourceTree = "<group>"; };
+		3E0673D82AB0EAB300F58832 /* CongressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongressModel.swift; sourceTree = "<group>"; };
+		3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Owlette-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owlette_AppTests.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
@@ -32,6 +49,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3E0673DB2AB0EBEB00F58832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3EDAFD452A845C5800A2C276 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +66,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0673DF2AB0EBEB00F58832 /* Owlette-AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */,
+			);
+			path = "Owlette-AppTests";
+			sourceTree = "<group>";
+		};
 		3EDAFD3F2A845C5800A2C276 = {
 			isa = PBXGroup;
 			children = (
 				3EDAFD4A2A845C5800A2C276 /* Owlette-App */,
+				3E0673DF2AB0EBEB00F58832 /* Owlette-AppTests */,
 				3EDAFD492A845C5800A2C276 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				3EDAFD482A845C5800A2C276 /* Owlette-App.app */,
+				3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
+				3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */,
+				3E0673D82AB0EAB300F58832 /* CongressModel.swift */,
 				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
 				3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */,
 				3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */,
@@ -78,6 +114,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3E0673DD2AB0EBEB00F58832 /* Owlette-AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E0673E42AB0EBEB00F58832 /* Build configuration list for PBXNativeTarget "Owlette-AppTests" */;
+			buildPhases = (
+				3E0673DA2AB0EBEB00F58832 /* Sources */,
+				3E0673DB2AB0EBEB00F58832 /* Frameworks */,
+				3E0673DC2AB0EBEB00F58832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E0673E32AB0EBEB00F58832 /* PBXTargetDependency */,
+			);
+			name = "Owlette-AppTests";
+			productName = "Owlette-AppTests";
+			productReference = 3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3EDAFD472A845C5800A2C276 /* Owlette-App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EDAFD5C2A845C5C00A2C276 /* Build configuration list for PBXNativeTarget "Owlette-App" */;
@@ -105,6 +159,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					3E0673DD2AB0EBEB00F58832 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 3EDAFD472A845C5800A2C276;
+					};
 					3EDAFD472A845C5800A2C276 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -124,11 +182,19 @@
 			projectRoot = "";
 			targets = (
 				3EDAFD472A845C5800A2C276 /* Owlette-App */,
+				3E0673DD2AB0EBEB00F58832 /* Owlette-AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3E0673DC2AB0EBEB00F58832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3EDAFD462A845C5800A2C276 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +207,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3E0673DA2AB0EBEB00F58832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E0673E12AB0EBEB00F58832 /* Owlette_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3EDAFD442A845C5800A2C276 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +222,8 @@
 				3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */,
 				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
+				3E0673D92AB0EAB300F58832 /* CongressModel.swift in Sources */,
+				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */,
 				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
 				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
@@ -155,6 +231,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E0673E32AB0EBEB00F58832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EDAFD472A845C5800A2C276 /* Owlette-App */;
+			targetProxy = 3E0673E22AB0EBEB00F58832 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */ = {
@@ -168,6 +252,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3E0673E52AB0EBEB00F58832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JuanTheProducer.Owlette-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owlette-App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owlette-App";
+			};
+			name = Debug;
+		};
+		3E0673E62AB0EBEB00F58832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "JuanTheProducer.Owlette-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owlette-App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owlette-App";
+			};
+			name = Release;
+		};
 		3EDAFD5A2A845C5C00A2C276 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E0673D52AB01B2700F58832 /* Config.xcconfig */;
@@ -341,6 +467,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E0673E42AB0EBEB00F58832 /* Build configuration list for PBXNativeTarget "Owlette-AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E0673E52AB0EBEB00F58832 /* Debug */,
+				3E0673E62AB0EBEB00F58832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3EDAFD432A845C5800A2C276 /* Build configuration list for PBXProject "Owlette-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
