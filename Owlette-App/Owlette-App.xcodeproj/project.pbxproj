@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */; };
-		3E0673D92AB0EAB300F58832 /* CongressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D82AB0EAB300F58832 /* CongressModel.swift */; };
 		3E0673E12AB0EBEB00F58832 /* Owlette_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */; };
 		3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */; };
 		3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */; };
+		3ECDB6C02AB40BFF00A68AD8 /* MembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */; };
+		3ECDB6C22AB40C7100A68AD8 /* BillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */; };
+		3ECDB6C52AB40C8D00A68AD8 /* VotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */; };
 		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
 		3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */; };
 		3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */; };
@@ -33,12 +35,14 @@
 /* Begin PBXFileReference section */
 		3E0673D52AB01B2700F58832 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProPublicaAPI.swift; sourceTree = "<group>"; };
-		3E0673D82AB0EAB300F58832 /* CongressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongressModel.swift; sourceTree = "<group>"; };
 		3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Owlette-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owlette_AppTests.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersModel.swift; sourceTree = "<group>"; };
+		3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsModel.swift; sourceTree = "<group>"; };
+		3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesModel.swift; sourceTree = "<group>"; };
 		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +101,9 @@
 			children = (
 				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
 				3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */,
-				3E0673D82AB0EAB300F58832 /* CongressModel.swift */,
+				3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */,
+				3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */,
+				3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */,
 				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
 				3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */,
 				3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */,
@@ -222,10 +228,12 @@
 				3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */,
 				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
-				3E0673D92AB0EAB300F58832 /* CongressModel.swift in Sources */,
+				3ECDB6C52AB40C8D00A68AD8 /* VotesModel.swift in Sources */,
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */,
+				3ECDB6C22AB40C7100A68AD8 /* BillsModel.swift in Sources */,
 				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
+				3ECDB6C02AB40BFF00A68AD8 /* MembersModel.swift in Sources */,
 				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
