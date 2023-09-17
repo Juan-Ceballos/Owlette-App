@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct VotesModel: Codable {
+    //let results: 
+}
