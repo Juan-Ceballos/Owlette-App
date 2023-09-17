@@ -51,14 +51,20 @@ final class Owlette_AppTests: XCTestCase {
     func testProPublicaAPIFetchParseDataVotes() async {
         let exp = XCTestExpectation(description: "fill here")
         let proAPI = ProPublicaAPI()
-        let expectedVotesCount = 1
+        let expectedVotesCount = 20
         
         Task {
             do {
-                let votes = try await proAPI.fetchParseData(pathComponent: "", responseType: VotesModel.self)
-                let votesResultCount = votes.results
+                let votes = try await proAPI.fetchParseData(pathComponent: "house/votes/recent.json", responseType: VotesModel.self)
+                let votesResultCount = votes.results.num_results
+                XCTAssertEqual(expectedVotesCount, votesResultCount)
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
             }
         }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
     }
     
 }

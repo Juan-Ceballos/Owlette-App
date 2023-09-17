@@ -8,5 +8,15 @@
 import Foundation
 
 struct VotesModel: Codable {
-    //let results: 
+    let results: VotesContainer
+}
+
+struct VotesContainer: Codable {
+    let num_results: Int
+    let votes: [Vote]
+}
+
+struct Vote: Codable {
+    let congress: Int
+    let chamber: String
 }
