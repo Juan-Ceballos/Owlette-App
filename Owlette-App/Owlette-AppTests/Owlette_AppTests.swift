@@ -11,7 +11,7 @@ import XCTest
 final class Owlette_AppTests: XCTestCase {
 
     func testProPublicaAPIFetchParseDataMembers() async {
-        let exp = XCTestExpectation(description: "Members data fetched")
+        let exp = XCTestExpectation(description: "Members data fetched and parsed")
         let proAPI = ProPublicaAPI()
         let expectedMemberCount = 50
         
@@ -38,7 +38,7 @@ final class Owlette_AppTests: XCTestCase {
             do {
                 let bills = try await proAPI.fetchParseData(pathComponent: "115/house/bills/introduced.json", responseType: BillsModel.self)
                 let billsResultCount = bills.results.first?.num_results ?? 0
-                XCTAssertEqual(expectedBillsCount, billsResultCount)
+                XCTAssertEqual(expectedBillsCount, billsResultCount, "Count of the expected \(expectedBillsCount) recent bills does not equal to the fetched \(billsResultCount) recent bills")
                 exp.fulfill()
             } catch {
                 XCTFail("failed to fetch and/or parse bills data due to error: \(error)")
@@ -49,7 +49,7 @@ final class Owlette_AppTests: XCTestCase {
     }
     
     func testProPublicaAPIFetchParseDataVotes() async {
-        let exp = XCTestExpectation(description: "fill here")
+        let exp = XCTestExpectation(description: "Votes data fetched and parsed")
         let proAPI = ProPublicaAPI()
         let expectedVotesCount = 20
         
@@ -57,14 +57,16 @@ final class Owlette_AppTests: XCTestCase {
             do {
                 let votes = try await proAPI.fetchParseData(pathComponent: "house/votes/recent.json", responseType: VotesModel.self)
                 let votesResultCount = votes.results.num_results
-                XCTAssertEqual(expectedVotesCount, votesResultCount)
+                XCTAssertEqual(expectedVotesCount, votesResultCount, "Count of the expected \(expectedVotesCount) recent votes does not equal to the fetched \(votesResultCount) recent votes count")
                 exp.fulfill()
             } catch {
-                XCTFail("\(error)")
+                XCTFail("failed to fetch and/or parse votes data due to error: \(error)")
             }
         }
         
         await fulfillment(of: [exp], timeout: 10.0)
     }
+    
+    
     
 }
