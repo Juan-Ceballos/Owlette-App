@@ -9,7 +9,6 @@ import Foundation
 
 struct ProPublicaAPI {
     static let baseURL = URL(string: "https://api.propublica.org/congress/v1/")!
-    // 116/house/members.json
     
     func fetchParseData<T: Codable>(pathComponent: String, responseType: T.Type) async throws -> T {
         let apiUrl = ProPublicaAPI.baseURL.appendingPathComponent(pathComponent)

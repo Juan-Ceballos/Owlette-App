@@ -67,6 +67,28 @@ final class Owlette_AppTests: XCTestCase {
         await fulfillment(of: [exp], timeout: 10.0)
     }
     
+    func testCongressGovAPIFetchData() async {
+        let exp = XCTestExpectation(description: "fetched")
+        let congresGOVAPI = CongressGovAPI()
+        let expectedMembersCount = 15
+        
+        Task {
+            do {
+                let members = try await congresGOVAPI.fetchParseData()
+                if let membersCount = members?.count {
+                    XCTAssertEqual(expectedMembersCount, membersCount, "expected count of \(expectedMembersCount) does not equal to the fetched count of \(membersCount)")
+                    exp.fulfill()
+                } else {
+                    XCTFail("failed")
+                }
+            } catch {
+                XCTFail("failed to fetch and/or parse due to: \(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 12.0)
+    }
+    
     
     
 }
