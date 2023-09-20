@@ -67,17 +67,17 @@ final class Owlette_AppTests: XCTestCase {
         await fulfillment(of: [exp], timeout: 10.0)
     }
     
-    func testCongressGovAPIFetchData() async {
+    func testCongressGovAPIfetchParseCGMemberModel() async {
         let exp = XCTestExpectation(description: "fetched")
         let congresGOVAPI = CongressGovAPI()
-        let expectedMembersCount = 20
+        let expectedMemberFN = "Patrick"
         
         Task {
             do {
-                let members = try await congresGOVAPI.fetchParseCGMemberModel()
-                let membersCount = members.members.count
+                let member = try await congresGOVAPI.fetchParseCGMemberModel(memberId: "L000174")
+                let memberFN = member.member.firstName
                 
-                XCTAssertEqual(expectedMembersCount, membersCount, "expected count of \(expectedMembersCount) does not equal to the fetched count of \(membersCount)")
+                XCTAssertEqual(expectedMemberFN, memberFN, "expected name \(expectedMemberFN) does not equal to the fetched name \(memberFN)")
                 exp.fulfill()
                 
             } catch {

@@ -8,9 +8,9 @@
 import Foundation
 
 struct CGMembersModel: Codable {
-    let members: [CGMember]
+    let member: CGMember
 }
 
 struct CGMember: Codable {
-    let name: String
+    let firstName: String
 }
