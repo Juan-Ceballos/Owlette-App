@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct MembersModel: Codable {
-    let results: [MembersContainer]
+struct ProMembersModel: Codable {
+    let results: [ProMembersContainer]
 }
 
-struct MembersContainer: Codable {
+struct ProMembersContainer: Codable {
     let congress: String
     let chamber: String
     let num_results: Int
-    let members: [Member]
+    let members: [ProMember]
 }
 
-struct Member: Codable {
+struct ProMember: Codable {
     let first_name: String
     let last_name: String
     let gender: String

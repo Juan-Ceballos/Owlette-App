@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct CGMember: Codable {
-    let members: [Member2]
+struct CGMembersModel: Codable {
+    let members: [CGMember]
 }
 
-struct Member2: Codable {
+struct CGMember: Codable {
     let name: String
 }

@@ -17,7 +17,7 @@ final class Owlette_AppTests: XCTestCase {
         
         Task {
             do {
-                let members = try await proAPI.fetchParseData(pathComponent: "116/house/members.json", responseType: MembersModel.self)
+                let members = try await proAPI.fetchParseData(pathComponent: "116/house/members.json", responseType: ProMembersModel.self)
                 let memberResultsCount = members.results.first?.num_results ?? 0
                 XCTAssertGreaterThan(memberResultsCount, expectedMemberCount, "The members count of \(memberResultsCount) is not greater than the expected minimum members count of \(expectedMemberCount)")
                 exp.fulfill()
@@ -36,7 +36,7 @@ final class Owlette_AppTests: XCTestCase {
         
         Task {
             do {
-                let bills = try await proAPI.fetchParseData(pathComponent: "115/house/bills/introduced.json", responseType: BillsModel.self)
+                let bills = try await proAPI.fetchParseData(pathComponent: "115/house/bills/introduced.json", responseType: ProBillsModel.self)
                 let billsResultCount = bills.results.first?.num_results ?? 0
                 XCTAssertEqual(expectedBillsCount, billsResultCount, "Count of the expected \(expectedBillsCount) recent bills does not equal to the fetched \(billsResultCount) recent bills")
                 exp.fulfill()
@@ -55,7 +55,7 @@ final class Owlette_AppTests: XCTestCase {
         
         Task {
             do {
-                let votes = try await proAPI.fetchParseData(pathComponent: "house/votes/recent.json", responseType: VotesModel.self)
+                let votes = try await proAPI.fetchParseData(pathComponent: "house/votes/recent.json", responseType: ProVotesModel.self)
                 let votesResultCount = votes.results.num_results
                 XCTAssertEqual(expectedVotesCount, votesResultCount, "Count of the expected \(expectedVotesCount) recent votes does not equal to the fetched \(votesResultCount) recent votes count")
                 exp.fulfill()
@@ -74,11 +74,11 @@ final class Owlette_AppTests: XCTestCase {
         
         Task {
             do {
-                let members = try await congresGOVAPI.fetchParseData()
+                let members = try await congresGOVAPI.fetchParseCGMemberModel()
                 let membersCount = members.members.count
-                    
-                    XCTAssertEqual(expectedMembersCount, membersCount, "expected count of \(expectedMembersCount) does not equal to the fetched count of \(membersCount)")
-                    exp.fulfill()
+                
+                XCTAssertEqual(expectedMembersCount, membersCount, "expected count of \(expectedMembersCount) does not equal to the fetched count of \(membersCount)")
+                exp.fulfill()
                 
             } catch {
                 XCTFail("failed to fetch and/or parse due to: \(error)")

@@ -12,9 +12,9 @@
 		3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */; };
 		3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */; };
 		3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */; };
-		3ECDB6C02AB40BFF00A68AD8 /* MembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */; };
-		3ECDB6C22AB40C7100A68AD8 /* BillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */; };
-		3ECDB6C52AB40C8D00A68AD8 /* VotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */; };
+		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
+		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
+		3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */; };
 		3ECDB6C72AB9450400A68AD8 /* CongressGovAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C62AB9450400A68AD8 /* CongressGovAPI.swift */; };
 		3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */; };
 		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
@@ -42,9 +42,9 @@
 		3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
-		3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersModel.swift; sourceTree = "<group>"; };
-		3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsModel.swift; sourceTree = "<group>"; };
-		3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesModel.swift; sourceTree = "<group>"; };
+		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
+		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
+		3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVotesModel.swift; sourceTree = "<group>"; };
 		3ECDB6C62AB9450400A68AD8 /* CongressGovAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongressGovAPI.swift; sourceTree = "<group>"; };
 		3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMembersModel.swift; sourceTree = "<group>"; };
 		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +82,46 @@
 			path = "Owlette-AppTests";
 			sourceTree = "<group>";
 		};
+		3ECDB6CA2ABAD5F800A68AD8 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				3ECDB6C62AB9450400A68AD8 /* CongressGovAPI.swift */,
+				3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		3ECDB6CB2ABAD64400A68AD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */,
+				3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */,
+				3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */,
+				3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3ECDB6CC2ABAD66500A68AD8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */,
+				3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */,
+				3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */,
+				3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3ECDB6CD2ABAD6B700A68AD8 /* SupportinFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
+				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
+			);
+			path = SupportinFiles;
+			sourceTree = "<group>";
+		};
 		3EDAFD3F2A845C5800A2C276 = {
 			isa = PBXGroup;
 			children = (
@@ -103,18 +143,10 @@
 		3EDAFD4A2A845C5800A2C276 /* Owlette-App */ = {
 			isa = PBXGroup;
 			children = (
-				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
-				3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */,
-				3ECDB6C62AB9450400A68AD8 /* CongressGovAPI.swift */,
-				3ECDB6BF2AB40BFF00A68AD8 /* MembersModel.swift */,
-				3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */,
-				3ECDB6C12AB40C7100A68AD8 /* BillsModel.swift */,
-				3ECDB6C42AB40C8D00A68AD8 /* VotesModel.swift */,
-				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
-				3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */,
-				3E3DF2AE2A96F48D007B8877 /* ViewController1.swift */,
-				3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */,
-				3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */,
+				3ECDB6CD2ABAD6B700A68AD8 /* SupportinFiles */,
+				3ECDB6CC2ABAD66500A68AD8 /* Controllers */,
+				3ECDB6CB2ABAD64400A68AD8 /* Models */,
+				3ECDB6CA2ABAD5F800A68AD8 /* NetworkServices */,
 				3EDAFD542A845C5C00A2C276 /* Assets.xcassets */,
 				3EDAFD562A845C5C00A2C276 /* LaunchScreen.storyboard */,
 				3EDAFD592A845C5C00A2C276 /* Info.plist */,
@@ -234,14 +266,14 @@
 				3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* ViewController1.swift in Sources */,
 				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
-				3ECDB6C52AB40C8D00A68AD8 /* VotesModel.swift in Sources */,
+				3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */,
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */,
 				3ECDB6C72AB9450400A68AD8 /* CongressGovAPI.swift in Sources */,
 				3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */,
-				3ECDB6C22AB40C7100A68AD8 /* BillsModel.swift in Sources */,
+				3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */,
 				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
-				3ECDB6C02AB40BFF00A68AD8 /* MembersModel.swift in Sources */,
+				3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */,
 				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

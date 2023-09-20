@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct BillsModel: Codable {
-    let results: [BillsContainer]
+struct ProBillsModel: Codable {
+    let results: [ProBillsContainer]
 }
 
-struct BillsContainer: Codable {
+struct ProBillsContainer: Codable {
     let congress: Int
     let chamber: String
     let num_results: Int
     let offset: Int
-    let bills: [Bill]
+    let bills: [ProBill]
 }
 
-struct Bill: Codable {
+struct ProBill: Codable {
     let bill_id: String
     let title: String
 }
