@@ -10,7 +10,7 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     
     public lazy var viewController1: UIViewController = {
-        let vc = ViewController1()
+        let vc = MembersViewController()
         vc.tabBarItem = UITabBarItem(title: "VC1", image: UIImage(systemName: "heart"), tag: 0)
         return vc
     }()
