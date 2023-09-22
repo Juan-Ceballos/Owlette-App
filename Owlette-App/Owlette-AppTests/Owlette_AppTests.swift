@@ -185,6 +185,4 @@ final class Owlette_AppTests: XCTestCase {
         await fulfillment(of: [exp], timeout: 12.0)
     }
     
-    
-    
 }

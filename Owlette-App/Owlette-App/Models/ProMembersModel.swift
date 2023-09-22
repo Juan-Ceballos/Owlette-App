@@ -14,16 +14,31 @@ struct ProMembersModel: Codable {
 struct ProMembersContainer: Codable {
     let congress: String
     let chamber: String
-    let num_results: Int
+    let numResults: Int
     let members: [ProMember]
+    
+    private enum CodingKeys: String, CodingKey {
+        case congress
+        case chamber
+        case numResults = "num_results"
+        case members
+    }
 }
 
 struct ProMember: Codable {
-    let first_name: String
-    let last_name: String
+    let firstName: String
+    let lastName: String
     let gender: String
     let party: String
-    let in_office: Bool
+    let inOffice: Bool
+    
+    private enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case gender
+        case party
+        case inOffice = "in_office"
+    }
 }
 
 
