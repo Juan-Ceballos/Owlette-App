@@ -9,6 +9,31 @@ import XCTest
 @testable import Owlette_App
 
 final class Owlette_AppTests: XCTestCase {
+    
+    func testProPublicaAPIFetchMemberData() async {
+        let exp = XCTestExpectation(description: "Fetched data")
+        let baseURL = ProPublicaAPI.baseURL
+        let expectedDataCount = 1000
+        
+        Task {
+            do {
+                let url = baseURL.appendingPathComponent("116/house/members.json")
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                if let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String {
+                    request.addValue(apiKey, forHTTPHeaderField: "X-API-Key")
+                }
+                
+                let (data, _) = try await URLSession.shared.data(for: request)
+                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
+    }
 
     func testProPublicaAPIFetchParseDataMembers() async {
         let exp = XCTestExpectation(description: "Members data fetched and parsed")
@@ -23,6 +48,31 @@ final class Owlette_AppTests: XCTestCase {
                 exp.fulfill()
             } catch {
                 XCTFail("failed to fetch and/or parse member data due to error: \(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
+    }
+    
+    func testProPublicaAPIFetchBillsData() async {
+        let exp = XCTestExpectation(description: "Fetched data")
+        let baseURL = ProPublicaAPI.baseURL
+        let expectedDataCount = 1000
+        
+        Task {
+            do {
+                let url = baseURL.appendingPathComponent("115/house/bills/introduced.json")
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                if let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String {
+                    request.addValue(apiKey, forHTTPHeaderField: "X-API-Key")
+                }
+                
+                let (data, _) = try await URLSession.shared.data(for: request)
+                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
             }
         }
         
@@ -48,6 +98,31 @@ final class Owlette_AppTests: XCTestCase {
         await fulfillment(of: [exp], timeout: 10.0)
     }
     
+    func testProPublicaAPIFetchVotesData() async {
+        let exp = XCTestExpectation(description: "Fetched data")
+        let baseURL = ProPublicaAPI.baseURL
+        let expectedDataCount = 1000
+        
+        Task {
+            do {
+                let url = baseURL.appendingPathComponent("house/votes/recent.json")
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                if let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String {
+                    request.addValue(apiKey, forHTTPHeaderField: "X-API-Key")
+                }
+                
+                let (data, _) = try await URLSession.shared.data(for: request)
+                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
+    }
+    
     func testProPublicaAPIFetchParseDataVotes() async {
         let exp = XCTestExpectation(description: "Votes data fetched and parsed")
         let proAPI = ProPublicaAPI()
@@ -61,6 +136,28 @@ final class Owlette_AppTests: XCTestCase {
                 exp.fulfill()
             } catch {
                 XCTFail("failed to fetch and/or parse votes data due to error: \(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
+    }
+    
+    func testCongressGovAPIfetchMemberData() async {
+        let exp = XCTestExpectation(description: "Fetched data")
+        let expectedDataCount = 1000
+        
+        Task {
+            do {
+                let apiKey2 = Bundle.main.infoDictionary?["API_KEY2"] as? String
+                
+                let url = URL(string: "https://api.congress.gov/v3/member/L000174?api_key=\(apiKey2 ?? "Key Not Attained")")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                let (data, _) = try await URLSession.shared.data(for: request)
+                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
             }
         }
         
