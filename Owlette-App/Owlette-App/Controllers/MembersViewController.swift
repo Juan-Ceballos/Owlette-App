@@ -17,7 +17,13 @@ class MembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        memberView.stateSearchTextField.delegate = self
     }
 
+}
+
+extension MembersViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
