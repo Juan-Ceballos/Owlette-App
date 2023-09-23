@@ -18,6 +18,8 @@ class MemberView: UIView {
     public lazy var stateSearchTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         textField.placeholder = "CA"
         return textField
     }()

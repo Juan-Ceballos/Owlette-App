@@ -14,12 +14,25 @@ struct ProBillsModel: Codable {
 struct ProBillsContainer: Codable {
     let congress: Int
     let chamber: String
-    let num_results: Int
+    let numResults: Int
     let offset: Int
     let bills: [ProBill]
+    
+    enum CodingKeys: String, CodingKey {
+        case congress
+        case chamber
+        case numResults = "num_results"
+        case offset
+        case bills
+    }
 }
 
 struct ProBill: Codable {
-    let bill_id: String
+    let billId: String
     let title: String
+    
+    enum CodingKeys: String, CodingKey {
+        case billId = "bill_id"
+        case title
+    }
 }

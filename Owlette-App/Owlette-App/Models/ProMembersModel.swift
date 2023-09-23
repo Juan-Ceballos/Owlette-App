@@ -12,14 +12,10 @@ struct ProMembersModel: Codable {
 }
 
 struct ProMembersContainer: Codable {
-    let congress: String
-    let chamber: String
     let numResults: Int
     let members: [ProMember]
     
     private enum CodingKeys: String, CodingKey {
-        case congress
-        case chamber
         case numResults = "num_results"
         case members
     }

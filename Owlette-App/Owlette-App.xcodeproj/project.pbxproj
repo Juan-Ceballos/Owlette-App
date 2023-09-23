@@ -19,6 +19,7 @@
 		3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */; };
 		3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7152ABE54C300A68AD8 /* MemberView.swift */; };
 		3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7172ABE5B2B00A68AD8 /* StatesModel.swift */; };
+		3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */; };
 		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
 		3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */; };
 		3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */; };
@@ -51,6 +52,7 @@
 		3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB7152ABE54C300A68AD8 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		3ECDB7172ABE5B2B00A68AD8 /* StatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesModel.swift; sourceTree = "<group>"; };
+		3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersStateModel.swift; sourceTree = "<group>"; };
 		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */,
 				3ECDB6C82AB9487500A68AD8 /* CGMembersModel.swift */,
 				3ECDB7172ABE5B2B00A68AD8 /* StatesModel.swift */,
+				3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */,
 				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
 				3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */,
+				3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */,
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */,
 				3ECDB6C72AB9450400A68AD8 /* CongressGovAPI.swift in Sources */,
