@@ -8,10 +8,10 @@
 import Foundation
 
 struct ProMembersStateModel: Codable {
-    let results: [ProMembersState]
+    let results: [ProMemberState]
 }
 
-struct ProMembersState: Codable {
+struct ProMemberState: Codable {
     let id: String
     let name: String
     let role: String

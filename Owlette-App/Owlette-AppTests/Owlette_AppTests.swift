@@ -25,7 +25,7 @@ final class Owlette_AppTests: XCTestCase {
                 }
                 
                 let (data, _) = try await URLSession.shared.data(for: request)
-                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                XCTAssertGreaterThan(data.count, expectedDataCount, "Data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
                 exp.fulfill()
             } catch {
                 XCTFail("\(error)")

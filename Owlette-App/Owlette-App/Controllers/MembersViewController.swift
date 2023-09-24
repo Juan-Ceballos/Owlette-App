@@ -11,7 +11,7 @@ class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
-    var membersByState = [ProMembersState]()
+    var membersByState = [ProMemberState]()
     
     override func loadView() {
         view = memberView
@@ -34,7 +34,7 @@ class MembersViewController: UIViewController {
             let members = try await proPublicaAPI.fetchParseData(pathComponent: patchComponent, responseType: ProMembersStateModel.self)
             return members
         } catch {
-            print("\(error)")
+            print("Failed to fetch and or pars MemberState model due to error: \(error)")
         }
         return nil
     }
@@ -58,6 +58,7 @@ extension MembersViewController: UITextFieldDelegate {
     func updateSearchText(_ newText: String) async {
         searchText = newText
         let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(searchText)/current.json")
+        // handle optional differently
         membersByState = currentHouseMembers?.results ?? []
         print("juan here is member by state house \(membersByState.count)")
         // reload cv?
