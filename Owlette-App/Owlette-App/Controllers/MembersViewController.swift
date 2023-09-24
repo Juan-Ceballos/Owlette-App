@@ -25,6 +25,7 @@ class MembersViewController: UIViewController {
     var searchText: String = "CA" {
         didSet {
             print("juan here is member by state house again maybe \(membersByState)")
+            // reload cv?
         }
     }
     
@@ -48,6 +49,7 @@ extension MembersViewController: UITextFieldDelegate {
             
             Task {
                 await updateSearchText(updatedText)
+                //relosd cv?
             }
         }
         return true
@@ -56,7 +58,8 @@ extension MembersViewController: UITextFieldDelegate {
     func updateSearchText(_ newText: String) async {
         searchText = newText
         let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(searchText)/current.json")
-        membersByState = currentHouseMembers?.results ?? []//currentHouseMembers?.results.first?.members ?? []
-        print("juan here is member by state house \(membersByState)")
+        membersByState = currentHouseMembers?.results ?? []
+        print("juan here is member by state house \(membersByState.count)")
+        // reload cv?
     }
 }

@@ -185,4 +185,48 @@ final class Owlette_AppTests: XCTestCase {
         await fulfillment(of: [exp], timeout: 12.0)
     }
     
+    func testProPublicaAPIFetchVotesData2() async {
+        let exp = XCTestExpectation(description: "Fetched data")
+        let baseURL = ProPublicaAPI.baseURL
+        let expectedDataCount = 1000
+        
+        Task {
+            do {
+                let url = baseURL.appendingPathComponent("members/house/CA/current.json")
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                if let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String {
+                    request.addValue(apiKey, forHTTPHeaderField: "X-API-Key")
+                }
+                
+                let (data, _) = try await URLSession.shared.data(for: request)
+                XCTAssertGreaterThan(data.count, expectedDataCount, "data fetched count \(data.count) is greater than the minimum expected data count \(expectedDataCount)")
+                exp.fulfill()
+            } catch {
+                XCTFail("\(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 10.0)
+    }
+    
+    func testProPublicaFetchMemberState() async {
+        let exp = XCTestExpectation(description: "Fecthed Member based on state")
+        let proApi = ProPublicaAPI()
+        let expectedMemberCount = 52
+        
+        Task {
+            do {
+                let members = try await proApi.fetchParseData(pathComponent: "members/house/CA/current.json", responseType: ProMembersStateModel.self)
+                let membersInStateCount = members.results.count
+                XCTAssertEqual(membersInStateCount, expectedMemberCount)
+                exp.fulfill()
+            } catch {
+                XCTFail("Failed to fetch and or parse member due to error: \(error)")
+            }
+        }
+        
+        await fulfillment(of: [exp], timeout: 12.0)
+    }
+    
 }
