@@ -13,14 +13,8 @@ class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
-    var membersByState = [ProMemberState]()
-    var sections: [[String: Any]] = [
-        ["sectionTitle": "Section 1", "items": ["Item 1", "Item 2", "Item 3"]],
-        ["sectionTitle": "Section 2", "subsections": [
-            ["subsectionTitle": "Subsection A", "subitems": ["Subitem 1A", "Subitem 2A", "Subitem 3A"]],
-            ["subsectionTitle": "Subsection B", "subitems": ["Subitem 1B", "Subitem 2B"]]
-        ]]
-    ]
+    var membersByStateHouse = [ProMemberState]()
+    var membersByStateSenate = [ProMemberState]()
     
     override func loadView() {
         view = memberView
@@ -33,7 +27,7 @@ class MembersViewController: UIViewController {
     
     var searchText: String = "CA" {
         didSet {
-            print("juan here is member by state house again maybe \(membersByState)")
+            print("juan here is member by state house again maybe \(membersByStateHouse)")
             // reload cv?
         }
     }
@@ -67,9 +61,12 @@ extension MembersViewController: UITextFieldDelegate {
     func updateSearchText(_ newText: String) async {
         searchText = newText
         let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(searchText)/current.json")
+        let currentSenateMembers = await fetchMembersByState(patchComponent: "members/senate/\(searchText)/current.json")
         // handle optional differently
-        membersByState = currentHouseMembers?.results ?? []
-        print("juan here is member by state house \(membersByState.count)")
+        membersByStateHouse = currentHouseMembers?.results ?? []
+        membersByStateSenate = currentSenateMembers?.results ?? []
+        print("juan here is member by state house \(membersByStateHouse.count)")
+        print("juan here is member by state house \(membersByStateSenate.count)")
         // reload cv?
     }
 }
@@ -77,7 +74,7 @@ extension MembersViewController: UITextFieldDelegate {
 extension MembersViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

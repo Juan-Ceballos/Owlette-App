@@ -15,17 +15,29 @@ class MembersListHeaderView: UICollectionReusableView {
     }()
     
     override init(frame: CGRect) {
-            super.init(frame: UIScreen.main.bounds)
-            commonInit()
-        }
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit()   {
+        setupTitleLabelConstraints()
+    }
+    
+    private func setupTitleLabelConstraints() {
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            commonInit()
-        }
+        NSLayoutConstraint.activate([
         
-        private func commonInit()   {
-          
-        }
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        
+        ])
+    }
     
 }
