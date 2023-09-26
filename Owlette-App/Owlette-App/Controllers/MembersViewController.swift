@@ -87,7 +87,7 @@ extension MembersViewController: UICollectionViewDataSource {
         if section == 0 {
             return membersByStateSenate.count
         } else {
-            return 0
+            return membersByStateHouse.count
         }
     }
     
@@ -96,7 +96,14 @@ extension MembersViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.reuseId, for: indexPath) as? MemberCell else {
             fatalError("error")
         }
-        let currentCell = membersByStateSenate[indexPath.row]
+        let currentCell: ProMemberState
+        if indexPath.section == 0 {
+            currentCell = membersByStateSenate[indexPath.row]
+
+        } else {
+            currentCell = membersByStateHouse[indexPath.row]
+        }
+        
         cell.memberLabel.text = currentCell.name
         return cell
     }
