@@ -29,7 +29,7 @@ class MemberView: UIView {
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.12)
         // register cell?
         return cv
     }()
