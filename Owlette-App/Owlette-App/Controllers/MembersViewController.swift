@@ -23,12 +23,14 @@ class MembersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         memberView.stateSearchTextField.delegate = self
+        memberView.collectionView.dataSource = self
+        //memberView.collectionView.delegate = self
     }
     
     var searchText: String = "CA" {
         didSet {
             print("juan here is member by state house again maybe \(membersByStateHouse)")
-            // reload cv?
+            memberView.collectionView.reloadData()
         }
     }
     
@@ -67,6 +69,10 @@ extension MembersViewController: UITextFieldDelegate {
         membersByStateSenate = currentSenateMembers?.results ?? []
         print("juan here is member by state house \(membersByStateHouse.count)")
         print("juan here is member by state house \(membersByStateSenate.count)")
+        DispatchQueue.main.async {
+            self.memberView.collectionView.reloadData()
+
+        }
         // reload cv?
     }
 }
@@ -78,11 +84,20 @@ extension MembersViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        if section == 0 {
+            return membersByStateSenate.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.reuseId, for: indexPath) as? MemberCell else {
+            fatalError("error")
+        }
+        let currentCell = membersByStateSenate[indexPath.row]
+        cell.memberLabel.text = currentCell.name
         return cell
     }
     

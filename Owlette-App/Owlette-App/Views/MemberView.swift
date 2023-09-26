@@ -28,6 +28,8 @@ class MemberView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
+        layout.itemSize = CGSize(width: 100, height: 100)
         // register cell?
         return cv
     }()
@@ -45,6 +47,7 @@ class MemberView: UIView {
     private func commoninit() {
         setupBackgroundViewConstraints()
         setupStateSearchTextField()
+        setupCollectionViewConstraints()
     }
     
     private func setupBackgroundViewConstraints() {
@@ -66,6 +69,19 @@ class MemberView: UIView {
             stateSearchTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 11),
             stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
             stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
+        ])
+    }
+    
+    private func setupCollectionViewConstraints() {
+        addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: stateSearchTextField.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        
+        
         ])
     }
 }

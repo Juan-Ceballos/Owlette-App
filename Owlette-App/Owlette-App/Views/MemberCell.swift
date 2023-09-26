@@ -9,6 +9,13 @@ import UIKit
 
 class MemberCell: UICollectionViewCell {
     
+    static let reuseId = "memberCell"
+    
+    public lazy var memberLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
     override init(frame: CGRect) {
             super.init(frame: UIScreen.main.bounds)
             commonInit()
@@ -20,7 +27,18 @@ class MemberCell: UICollectionViewCell {
         }
         
         private func commonInit()   {
-          
+          setupMemberLabelConstraints()
         }
+    
+    private func setupMemberLabelConstraints() {
+        addSubview(memberLabel)
+        memberLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            memberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            memberLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        
+        ])
+    }
     
 }
