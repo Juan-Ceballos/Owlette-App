@@ -7,11 +7,20 @@
 
 import UIKit
 
+// Alerts?
+
 class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
     var membersByState = [ProMemberState]()
+    var sections: [[String: Any]] = [
+        ["sectionTitle": "Section 1", "items": ["Item 1", "Item 2", "Item 3"]],
+        ["sectionTitle": "Section 2", "subsections": [
+            ["subsectionTitle": "Subsection A", "subitems": ["Subitem 1A", "Subitem 2A", "Subitem 3A"]],
+            ["subsectionTitle": "Subsection B", "subitems": ["Subitem 1B", "Subitem 2B"]]
+        ]]
+    ]
     
     override func loadView() {
         view = memberView
@@ -63,4 +72,24 @@ extension MembersViewController: UITextFieldDelegate {
         print("juan here is member by state house \(membersByState.count)")
         // reload cv?
     }
+}
+
+extension MembersViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
+    }
+}
+
+extension MembersViewController: UICollectionViewDelegate {
+    
 }
