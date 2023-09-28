@@ -11,6 +11,11 @@ class MemberCell: UICollectionViewCell {
     
     static let reuseId = "memberCell"
     
+    public lazy var cellContentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     public lazy var memberLabel: UILabel = {
         let label = UILabel()
         return label
