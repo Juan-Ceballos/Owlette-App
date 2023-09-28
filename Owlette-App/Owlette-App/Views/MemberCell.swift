@@ -22,27 +22,41 @@ class MemberCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-            super.init(frame: UIScreen.main.bounds)
-            commonInit()
-        }
-        
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            commonInit()
-        }
-        
-        private func commonInit()   {
-          setupMemberLabelConstraints()
-        }
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit()   {
+        setupCellContentViewConstraints()
+        setupMemberLabelConstraints()
+    }
+    
+    private func setupCellContentViewConstraints() {
+        addSubview(cellContentView)
+        cellContentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            
+            cellContentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cellContentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cellContentView.topAnchor.constraint(equalTo: topAnchor),
+            cellContentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
+        ])
+    }
     
     private func setupMemberLabelConstraints() {
         addSubview(memberLabel)
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
-            memberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            memberLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-        
+            
+            memberLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 8),
+            memberLabel.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 8)
+            
         ])
     }
     
