@@ -30,7 +30,6 @@ class MemberView: UIView {
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
         layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.12)
-        // register cell?
         return cv
     }()
     
@@ -80,8 +79,6 @@ class MemberView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        
-        
         ])
     }
 }

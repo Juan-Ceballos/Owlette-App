@@ -21,6 +21,11 @@ class MemberCell: UICollectionViewCell {
         return label
     }()
     
+    public lazy var roleLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
