@@ -19,5 +19,16 @@ struct ProMemberState: Codable {
     let lastName: String
     let role: String
     let party: String
-    let district: String 
+    let district: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case firstName = "first_name"
+        case middleName = "middle_name"
+        case lastName = "last_name"
+        case role
+        case party
+        case district
+    }
 }
