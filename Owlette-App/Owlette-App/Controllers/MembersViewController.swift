@@ -24,11 +24,16 @@ class MembersViewController: UIViewController {
         super.viewDidLoad()
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
+        memberView.saveButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         // default list - TODO: Add default entered text that can be set
         Task {
             await updateSearchText("CA")
         }
+    }
+    
+    @objc func buttonPressed() {
+        print("Button Pressed Juan")
     }
     
     var searchText: String = "CA" {

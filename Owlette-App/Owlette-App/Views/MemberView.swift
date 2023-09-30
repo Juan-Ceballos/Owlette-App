@@ -24,6 +24,12 @@ class MemberView: UIView {
         return textField
     }()
     
+    public var saveButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Save", for: .normal)
+        return button
+    }()
+    
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -46,6 +52,7 @@ class MemberView: UIView {
     private func commoninit() {
         setupBackgroundViewConstraints()
         setupStateSearchTextField()
+        setupSaveButtonConstraints()
         setupCollectionViewConstraints()
     }
     
@@ -68,6 +75,19 @@ class MemberView: UIView {
             stateSearchTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 11),
             stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
             stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
+        ])
+    }
+    
+    private func setupSaveButtonConstraints() {
+        addSubview(saveButton)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 11),
+            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            saveButton.topAnchor.constraint(equalTo: stateSearchTextField.topAnchor)
+        
         ])
     }
     
