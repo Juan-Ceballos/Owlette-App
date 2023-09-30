@@ -14,6 +14,10 @@ struct ProMembersStateModel: Codable {
 struct ProMemberState: Codable {
     let id: String
     let name: String
+    let firstName: String
+    let middleName: String?
+    let lastName: String
     let role: String
     let party: String
+    let district: String 
 }
