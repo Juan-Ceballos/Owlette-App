@@ -34,6 +34,7 @@ class MembersViewController: UIViewController {
     
     @objc func buttonPressed() {
         print("Button Pressed Juan")
+        UserDefaultsManager.shared.saveSearchedState(searchText)
     }
     
     var searchText: String = "CA" {

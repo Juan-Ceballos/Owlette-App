@@ -76,7 +76,7 @@ final class Owlette_AppTests: XCTestCase {
             }
         }
         
-        await fulfillment(of: [exp], timeout: 10.0)
+        await fulfillment(of: [exp], timeout: 15.0)
     }
     
     func testProPublicaAPIFetchParseDataBills() async {
@@ -95,7 +95,7 @@ final class Owlette_AppTests: XCTestCase {
             }
         }
         
-        await fulfillment(of: [exp], timeout: 10.0)
+        await fulfillment(of: [exp], timeout: 15.0)
     }
     
     func testProPublicaAPIFetchVotesData() async {
@@ -227,6 +227,24 @@ final class Owlette_AppTests: XCTestCase {
         }
         
         await fulfillment(of: [exp], timeout: 12.0)
+    }
+    
+    func setup() {
+        UserDefaults.standard.removeObject(forKey: "state")
+    }
+    
+    override func tearDown() {
+        UserDefaults.standard.removeObject(forKey: "state")
+    }
+    
+    func testUserDefaultsSaveSearchedState() {
+        let exp = XCTestExpectation(description: "UserDefaults saved and retrieved string")
+        let expectedStr = "NY"
+        UserDefaultsManager.shared.saveSearchedState("NY")
+        let storedStateText = UserDefaultsManager.shared.getSearchedState() ?? "Nothing"
+        
+        XCTAssertEqual(expectedStr, storedStateText)
+
     }
     
 }
