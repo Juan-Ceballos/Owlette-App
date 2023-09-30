@@ -22,6 +22,7 @@
 		3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */; };
 		3ECDB71C2AC2678A00A68AD8 /* MemberListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */; };
 		3ECDB71E2AC26CDE00A68AD8 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */; };
+		3ECDB7202AC808FC00A68AD8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */; };
 		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
 		3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */; };
 		3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */; };
@@ -57,6 +58,7 @@
 		3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersStateModel.swift; sourceTree = "<group>"; };
 		3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListHeaderView.swift; sourceTree = "<group>"; };
 		3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
 				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
+				3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */,
 			);
 			path = SupportinFiles;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */,
 				3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */,
 				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
+				3ECDB7202AC808FC00A68AD8 /* UserDefaultsManager.swift in Sources */,
 				3ECDB71C2AC2678A00A68AD8 /* MemberListHeaderView.swift in Sources */,
 				3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */,
 				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
