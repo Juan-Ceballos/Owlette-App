@@ -24,13 +24,16 @@ class MembersViewController: UIViewController {
         super.viewDidLoad()
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
-        //memberView.collectionView.delegate = self
+        
+        // default list - TODO: Add default entered text that can be set
+        Task {
+            await updateSearchText("CA")
+        }
     }
     
     var searchText: String = "CA" {
         didSet {
             print("juan here is member by state house again maybe \(membersByStateHouse)")
-            memberView.collectionView.reloadData()
         }
     }
     
@@ -39,7 +42,7 @@ class MembersViewController: UIViewController {
             let members = try await proPublicaAPI.fetchParseData(pathComponent: patchComponent, responseType: ProMembersStateModel.self)
             return members
         } catch {
-            print("Failed to fetch and or pars MemberState model due to error: \(error)")
+            print("Failed to fetch and or parse MemberState model due to error: \(error)")
         }
         return nil
     }
@@ -54,7 +57,6 @@ extension MembersViewController: UITextFieldDelegate {
             
             Task {
                 await updateSearchText(updatedText)
-                //relosd cv?
             }
         }
         return true
@@ -71,9 +73,8 @@ extension MembersViewController: UITextFieldDelegate {
         print("juan here is member by state house \(membersByStateSenate.count)")
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
-
+            
         }
-        // reload cv?
     }
 }
 
@@ -99,7 +100,7 @@ extension MembersViewController: UICollectionViewDataSource {
         let currentCell: ProMemberState
         if indexPath.section == 0 {
             currentCell = membersByStateSenate[indexPath.row]
-
+            
         } else {
             currentCell = membersByStateHouse[indexPath.row]
         }
