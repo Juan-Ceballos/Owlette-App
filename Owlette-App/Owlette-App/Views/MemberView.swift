@@ -20,7 +20,6 @@ class MemberView: UIView {
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.placeholder = "CA"
         return textField
     }()
     

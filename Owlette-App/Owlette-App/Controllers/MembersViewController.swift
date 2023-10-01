@@ -25,10 +25,11 @@ class MembersViewController: UIViewController {
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
         memberView.saveButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        // default list - TODO: Add default entered text that can be set
+        let preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
+        memberView.stateSearchTextField.text = preferredState
+        // default list - TODO: Add default entered text that can be set ?? "CA"
         Task {
-            await updateSearchText("CA")
+            await updateSearchText(preferredState)
         }
     }
     
@@ -37,7 +38,7 @@ class MembersViewController: UIViewController {
         UserDefaultsManager.shared.saveSearchedState(searchText)
     }
     
-    var searchText: String = "CA" {
+    var searchText: String = "NY" {
         didSet {
             print("juan here is member by state house again maybe \(membersByStateHouse)")
         }
