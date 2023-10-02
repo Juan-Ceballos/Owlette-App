@@ -19,6 +19,12 @@ struct ProMemberState: Codable {
     let lastName: String
     let role: String
     let party: String
+    let twitterId: String?
+    let facebookAccount: String?
+    let youtubeId: String?
+    let seniority: String
+    let nextElection: String
+    let apiUri: String
     let district: String?
     
     enum CodingKeys: String, CodingKey {
@@ -29,6 +35,12 @@ struct ProMemberState: Codable {
         case lastName = "last_name"
         case role
         case party
+        case twitterId = "twitter_id"
+        case facebookAccount = "facebook_account"
+        case youtubeId = "youtube_id"
+        case seniority
+        case nextElection = "next_election"
+        case apiUri = "api_uri"
         case district
     }
 }

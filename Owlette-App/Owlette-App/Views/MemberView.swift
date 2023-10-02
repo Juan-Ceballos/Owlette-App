@@ -81,7 +81,7 @@ class MemberView: UIView {
         NSLayoutConstraint.activate([
             stateSearchTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 22),
             stateSearchTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 11),
-            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
     }
