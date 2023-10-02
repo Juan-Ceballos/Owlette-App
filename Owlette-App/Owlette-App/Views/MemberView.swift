@@ -20,6 +20,13 @@ class MemberView: UIView {
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
+        textField.backgroundColor = .black
+        textField.textColor = .lightText
+        let magView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        magView.contentMode = .scaleAspectFit
+        magView.tintColor = .systemGray
+        textField.leftView = magView
+        textField.leftViewMode = .always
         return textField
     }()
     
@@ -72,9 +79,9 @@ class MemberView: UIView {
         addSubview(stateSearchTextField)
         stateSearchTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stateSearchTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 11),
+            stateSearchTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 22),
             stateSearchTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 11),
-            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
             stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
     }
@@ -87,7 +94,7 @@ class MemberView: UIView {
             saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 11),
             saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
             saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
-            saveButton.topAnchor.constraint(equalTo: stateSearchTextField.topAnchor)
+            saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)
         
         ])
     }

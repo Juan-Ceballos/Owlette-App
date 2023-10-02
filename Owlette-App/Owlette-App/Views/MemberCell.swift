@@ -19,7 +19,7 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var memberLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemBrown
+        label.textColor = .white
         return label
     }()
     

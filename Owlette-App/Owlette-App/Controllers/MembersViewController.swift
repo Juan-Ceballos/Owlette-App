@@ -79,7 +79,7 @@ extension MembersViewController: UITextFieldDelegate {
         membersByStateHouse = currentHouseMembers?.results ?? []
         membersByStateSenate = currentSenateMembers?.results ?? []
         print("juan here is member by state house \(membersByStateHouse.count)")
-        print("juan here is member by state house \(membersByStateSenate.count)")
+        print("juan here is member by state senate \(membersByStateSenate.count)")
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
         }
