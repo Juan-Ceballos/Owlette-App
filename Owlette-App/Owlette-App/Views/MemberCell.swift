@@ -17,6 +17,12 @@ class MemberCell: UICollectionViewCell {
         return view
     }()
     
+    public lazy var partyUIImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "pencil")
+        return imageView
+    }()
+    
     public lazy var memberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -40,6 +46,7 @@ class MemberCell: UICollectionViewCell {
     
     private func commonInit()   {
         setupCellContentViewConstraints()
+        setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
     }
     
@@ -56,13 +63,26 @@ class MemberCell: UICollectionViewCell {
         ])
     }
     
+    private func setupPartyImageViewConstraints() {
+        addSubview(partyUIImageView)
+        partyUIImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            partyUIImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            partyUIImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            partyUIImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            partyUIImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15)
+        
+        ])
+    }
+    
     private func setupMemberLabelConstraints() {
         addSubview(memberLabel)
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             
             memberLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 8),
-            memberLabel.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 8)
+            memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: 11)
             
         ])
     }

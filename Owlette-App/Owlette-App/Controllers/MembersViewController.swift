@@ -108,9 +108,19 @@ extension MembersViewController: UICollectionViewDataSource {
         let currentCell: ProMemberState
         if indexPath.section == 0 {
             currentCell = membersByStateSenate[indexPath.row]
+            if currentCell.party == "D" {
+                cell.partyUIImageView.image = UIImage(named: "DemLogo")
+            } else {
+                cell.partyUIImageView.image = UIImage(named: "RepLogo")
+            }
             
         } else {
             currentCell = membersByStateHouse[indexPath.row]
+            if currentCell.party == "D" {
+                cell.partyUIImageView.image = UIImage(named: "DemLogo")
+            } else {
+                cell.partyUIImageView.image = UIImage(named: "RepLogo")
+            }
         }
         
         cell.memberLabel.text = currentCell.name
