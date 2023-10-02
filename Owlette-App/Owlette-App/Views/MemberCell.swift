@@ -13,11 +13,13 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var cellContentView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor(named: "backgroundBlack")
         return view
     }()
     
     public lazy var memberLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .systemBrown
         return label
     }()
     

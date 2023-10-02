@@ -11,7 +11,7 @@ class MemberView: UIView {
     
     private var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemCyan
+        view.backgroundColor = UIColor(named: "backgroundBlack")
         return view
     }()
     
@@ -36,6 +36,7 @@ class MemberView: UIView {
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
         cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.12)
+        cv.backgroundColor = UIColor(named: "backgroundBlack")
         return cv
     }()
     

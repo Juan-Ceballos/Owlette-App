@@ -22,6 +22,7 @@ class MembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
         memberView.collectionView.delegate = self
@@ -124,7 +125,6 @@ extension MembersViewController: UICollectionViewDataSource {
             } else {
                 headerView.sectionLabel.text = "House"
             }
-            
             return headerView
         }
         return UICollectionReusableView()

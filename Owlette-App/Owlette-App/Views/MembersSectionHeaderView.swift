@@ -14,11 +14,13 @@ class MembersSectionHeaderView: UICollectionReusableView {
     
     public lazy var sectionHeaderBackgroundView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor(named: "backgroundBlack")
         return view
     }()
     
     public lazy var sectionLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .systemBrown
         return label
     }()
     
