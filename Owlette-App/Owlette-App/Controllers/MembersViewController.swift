@@ -24,6 +24,7 @@ class MembersViewController: UIViewController {
         super.viewDidLoad()
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
+        memberView.collectionView.delegate = self
         memberView.saveButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         let preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
         memberView.stateSearchTextField.text = preferredState
@@ -80,7 +81,6 @@ extension MembersViewController: UITextFieldDelegate {
         print("juan here is member by state house \(membersByStateSenate.count)")
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
-            
         }
     }
 }
@@ -117,10 +117,22 @@ extension MembersViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MembersSectionHeaderView.reuseId, for: indexPath) as! MembersSectionHeaderView
+            if indexPath.section == 0 {
+                headerView.sectionLabel.text = "Senate"
+            } else {
+                headerView.sectionLabel.text = "House"
+            }
+            
+            return headerView
+        }
         return UICollectionReusableView()
     }
 }
 
-extension MembersViewController: UICollectionViewDelegate {
-    
+extension MembersViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 40)
+    }
 }

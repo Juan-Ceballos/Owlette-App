@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */; };
 		3E0673E12AB0EBEB00F58832 /* Owlette_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */; };
+		3E28CA642ACA3CC9001B0752 /* MembersSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
 		3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */; };
 		3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */; };
@@ -45,6 +46,7 @@
 		3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProPublicaAPI.swift; sourceTree = "<group>"; };
 		3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Owlette-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owlette_AppTests.swift; sourceTree = "<group>"; };
+		3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersSectionHeaderView.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				3ECDB7152ABE54C300A68AD8 /* MemberView.swift */,
 				3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */,
 				3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */,
+				3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */,
 				3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */,
+				3E28CA642ACA3CC9001B0752 /* MembersSectionHeaderView.swift in Sources */,
 				3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */,
 				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
