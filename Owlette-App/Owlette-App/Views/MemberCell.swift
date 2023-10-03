@@ -19,7 +19,7 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var partyUIImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "pencil")
+        imageView.image = UIImage(systemName: "greaterthan")
         return imageView
     }()
     
@@ -33,6 +33,13 @@ class MemberCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         return label
+    }()
+    
+    public lazy var detailRightChevron: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.tintColor = .systemBrown
+        return imageView
     }()
     
     override init(frame: CGRect) {
@@ -50,6 +57,7 @@ class MemberCell: UICollectionViewCell {
         setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
         setupNextElectionLabelConstraints()
+        setupDetailRightChevronConstraints()
     }
     
     private func setupCellContentViewConstraints() {
@@ -89,6 +97,15 @@ class MemberCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nextElectionLabel.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 8),
             nextElectionLabel.leadingAnchor.constraint(equalTo: memberLabel.leadingAnchor)
+        ])
+    }
+    
+    private func setupDetailRightChevronConstraints() {
+        addSubview(detailRightChevron)
+        detailRightChevron.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailRightChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            detailRightChevron.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     

@@ -21,7 +21,6 @@
 		3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7152ABE54C300A68AD8 /* MemberView.swift */; };
 		3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7172ABE5B2B00A68AD8 /* StatesModel.swift */; };
 		3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */; };
-		3ECDB71C2AC2678A00A68AD8 /* MemberListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */; };
 		3ECDB71E2AC26CDE00A68AD8 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */; };
 		3ECDB7202AC808FC00A68AD8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */; };
 		3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */; };
@@ -58,7 +57,6 @@
 		3ECDB7152ABE54C300A68AD8 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		3ECDB7172ABE5B2B00A68AD8 /* StatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesModel.swift; sourceTree = "<group>"; };
 		3ECDB7192ABEB88C00A68AD8 /* ProMembersStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersStateModel.swift; sourceTree = "<group>"; };
-		3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListHeaderView.swift; sourceTree = "<group>"; };
 		3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3EDAFD482A845C5800A2C276 /* Owlette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Owlette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				3ECDB7152ABE54C300A68AD8 /* MemberView.swift */,
-				3ECDB71B2AC2678900A68AD8 /* MemberListHeaderView.swift */,
 				3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */,
 				3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */,
 			);
@@ -308,7 +305,6 @@
 				3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */,
 				3EDAFD4C2A845C5800A2C276 /* AppDelegate.swift in Sources */,
 				3ECDB7202AC808FC00A68AD8 /* UserDefaultsManager.swift in Sources */,
-				3ECDB71C2AC2678A00A68AD8 /* MemberListHeaderView.swift in Sources */,
 				3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */,
 				3EDAFD4E2A845C5800A2C276 /* SceneDelegate.swift in Sources */,
 			);
