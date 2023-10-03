@@ -15,12 +15,15 @@ class MembersSectionHeaderView: UICollectionReusableView {
     public lazy var sectionHeaderBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "backgroundBlack")
+        //view.backgroundColor = .blue
+
         return view
     }()
     
     public lazy var sectionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBrown
+        label.font = .boldSystemFont(ofSize: 22)
         return label
     }()
     
@@ -43,12 +46,10 @@ class MembersSectionHeaderView: UICollectionReusableView {
         addSubview(sectionHeaderBackgroundView)
         sectionHeaderBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
             sectionHeaderBackgroundView.topAnchor.constraint(equalTo: topAnchor),
             sectionHeaderBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             sectionHeaderBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
             sectionHeaderBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        
         ])
     }
     
@@ -56,10 +57,8 @@ class MembersSectionHeaderView: UICollectionReusableView {
         addSubview(sectionLabel)
         sectionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
             sectionLabel.centerXAnchor.constraint(equalTo: sectionHeaderBackgroundView.centerXAnchor),
             sectionLabel.centerYAnchor.constraint(equalTo: sectionHeaderBackgroundView.centerYAnchor)
-        
         ])
     }
     

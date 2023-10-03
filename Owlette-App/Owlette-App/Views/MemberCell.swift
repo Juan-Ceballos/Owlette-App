@@ -29,8 +29,9 @@ class MemberCell: UICollectionViewCell {
         return label
     }()
     
-    public lazy var roleLabel: UILabel = {
+    public lazy var nextElectionLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         return label
     }()
     
@@ -48,18 +49,17 @@ class MemberCell: UICollectionViewCell {
         setupCellContentViewConstraints()
         setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
+        setupNextElectionLabelConstraints()
     }
     
     private func setupCellContentViewConstraints() {
         addSubview(cellContentView)
         cellContentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
             cellContentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellContentView.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellContentView.topAnchor.constraint(equalTo: topAnchor),
             cellContentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            
         ])
     }
     
@@ -67,12 +67,10 @@ class MemberCell: UICollectionViewCell {
         addSubview(partyUIImageView)
         partyUIImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
             partyUIImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             partyUIImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            partyUIImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
-            partyUIImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15)
-        
+            partyUIImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.17),
+            partyUIImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.17)
         ])
     }
     
@@ -80,10 +78,17 @@ class MemberCell: UICollectionViewCell {
         addSubview(memberLabel)
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
-            memberLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 8),
-            memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: 11)
-            
+            memberLabel.bottomAnchor.constraint(equalTo: partyUIImageView.centerYAnchor),
+            memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func setupNextElectionLabelConstraints() {
+        addSubview(nextElectionLabel)
+        nextElectionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nextElectionLabel.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 8),
+            nextElectionLabel.leadingAnchor.constraint(equalTo: memberLabel.leadingAnchor)
         ])
     }
     

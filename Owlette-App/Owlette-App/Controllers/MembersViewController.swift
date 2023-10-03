@@ -124,6 +124,7 @@ extension MembersViewController: UICollectionViewDataSource {
         }
         
         cell.memberLabel.text = currentCell.name
+        cell.nextElectionLabel.text = "Next Election: \(currentCell.nextElection)"
         return cell
     }
     
@@ -143,6 +144,6 @@ extension MembersViewController: UICollectionViewDataSource {
 
 extension MembersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 40)
+        return CGSize(width: collectionView.frame.width, height: 55)
     }
 }

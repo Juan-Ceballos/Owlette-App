@@ -25,6 +25,12 @@ class MemberView: UIView {
         return view
     }()
     
+    public var topContentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: MemberView.backgroundBlack)
+        return view
+    }()
+    
     public lazy var stateSearchTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
@@ -48,6 +54,8 @@ class MemberView: UIView {
         let buttonWidth = self.bounds.width * 0.2
         let buttonHeight = self.bounds.width * 0.1
         button.frame = CGRect(x: MemberView.noSpacing, y: MemberView.noSpacing, width: buttonWidth, height: buttonHeight)
+        //button.titleLabel?.font = .boldSystemFont(ofSize: 22)
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .heavy)
         return button
     }()
     
@@ -57,7 +65,7 @@ class MemberView: UIView {
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
         cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
-        layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.12)
+        layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.11)
         cv.backgroundColor = UIColor(named: MemberView.backgroundBlack)
         return cv
     }()
@@ -74,6 +82,7 @@ class MemberView: UIView {
     
     private func commoninit() {
         setupBackgroundViewConstraints()
+        setupTopContentView()
         setupStateSearchTextField()
         setupSaveButtonConstraints()
         setupCollectionViewConstraints()
@@ -90,14 +99,25 @@ class MemberView: UIView {
         ])
     }
     
+    private func setupTopContentView() {
+        addSubview(topContentView)
+        topContentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topContentView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+            topContentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+            topContentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            topContentView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.2)
+        ])
+    }
+    
     private func setupStateSearchTextField() {
         addSubview(stateSearchTextField)
         stateSearchTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stateSearchTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 22),
-            stateSearchTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 11),
-            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
+            stateSearchTextField.topAnchor.constraint(equalTo: topContentView.topAnchor, constant: 22),
+            stateSearchTextField.leadingAnchor.constraint(equalTo: topContentView.leadingAnchor, constant: 11),
+            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5), // width of what
+            stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1) // height
         ])
     }
     
@@ -105,8 +125,8 @@ class MemberView: UIView {
         addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 11),
-            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 44),
+            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2), // same
             saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1),
             saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)
         
