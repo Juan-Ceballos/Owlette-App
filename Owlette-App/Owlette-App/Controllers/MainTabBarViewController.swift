@@ -31,7 +31,7 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
-        viewControllers = [membersViewController, viewController2, viewController3]
+        viewControllers = [UINavigationController(rootViewController: membersViewController), viewController2, viewController3]
     }
     
     

@@ -15,8 +15,6 @@ class MembersSectionHeaderView: UICollectionReusableView {
     public lazy var sectionHeaderBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "backgroundBlack")
-        //view.backgroundColor = .blue
-
         return view
     }()
     

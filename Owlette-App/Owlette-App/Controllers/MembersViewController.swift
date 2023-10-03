@@ -150,5 +150,7 @@ extension MembersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("cell clicked")
         print("\(indexPath.row)")
+        let nextVC = UIViewController()
+        self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }
