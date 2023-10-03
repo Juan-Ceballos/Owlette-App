@@ -10,9 +10,9 @@
 		3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673D62AB0224A00F58832 /* ProPublicaAPI.swift */; };
 		3E0673E12AB0EBEB00F58832 /* Owlette_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */; };
 		3E28CA642ACA3CC9001B0752 /* MembersSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */; };
+		3E28CAE42ACC220D001B0752 /* DetailMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */; };
+		3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
-		3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */; };
-		3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */; };
 		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
 		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
 		3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */; };
@@ -46,9 +46,9 @@
 		3E0673DE2AB0EBEB00F58832 /* Owlette-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Owlette-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0673E02AB0EBEB00F58832 /* Owlette_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owlette_AppTests.swift; sourceTree = "<group>"; };
 		3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersSectionHeaderView.swift; sourceTree = "<group>"; };
+		3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMembersViewController.swift; sourceTree = "<group>"; };
+		3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemberView.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
-		3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
 		3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVotesModel.swift; sourceTree = "<group>"; };
@@ -121,8 +121,7 @@
 			children = (
 				3EDAFD4F2A845C5800A2C276 /* MainTabBarViewController.swift */,
 				3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */,
-				3E3DF2B02A96F4BB007B8877 /* ViewController2.swift */,
-				3E3DF2B22A96F4DB007B8877 /* ViewController3.swift */,
+				3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +142,7 @@
 				3ECDB7152ABE54C300A68AD8 /* MemberView.swift */,
 				3ECDB71D2AC26CDE00A68AD8 /* MemberCell.swift */,
 				3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */,
+				3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,11 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */,
+				3E28CAE42ACC220D001B0752 /* DetailMembersViewController.swift in Sources */,
 				3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */,
 				3E28CA642ACA3CC9001B0752 /* MembersSectionHeaderView.swift in Sources */,
-				3E3DF2B12A96F4BB007B8877 /* ViewController2.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */,
-				3E3DF2B32A96F4DB007B8877 /* ViewController3.swift in Sources */,
+				3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */,
 				3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */,
 				3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */,
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
