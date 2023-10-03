@@ -9,9 +9,19 @@ import UIKit
 
 class MemberView: UIView {
     
+    static let minPadding: CGFloat = 8
+    static let noSpacing: CGFloat = 0
+    static let saveButtonTitle = "Save"
+    static let backgroundBlack = "backgroundBlack"
+    
+    override func layoutSubviews() {
+        let saveButtonCornerRadius = saveButton.frame.size.height / 2
+        saveButton.layer.cornerRadius = saveButtonCornerRadius
+    }
+    
     private var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundBlack")
+        view.backgroundColor = UIColor(named: MemberView.backgroundBlack)
         return view
     }()
     
@@ -30,9 +40,14 @@ class MemberView: UIView {
         return textField
     }()
     
-    public var saveButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Save", for: .normal)
+    public lazy var saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(MemberView.saveButtonTitle, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBrown
+        let buttonWidth = self.bounds.width * 0.2
+        let buttonHeight = self.bounds.width * 0.1
+        button.frame = CGRect(x: MemberView.noSpacing, y: MemberView.noSpacing, width: buttonWidth, height: buttonHeight)
         return button
     }()
     
@@ -43,7 +58,7 @@ class MemberView: UIView {
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
         cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.12)
-        cv.backgroundColor = UIColor(named: "backgroundBlack")
+        cv.backgroundColor = UIColor(named: MemberView.backgroundBlack)
         return cv
     }()
     
@@ -90,10 +105,9 @@ class MemberView: UIView {
         addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
             saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 11),
-            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
-            saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1),
             saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)
         
         ])
