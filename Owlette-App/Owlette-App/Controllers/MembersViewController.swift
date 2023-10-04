@@ -13,8 +13,13 @@ class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
-    var membersByStateHouse = [ProMemberState]()
-    var membersByStateSenate = [ProMemberState]()
+    var congressMembers: [[String: Any]] =
+    [["SectionTitle": "Senate", "Members": [ProMemberState]()],
+    ["SectionTitle": "House", "Members": [ProMemberState]()]]
+    let congressLogoDict: [String: UIImage?] = ["D": UIImage(named: "DemLogo"), "R": UIImage(named: "RepLogo")]
+    let senateIndex = 0
+    let houseIndex = 1
+    
     var preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
     
     override func loadView() {
@@ -68,11 +73,8 @@ extension MembersViewController: UITextFieldDelegate {
         preferredState = newText
         let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(preferredState)/current.json")
         let currentSenateMembers = await fetchMembersByState(patchComponent: "members/senate/\(preferredState)/current.json")
-        // handle optional differently
-        membersByStateHouse = currentHouseMembers?.results ?? []
-        membersByStateSenate = currentSenateMembers?.results ?? []
-        print("juan here is member by state house \(membersByStateHouse.count)")
-        print("juan here is member by state senate \(membersByStateSenate.count)")
+        congressMembers[senateIndex]["Members"] = currentSenateMembers?.results
+        congressMembers[houseIndex]["Members"] = currentHouseMembers?.results
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
         }
@@ -82,14 +84,16 @@ extension MembersViewController: UITextFieldDelegate {
 extension MembersViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return congressMembers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return membersByStateSenate.count
+        if section == senateIndex {
+            let senate = congressMembers[senateIndex]["Members"] as? [ProMemberState]
+            return senate?.count ?? 0
         } else {
-            return membersByStateHouse.count
+            let house = congressMembers[houseIndex]["Members"] as? [ProMemberState]
+            return house?.count ?? 0
         }
     }
     
@@ -99,21 +103,15 @@ extension MembersViewController: UICollectionViewDataSource {
             fatalError("error")
         }
         let currentCell: ProMemberState
-        if indexPath.section == 0 {
-            currentCell = membersByStateSenate[indexPath.row]
-            if currentCell.party == "D" {
-                cell.partyUIImageView.image = UIImage(named: "DemLogo")
-            } else {
-                cell.partyUIImageView.image = UIImage(named: "RepLogo")
-            }
-            
+        let senate = congressMembers[senateIndex]["Members"] as? [ProMemberState] ?? []
+        let house = congressMembers[houseIndex]["Members"] as? [ProMemberState] ?? []
+        
+        if indexPath.section == senateIndex {
+            currentCell = senate[indexPath.row]
+            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "pencil")
         } else {
-            currentCell = membersByStateHouse[indexPath.row]
-            if currentCell.party == "D" {
-                cell.partyUIImageView.image = UIImage(named: "DemLogo")
-            } else {
-                cell.partyUIImageView.image = UIImage(named: "RepLogo")
-            }
+            currentCell = house[indexPath.row]
+            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "pencil")
         }
         
         cell.memberLabel.text = currentCell.name
