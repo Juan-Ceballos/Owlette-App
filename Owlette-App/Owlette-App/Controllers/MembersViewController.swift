@@ -15,6 +15,7 @@ class MembersViewController: UIViewController {
     let proPublicaAPI = ProPublicaAPI()
     var membersByStateHouse = [ProMemberState]()
     var membersByStateSenate = [ProMemberState]()
+    var preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
     
     override func loadView() {
         view = memberView
@@ -27,9 +28,7 @@ class MembersViewController: UIViewController {
         memberView.collectionView.dataSource = self
         memberView.collectionView.delegate = self
         memberView.saveButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        let preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
         memberView.stateSearchTextField.text = preferredState
-        // default list - TODO: Add default entered text that can be set ?? "CA"
         Task {
             await updateSearchText(preferredState)
         }
@@ -37,13 +36,7 @@ class MembersViewController: UIViewController {
     
     @objc func buttonPressed() {
         print("Button Pressed Juan")
-        UserDefaultsManager.shared.saveSearchedState(searchText)
-    }
-    
-    var searchText: String = "NY" {
-        didSet {
-            print("juan here is member by state house again maybe \(membersByStateHouse)")
-        }
+        UserDefaultsManager.shared.saveSearchedState(preferredState)
     }
     
     func fetchMembersByState(patchComponent: String) async -> ProMembersStateModel? {
@@ -72,9 +65,9 @@ extension MembersViewController: UITextFieldDelegate {
     }
     
     func updateSearchText(_ newText: String) async {
-        searchText = newText
-        let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(searchText)/current.json")
-        let currentSenateMembers = await fetchMembersByState(patchComponent: "members/senate/\(searchText)/current.json")
+        preferredState = newText
+        let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(preferredState)/current.json")
+        let currentSenateMembers = await fetchMembersByState(patchComponent: "members/senate/\(preferredState)/current.json")
         // handle optional differently
         membersByStateHouse = currentHouseMembers?.results ?? []
         membersByStateSenate = currentSenateMembers?.results ?? []

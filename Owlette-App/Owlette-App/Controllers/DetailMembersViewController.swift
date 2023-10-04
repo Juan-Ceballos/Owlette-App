@@ -24,5 +24,7 @@ class DetailMembersViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .brown
     }
+    
+    
 
 }

@@ -54,7 +54,6 @@ class MemberView: UIView {
         let buttonWidth = self.bounds.width * 0.2
         let buttonHeight = self.bounds.width * 0.1
         button.frame = CGRect(x: MemberView.noSpacing, y: MemberView.noSpacing, width: buttonWidth, height: buttonHeight)
-        //button.titleLabel?.font = .boldSystemFont(ofSize: 22)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .heavy)
         return button
     }()
