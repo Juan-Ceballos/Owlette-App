@@ -13,12 +13,12 @@ class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
-    var congressMembers: [[String: Any]] =
+    let membersKey = "Members", sectionTitleKey = "SectionTitle"
+    var congressMembersDictArr: [[String: Any]] =
     [["SectionTitle": "Senate", "Members": [ProMemberState]()],
     ["SectionTitle": "House", "Members": [ProMemberState]()]]
     let congressLogoDict: [String: UIImage?] = ["D": UIImage(named: "DemLogo"), "R": UIImage(named: "RepLogo")]
-    let senateIndex = 0
-    let houseIndex = 1
+    let senateIndex = 0, houseIndex = 1
     
     var preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
     
@@ -73,8 +73,8 @@ extension MembersViewController: UITextFieldDelegate {
         preferredState = newText
         let currentHouseMembers = await fetchMembersByState(patchComponent: "members/house/\(preferredState)/current.json")
         let currentSenateMembers = await fetchMembersByState(patchComponent: "members/senate/\(preferredState)/current.json")
-        congressMembers[senateIndex]["Members"] = currentSenateMembers?.results
-        congressMembers[houseIndex]["Members"] = currentHouseMembers?.results
+        congressMembersDictArr[senateIndex][membersKey] = currentSenateMembers?.results
+        congressMembersDictArr[houseIndex][membersKey] = currentHouseMembers?.results
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
         }
@@ -84,15 +84,15 @@ extension MembersViewController: UITextFieldDelegate {
 extension MembersViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return congressMembers.count
+        return congressMembersDictArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == senateIndex {
-            let senate = congressMembers[senateIndex]["Members"] as? [ProMemberState]
+            let senate = congressMembersDictArr[senateIndex][membersKey] as? [ProMemberState]
             return senate?.count ?? 0
         } else {
-            let house = congressMembers[houseIndex]["Members"] as? [ProMemberState]
+            let house = congressMembersDictArr[houseIndex][membersKey] as? [ProMemberState]
             return house?.count ?? 0
         }
     }
@@ -103,8 +103,8 @@ extension MembersViewController: UICollectionViewDataSource {
             fatalError("error")
         }
         let currentCell: ProMemberState
-        let senate = congressMembers[senateIndex]["Members"] as? [ProMemberState] ?? []
-        let house = congressMembers[houseIndex]["Members"] as? [ProMemberState] ?? []
+        let senate = congressMembersDictArr[senateIndex][membersKey] as? [ProMemberState] ?? []
+        let house = congressMembersDictArr[houseIndex][membersKey] as? [ProMemberState] ?? []
         
         if indexPath.section == senateIndex {
             currentCell = senate[indexPath.row]
@@ -123,12 +123,16 @@ extension MembersViewController: UICollectionViewDataSource {
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MembersSectionHeaderView.reuseId, for: indexPath) as! MembersSectionHeaderView
             if indexPath.section == 0 {
-                headerView.sectionLabel.text = "Senate"
-            } else {
-                headerView.sectionLabel.text = "House"
+                let senateTitle = congressMembersDictArr[senateIndex][sectionTitleKey] as? String ?? ""
+                headerView.sectionLabel.text = senateTitle
+                return headerView
             }
+            
+            let houseTitle = congressMembersDictArr[houseIndex][sectionTitleKey] as? String ?? ""
+            headerView.sectionLabel.text = houseTitle
             return headerView
         }
+        
         return UICollectionReusableView()
     }
 }
