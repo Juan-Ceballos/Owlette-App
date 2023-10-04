@@ -71,15 +71,15 @@ class MemberView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
-        commoninit()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commoninit()
+        commonInit()
     }
     
-    private func commoninit() {
+    private func commonInit() {
         setupBackgroundViewConstraints()
         setupTopContentView()
         setupStateSearchTextField()

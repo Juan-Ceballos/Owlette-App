@@ -8,8 +8,6 @@
 import UIKit
 
 class DetailMembersViewController: UIViewController {
-
-    var member: CGMembersModel?
     
     init(member: CGMembersModel? = nil) {
         self.member = member
@@ -20,11 +18,15 @@ class DetailMembersViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .brown
+    var member: CGMembersModel?
+    let detailMemberView = DetailMemberView()
+    
+    override func loadView() {
+        view = detailMemberView
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
 }

@@ -28,7 +28,6 @@ class MembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         memberView.stateSearchTextField.delegate = self
         memberView.collectionView.dataSource = self
         memberView.collectionView.delegate = self
@@ -102,6 +101,7 @@ extension MembersViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.reuseId, for: indexPath) as? MemberCell else {
             fatalError("error")
         }
+        
         let currentCell: ProMemberState
         let senate = congressMembersDictArr[senateIndex][membersKey] as? [ProMemberState] ?? []
         let house = congressMembersDictArr[houseIndex][membersKey] as? [ProMemberState] ?? []
@@ -143,8 +143,6 @@ extension MembersViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("cell clicked")
-        print("\(indexPath.row)")
         let nextVC = DetailMembersViewController()
         self.navigationController?.pushViewController(nextVC, animated: false)
     }
