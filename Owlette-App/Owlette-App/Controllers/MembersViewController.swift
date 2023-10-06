@@ -108,10 +108,10 @@ extension MembersViewController: UICollectionViewDataSource {
         
         if indexPath.section == senateIndex {
             currentCell = senate[indexPath.row]
-            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "pencil")
+            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "questionmark")
         } else {
             currentCell = house[indexPath.row]
-            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "pencil")
+            cell.partyUIImageView.image = congressLogoDict[currentCell.party] ?? UIImage(systemName: "questionamark")
         }
         
         cell.memberLabel.text = currentCell.name
