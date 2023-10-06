@@ -69,6 +69,13 @@ class MemberView: UIView {
         return cv
     }()
     
+    public var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = UIColor.gray
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -85,6 +92,16 @@ class MemberView: UIView {
         setupStateSearchTextField()
         setupSaveButtonConstraints()
         setupCollectionViewConstraints()
+        setupActivityIndicatorConstraints()
+    }
+    
+    private func setupActivityIndicatorConstraints() {
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
     private func setupBackgroundViewConstraints() {

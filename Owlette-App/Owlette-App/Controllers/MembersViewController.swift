@@ -19,8 +19,9 @@ class MembersViewController: UIViewController {
     ["SectionTitle": "House", "Members": [ProMemberState]()]]
     let congressLogoDict: [String: UIImage?] = ["D": UIImage(named: "DemLogo"), "R": UIImage(named: "RepLogo")]
     let senateIndex = 0, houseIndex = 1
-    
     var preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
+    
+    
     
     override func loadView() {
         view = memberView
@@ -44,11 +45,15 @@ class MembersViewController: UIViewController {
     }
     
     func fetchMembersByState(patchComponent: String) async -> ProMembersStateModel? {
+        // activity
+        memberView.activityIndicator.startAnimating()
         do {
             let members = try await proPublicaAPI.fetchParseData(pathComponent: patchComponent, responseType: ProMembersStateModel.self)
             return members
         } catch {
             print("Failed to fetch and or parse MemberState model due to error: \(error)")
+            // activity
+            memberView.activityIndicator.stopAnimating()
         }
         return nil
     }
@@ -76,6 +81,8 @@ extension MembersViewController: UITextFieldDelegate {
         congressMembersDictArr[houseIndex][membersKey] = currentHouseMembers?.results
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
+            // activity
+            self.memberView.activityIndicator.stopAnimating()
         }
     }
 }
