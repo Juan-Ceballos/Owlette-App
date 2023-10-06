@@ -12,5 +12,20 @@ struct CGMembersModel: Codable {
 }
 
 struct CGMember: Codable {
-    let firstName: String
+    let bioguideId: String
+    let depiction: Depiction
+    let directOrderName: String
+    let partyHistory: PartyHistory
+    let state: String
+}
+
+struct Depiction: Codable {
+    let attribution: String
+    let imageUrl: String
+}
+
+struct PartyHistory: Codable {
+    let partyAbbreviation: String
+    let partyName: String
+    let startYear: Int
 }
