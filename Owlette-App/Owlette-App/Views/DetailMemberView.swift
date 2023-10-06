@@ -15,6 +15,12 @@ class DetailMemberView: UIView {
         return view
     }()
     
+    public lazy var depictionImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -27,6 +33,7 @@ class DetailMemberView: UIView {
     
     private func commonInit() {
         setupBackgroundViewConstraints()
+        setupDepictionImageView()
     }
     
     private func setupBackgroundViewConstraints() {
@@ -37,6 +44,17 @@ class DetailMemberView: UIView {
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    private func setupDepictionImageView() {
+        addSubview(depictionImageView)
+        depictionImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            depictionImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            depictionImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
         ])
     }
     
