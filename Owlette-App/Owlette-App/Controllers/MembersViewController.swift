@@ -37,6 +37,7 @@ class MembersViewController: UIViewController {
         Task {
             await updateSearchText(preferredState)
         }
+        
     }
     
     @objc func buttonPressed() {

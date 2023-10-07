@@ -27,6 +27,8 @@ class DetailMembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            try await detailMemberView.depictionImageView.setImage(from: URL(string: "https://www.congress.gov/img/member/a000360_200.jpg")!)
+        }
     }
-
 }

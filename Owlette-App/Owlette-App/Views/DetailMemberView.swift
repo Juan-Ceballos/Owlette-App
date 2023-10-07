@@ -18,6 +18,7 @@ class DetailMemberView: UIView {
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemGray
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
