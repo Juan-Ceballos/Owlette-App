@@ -13,6 +13,7 @@
 		3E28CAE42ACC220D001B0752 /* DetailMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */; };
 		3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */; };
 		3E28CAE82ACFF66C001B0752 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */; };
+		3E28CAEA2AD2343F001B0752 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
 		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
 		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
@@ -50,6 +51,7 @@
 		3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMembersViewController.swift; sourceTree = "<group>"; };
 		3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemberView.swift; sourceTree = "<group>"; };
 		3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
 				3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */,
 				3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */,
+				3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */,
 			);
 			path = SupportinFiles;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */,
 				3E28CAE42ACC220D001B0752 /* DetailMembersViewController.swift in Sources */,
 				3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */,
+				3E28CAEA2AD2343F001B0752 /* UIViewController+Alerts.swift in Sources */,
 				3E28CA642ACA3CC9001B0752 /* MembersSectionHeaderView.swift in Sources */,
 				3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */,
 				3E28CAE82ACFF66C001B0752 /* UIImageView+Extensions.swift in Sources */,

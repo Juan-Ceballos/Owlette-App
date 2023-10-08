@@ -43,6 +43,7 @@ class MembersViewController: UIViewController {
     @objc func buttonPressed() {
         print("Button Pressed Juan")
         UserDefaultsManager.shared.saveSearchedState(preferredState)
+        self.showAlert(title: "Saved!", message: "Your preferred state has been saved")
     }
     
     func fetchMembersByState(patchComponent: String) async -> ProMembersStateModel? {
