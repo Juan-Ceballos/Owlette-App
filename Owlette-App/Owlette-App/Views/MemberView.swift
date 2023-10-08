@@ -132,8 +132,8 @@ class MemberView: UIView {
         NSLayoutConstraint.activate([
             stateSearchTextField.topAnchor.constraint(equalTo: topContentView.topAnchor, constant: 22),
             stateSearchTextField.leadingAnchor.constraint(equalTo: topContentView.leadingAnchor, constant: 11),
-            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5), // width of what
-            stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1) // height
+            stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
     }
     
@@ -142,7 +142,7 @@ class MemberView: UIView {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 44),
-            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2), // same
+            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2), 
             saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1),
             saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)
         

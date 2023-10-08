@@ -7,8 +7,6 @@
 
 import UIKit
 
-// Alerts?
-
 class MembersViewController: UIViewController {
     
     let memberView = MemberView()
@@ -37,24 +35,20 @@ class MembersViewController: UIViewController {
         Task {
             await updateSearchText(preferredState)
         }
-        
     }
     
     @objc func buttonPressed() {
-        print("Button Pressed Juan")
         UserDefaultsManager.shared.saveSearchedState(preferredState)
         self.showAlert(title: "Saved!", message: "Your preferred state has been saved")
     }
     
     func fetchMembersByState(patchComponent: String) async -> ProMembersStateModel? {
-        // activity
         memberView.activityIndicator.startAnimating()
         do {
             let members = try await proPublicaAPI.fetchParseData(pathComponent: patchComponent, responseType: ProMembersStateModel.self)
             return members
         } catch {
             print("Failed to fetch and or parse MemberState model due to error: \(error)")
-            // activity
             memberView.activityIndicator.stopAnimating()
         }
         return nil
@@ -83,7 +77,6 @@ extension MembersViewController: UITextFieldDelegate {
         congressMembersDictArr[houseIndex][membersKey] = currentHouseMembers?.results
         DispatchQueue.main.async {
             self.memberView.collectionView.reloadData()
-            // activity
             self.memberView.activityIndicator.stopAnimating()
         }
     }
