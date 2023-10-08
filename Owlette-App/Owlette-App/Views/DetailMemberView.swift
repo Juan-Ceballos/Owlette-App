@@ -11,13 +11,13 @@ class DetailMemberView: UIView {
     
     public var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBrown
+        view.backgroundColor = AppColors.tertiaryColor
         return view
     }()
     
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray
+        imageView.backgroundColor = AppColors.smallComponentsColor
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -33,7 +33,8 @@ class DetailMemberView: UIView {
     }
     
     private func commonInit() {
-        setupBackgroundViewConstraints()
+        //setupBackgroundViewConstraints()
+        pinVCBackground(of: backgroundView)
         setupDepictionImageView()
     }
     

@@ -13,7 +13,7 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var cellContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundBlack")
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
@@ -25,20 +25,20 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var memberLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = AppColors.textColor
         return label
     }()
     
     public lazy var nextElectionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = AppColors.textColor
         return label
     }()
     
     public lazy var detailRightChevron: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.right")
-        imageView.tintColor = .systemBrown
+        imageView.tintColor = AppColors.tertiaryColor
         return imageView
     }()
     

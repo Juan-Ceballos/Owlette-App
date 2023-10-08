@@ -14,14 +14,14 @@ class MembersSectionHeaderView: UICollectionReusableView {
     
     public lazy var sectionHeaderBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundBlack")
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
     public lazy var sectionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemBrown
-        label.font = .boldSystemFont(ofSize: 22)
+        label.textColor = AppColors.tertiaryColor
+        label.font = AppFonts.headerTextFont
         return label
     }()
     
@@ -36,7 +36,8 @@ class MembersSectionHeaderView: UICollectionReusableView {
     }
     
     private func commonInit() {
-        setupSectionHeaderBackgroundViewConstraints()
+        //setupSectionHeaderBackgroundViewConstraints()
+        pinEdges(of: sectionHeaderBackgroundView)
         setupSectionLabelConstraints()
     }
     

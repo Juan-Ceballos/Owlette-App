@@ -12,7 +12,6 @@ class MemberView: UIView {
     static let minPadding: CGFloat = 8
     static let noSpacing: CGFloat = 0
     static let saveButtonTitle = "Save"
-    static let backgroundBlack = "backgroundBlack"
     
     override func layoutSubviews() {
         let saveButtonCornerRadius = saveButton.frame.size.height / 2
