@@ -14,6 +14,8 @@
 		3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */; };
 		3E28CAE82ACFF66C001B0752 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */; };
 		3E28CAEA2AD2343F001B0752 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */; };
+		3E28CAEC2AD2750E001B0752 /* AppStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAEB2AD2750E001B0752 /* AppStyling.swift */; };
+		3E28CAEE2AD2BCD1001B0752 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CAED2AD2BCD1001B0752 /* UIView+Extensions.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
 		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
 		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
@@ -52,6 +54,8 @@
 		3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemberView.swift; sourceTree = "<group>"; };
 		3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		3E28CAEB2AD2750E001B0752 /* AppStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyling.swift; sourceTree = "<group>"; };
+		3E28CAED2AD2BCD1001B0752 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
@@ -98,6 +102,16 @@
 			path = "Owlette-AppTests";
 			sourceTree = "<group>";
 		};
+		3E28CAEF2AD2C8E9001B0752 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */,
+				3E28CAED2AD2BCD1001B0752 /* UIView+Extensions.swift */,
+				3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3ECDB6CA2ABAD5F800A68AD8 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,16 +144,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		3ECDB6CD2ABAD6B700A68AD8 /* SupportinFiles */ = {
+		3ECDB6CD2ABAD6B700A68AD8 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				3EDAFD4B2A845C5800A2C276 /* AppDelegate.swift */,
 				3EDAFD4D2A845C5800A2C276 /* SceneDelegate.swift */,
 				3ECDB71F2AC808FC00A68AD8 /* UserDefaultsManager.swift */,
-				3E28CAE72ACFF66C001B0752 /* UIImageView+Extensions.swift */,
-				3E28CAE92AD2343F001B0752 /* UIViewController+Alerts.swift */,
+				3E28CAEB2AD2750E001B0752 /* AppStyling.swift */,
 			);
-			path = SupportinFiles;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		3ECDB7142ABE549600A68AD8 /* Views */ = {
@@ -174,7 +187,8 @@
 		3EDAFD4A2A845C5800A2C276 /* Owlette-App */ = {
 			isa = PBXGroup;
 			children = (
-				3ECDB6CD2ABAD6B700A68AD8 /* SupportinFiles */,
+				3E28CAEF2AD2C8E9001B0752 /* Extensions */,
+				3ECDB6CD2ABAD6B700A68AD8 /* SupportingFiles */,
 				3ECDB7142ABE549600A68AD8 /* Views */,
 				3ECDB6CC2ABAD66500A68AD8 /* Controllers */,
 				3ECDB6CB2ABAD64400A68AD8 /* Models */,
@@ -305,6 +319,8 @@
 				3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */,
 				3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */,
 				3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */,
+				3E28CAEE2AD2BCD1001B0752 /* UIView+Extensions.swift in Sources */,
+				3E28CAEC2AD2750E001B0752 /* AppStyling.swift in Sources */,
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3ECDB71E2AC26CDE00A68AD8 /* MemberCell.swift in Sources */,
 				3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */,

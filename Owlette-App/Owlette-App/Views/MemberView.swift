@@ -21,13 +21,13 @@ class MemberView: UIView {
     
     private var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: MemberView.backgroundBlack)
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
     public var topContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: MemberView.backgroundBlack)
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
@@ -36,11 +36,11 @@ class MemberView: UIView {
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.backgroundColor = .black
-        textField.textColor = .lightText
+        textField.backgroundColor = AppColors.textBackgroundColor
+        textField.textColor = AppColors.lightTextColor
         let magView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         magView.contentMode = .scaleAspectFit
-        magView.tintColor = .systemGray
+        magView.tintColor = AppColors.smallComponentsColor
         textField.leftView = magView
         textField.leftViewMode = .always
         return textField
@@ -49,12 +49,12 @@ class MemberView: UIView {
     public lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(MemberView.saveButtonTitle, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBrown
+        button.setTitleColor(AppColors.textColor, for: .normal)
+        button.backgroundColor = AppColors.tertiaryColor
         let buttonWidth = self.bounds.width * 0.2
         let buttonHeight = self.bounds.width * 0.1
         button.frame = CGRect(x: MemberView.noSpacing, y: MemberView.noSpacing, width: buttonWidth, height: buttonHeight)
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .heavy)
+        button.titleLabel?.font = AppFonts.buttonTextFont
         return button
     }()
     
@@ -65,13 +65,13 @@ class MemberView: UIView {
         cv.register(MemberCell.self, forCellWithReuseIdentifier: MemberCell.reuseId)
         cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         layout.itemSize = CGSize(width: self.bounds.width, height: self.bounds.height * 0.11)
-        cv.backgroundColor = UIColor(named: MemberView.backgroundBlack)
+        cv.backgroundColor = AppColors.primaryColor
         return cv
     }()
     
     public var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
-        indicator.color = UIColor.gray
+        indicator.color = AppColors.smallComponentsColor
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
@@ -87,7 +87,7 @@ class MemberView: UIView {
     }
     
     private func commonInit() {
-        setupBackgroundViewConstraints()
+        pinVCBackground(of: backgroundView)
         setupTopContentView()
         setupStateSearchTextField()
         setupSaveButtonConstraints()
@@ -142,7 +142,7 @@ class MemberView: UIView {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 44),
-            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2), 
+            saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
             saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1),
             saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)
         

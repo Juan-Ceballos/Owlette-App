@@ -53,7 +53,7 @@ class MemberCell: UICollectionViewCell {
     }
     
     private func commonInit()   {
-        setupCellContentViewConstraints()
+        pinEdges(of: cellContentView)
         setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
         setupNextElectionLabelConstraints()
