@@ -41,7 +41,7 @@ class MembersViewController: UIViewController {
             UserDefaultsManager.shared.saveSearchedState(stateInput)
             self.showAlert(title: "Saved!", message: "Your preferred state \(currentText) has been saved")
         } else {
-            self.showAlert(title: "Error \u{1f622}", message: "Do not recognize state name or abbreviation or missing field")
+            self.showAlert(title: "Error \u{1f622}", message: "Do not recognize state name/abbreviation or missing field")
         }
     }
     
@@ -52,8 +52,10 @@ class MembersViewController: UIViewController {
             return members
         } catch {
             print("Failed to fetch and or parse MemberState model due to error: \(error)")
+            showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
             memberView.activityIndicator.stopAnimating()
         }
+        showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
         return nil
     }
     
