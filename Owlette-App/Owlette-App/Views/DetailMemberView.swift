@@ -37,17 +37,6 @@ class DetailMemberView: UIView {
         setupDepictionImageView()
     }
     
-    private func setupBackgroundViewConstraints() {
-        addSubview(backgroundView)
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-    
     private func setupDepictionImageView() {
         addSubview(depictionImageView)
         depictionImageView.translatesAutoresizingMaskIntoConstraints = false

@@ -59,17 +59,6 @@ class MemberCell: UICollectionViewCell {
         setupDetailRightChevronConstraints()
     }
     
-    private func setupCellContentViewConstraints() {
-        addSubview(cellContentView)
-        cellContentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cellContentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cellContentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cellContentView.topAnchor.constraint(equalTo: topAnchor),
-            cellContentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
     private func setupPartyImageViewConstraints() {
         addSubview(partyUIImageView)
         partyUIImageView.translatesAutoresizingMaskIntoConstraints = false

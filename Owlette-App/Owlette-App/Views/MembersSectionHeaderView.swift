@@ -36,20 +36,8 @@ class MembersSectionHeaderView: UICollectionReusableView {
     }
     
     private func commonInit() {
-        //setupSectionHeaderBackgroundViewConstraints()
         pinEdges(of: sectionHeaderBackgroundView)
         setupSectionLabelConstraints()
-    }
-    
-    private func setupSectionHeaderBackgroundViewConstraints() {
-        addSubview(sectionHeaderBackgroundView)
-        sectionHeaderBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            sectionHeaderBackgroundView.topAnchor.constraint(equalTo: topAnchor),
-            sectionHeaderBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            sectionHeaderBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            sectionHeaderBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     
     private func setupSectionLabelConstraints() {
