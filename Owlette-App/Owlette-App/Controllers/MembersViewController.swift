@@ -36,8 +36,13 @@ class MembersViewController: UIViewController {
     }
     
     @objc func buttonPressed() {
-        UserDefaultsManager.shared.saveSearchedState(preferredState)
-        self.showAlert(title: "Saved!", message: "Your preferred state has been saved")
+        let currentText = memberView.stateSearchTextField.text ?? ""
+        if let stateInput = StatesModel.StateAbbrevDict[currentText.lowercased()], !currentText.isEmpty {
+            UserDefaultsManager.shared.saveSearchedState(stateInput)
+            self.showAlert(title: "Saved!", message: "Your preferred state \(currentText) has been saved")
+        } else {
+            self.showAlert(title: "Error \u{1f622}", message: "Do not recognize state name or abbreviation or missing field")
+        }
     }
     
     func fetchMembersByState(patchComponent: String) async -> ProMembersStateModel? {
