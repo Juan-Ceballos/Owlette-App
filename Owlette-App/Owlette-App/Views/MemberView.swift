@@ -9,8 +9,6 @@ import UIKit
 
 class MemberView: UIView {
     
-    static let minPadding: CGFloat = 8
-    static let noSpacing: CGFloat = 0
     static let saveButtonTitle = "Save"
     
     override func layoutSubviews() {

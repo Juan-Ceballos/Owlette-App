@@ -22,5 +22,19 @@ struct AppFonts {
     static let headerTextFont = UIFont.boldSystemFont(ofSize: 22)
 }
 
+struct AppSizes {
+    static let noPadding: CGFloat = 0
+    static let smallPadding: CGFloat = 8
+    static let buttonHeight: CGFloat = 44
+    static let largeTrailingPadding: CGFloat = -36
+}
+
+struct AppText {
+    static let save = "Save"
+    static let memberSectionHouse = "House"
+    static let memberSectionSenate = "Senate"
+    static let defaultPreferredState = "NY"
+}
+
 
 

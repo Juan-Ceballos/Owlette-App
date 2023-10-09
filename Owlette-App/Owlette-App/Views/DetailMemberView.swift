@@ -33,7 +33,6 @@ class DetailMemberView: UIView {
     }
     
     private func commonInit() {
-        //setupBackgroundViewConstraints()
         pinVCBackground(of: backgroundView)
         setupDepictionImageView()
     }
