@@ -11,10 +11,11 @@ class MembersViewController: UIViewController {
     
     let memberView = MemberView()
     let proPublicaAPI = ProPublicaAPI()
+    let congressAPI = CongressGovAPI()
     let membersKey = "Members", sectionTitleKey = "SectionTitle"
     var congressMembersDictArr: [[String: Any]] =
     [["SectionTitle": "Senate", "Members": [ProMemberState]()],
-    ["SectionTitle": "House", "Members": [ProMemberState]()]]
+     ["SectionTitle": "House", "Members": [ProMemberState]()]]
     let congressLogoDict: [String: UIImage?] = ["D": UIImage(named: "DemLogo"), "R": UIImage(named: "RepLogo")]
     let senateIndex = 0, houseIndex = 1
     var preferredState = UserDefaultsManager.shared.getSearchedState() ?? AppText.defaultPreferredState
@@ -150,7 +151,16 @@ extension MembersViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = DetailMembersViewController()
-        self.navigationController?.pushViewController(nextVC, animated: false)
+        let currentMember: ProMemberState
+        let senate = congressMembersDictArr[senateIndex][membersKey] as? [ProMemberState] ?? []
+        let house = congressMembersDictArr[houseIndex][membersKey] as? [ProMemberState] ?? []
+        if indexPath.section == senateIndex {
+            currentMember = senate[indexPath.row]
+        } else {
+            currentMember = house[indexPath.row]
+        }
+        
+        let detailMemberVC = DetailMembersViewController(member: currentMember)
+        self.navigationController?.pushViewController(detailMemberVC, animated: false)
     }
 }
