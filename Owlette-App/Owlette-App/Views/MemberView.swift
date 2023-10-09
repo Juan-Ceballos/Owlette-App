@@ -8,9 +8,7 @@
 import UIKit
 
 class MemberView: UIView {
-    
-    static let saveButtonTitle = "Save"
-    
+        
     override func layoutSubviews() {
         let saveButtonCornerRadius = saveButton.frame.size.height / 2
         saveButton.layer.cornerRadius = saveButtonCornerRadius
@@ -45,12 +43,12 @@ class MemberView: UIView {
     
     public lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(MemberView.saveButtonTitle, for: .normal)
+        button.setTitle(AppText.saveButtonText, for: .normal)
         button.setTitleColor(AppColors.textColor, for: .normal)
         button.backgroundColor = AppColors.tertiaryColor
         let buttonWidth = self.bounds.width * 0.2
         let buttonHeight = self.bounds.width * 0.1
-        button.frame = CGRect(x: MemberView.noSpacing, y: MemberView.noSpacing, width: buttonWidth, height: buttonHeight)
+        button.frame = CGRect(x: AppSizes.noPadding, y: AppSizes.noPadding, width: buttonWidth, height: buttonHeight)
         button.titleLabel?.font = AppFonts.buttonTextFont
         return button
     }()
@@ -127,8 +125,8 @@ class MemberView: UIView {
         addSubview(stateSearchTextField)
         stateSearchTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stateSearchTextField.topAnchor.constraint(equalTo: topContentView.topAnchor, constant: 22),
-            stateSearchTextField.leadingAnchor.constraint(equalTo: topContentView.leadingAnchor, constant: 11),
+            stateSearchTextField.topAnchor.constraint(equalTo: topContentView.topAnchor, constant: AppSizes.largePadding),
+            stateSearchTextField.leadingAnchor.constraint(equalTo: topContentView.leadingAnchor, constant: AppSizes.medPadding),
             stateSearchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             stateSearchTextField.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
@@ -138,7 +136,7 @@ class MemberView: UIView {
         addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: 44),
+            saveButton.leadingAnchor.constraint(equalTo: stateSearchTextField.trailingAnchor, constant: AppSizes.componentLargePadding),
             saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
             saveButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1),
             saveButton.centerYAnchor.constraint(equalTo: stateSearchTextField.centerYAnchor)

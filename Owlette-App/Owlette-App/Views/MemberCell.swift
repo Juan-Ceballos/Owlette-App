@@ -19,7 +19,6 @@ class MemberCell: UICollectionViewCell {
     
     public lazy var partyUIImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "greaterthan")
         return imageView
     }()
     
@@ -75,7 +74,7 @@ class MemberCell: UICollectionViewCell {
         addSubview(partyUIImageView)
         partyUIImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            partyUIImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            partyUIImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.medPadding),
             partyUIImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             partyUIImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.17),
             partyUIImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.17)
@@ -87,7 +86,7 @@ class MemberCell: UICollectionViewCell {
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             memberLabel.bottomAnchor.constraint(equalTo: partyUIImageView.centerYAnchor),
-            memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: 16)
+            memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: AppSizes.medPadding)
         ])
     }
     
@@ -95,7 +94,7 @@ class MemberCell: UICollectionViewCell {
         addSubview(nextElectionLabel)
         nextElectionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nextElectionLabel.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 8),
+            nextElectionLabel.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: AppSizes.smallPadding),
             nextElectionLabel.leadingAnchor.constraint(equalTo: memberLabel.leadingAnchor)
         ])
     }
@@ -104,7 +103,7 @@ class MemberCell: UICollectionViewCell {
         addSubview(detailRightChevron)
         detailRightChevron.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailRightChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            detailRightChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: AppSizes.largeTrailingPadding),
             detailRightChevron.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }

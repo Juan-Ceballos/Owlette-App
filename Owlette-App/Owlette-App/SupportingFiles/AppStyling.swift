@@ -25,14 +25,16 @@ struct AppFonts {
 struct AppSizes {
     static let noPadding: CGFloat = 0
     static let smallPadding: CGFloat = 8
+    static let medPadding: CGFloat = 16
+    static let largePadding: CGFloat = 24
+    static let componentLargePadding: CGFloat = 48
     static let buttonHeight: CGFloat = 44
     static let largeTrailingPadding: CGFloat = -36
+    static let sectionHeaderHeight: CGFloat = 55
 }
 
 struct AppText {
-    static let save = "Save"
-    static let memberSectionHouse = "House"
-    static let memberSectionSenate = "Senate"
+    static let saveButtonText = "Save"
     static let defaultPreferredState = "NY"
 }
 
