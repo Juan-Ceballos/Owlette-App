@@ -17,9 +17,7 @@ class MembersViewController: UIViewController {
     ["SectionTitle": "House", "Members": [ProMemberState]()]]
     let congressLogoDict: [String: UIImage?] = ["D": UIImage(named: "DemLogo"), "R": UIImage(named: "RepLogo")]
     let senateIndex = 0, houseIndex = 1
-    var preferredState = UserDefaultsManager.shared.getSearchedState() ?? "NY"
-    
-    
+    var preferredState = UserDefaultsManager.shared.getSearchedState() ?? AppText.defaultPreferredState
     
     override func loadView() {
         view = memberView
