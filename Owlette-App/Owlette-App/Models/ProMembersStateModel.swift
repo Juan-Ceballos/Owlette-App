@@ -13,19 +13,19 @@ struct ProMembersStateModel: Codable {
 
 struct ProMemberState: Codable {
     let id: String
-    let name: String
+    let name: String //
     let firstName: String
     let middleName: String?
     let lastName: String
-    let role: String
-    let party: String
-    let twitterId: String?
+    let role: String //
+    let party: String //
+    let twitterId: String? //
     let facebookAccount: String?
     let youtubeId: String?
     let seniority: String
-    let nextElection: String
+    let nextElection: String //
     let apiUri: String
-    let district: String?
+    let district: String? //
     
     enum CodingKeys: String, CodingKey {
         case id
