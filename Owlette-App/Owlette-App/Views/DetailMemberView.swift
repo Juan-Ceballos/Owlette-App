@@ -9,6 +9,10 @@ import UIKit
 
 class DetailMemberView: UIView {
     
+    override func layoutSubviews() {
+        depictionImageView.layer.cornerRadius = 2
+    }
+    
     public var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.tertiaryColor
