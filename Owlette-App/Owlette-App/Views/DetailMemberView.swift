@@ -15,11 +15,11 @@ class DetailMemberView: UIView {
     
     public var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = AppColors.tertiaryColor
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
-    public var detailContentView: UIView = {
+    public var detailTopContentView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.tertiaryColor
         return view
@@ -46,15 +46,27 @@ class DetailMemberView: UIView {
     
     private func commonInit() {
         pinVCBackground(of: backgroundView)
-        setupDepictionImageView()
+        setupDetailTopContentView()
+        //pinAlignLeading(of: depictionImageView, refSubviewLeading: detailTopContentView, refSubviewTrailing: detailTopContentView, topPadding: AppSizes.smallPadding, trailingPadding: 0, width: widthAnchor, height: heightAnchor, multi: 0.3)
+        //setupDepictionImageView()
+    }
+    
+    private func setupDetailTopContentView() {
+        addSubview(detailTopContentView)
+        detailTopContentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailTopContentView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+            detailTopContentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+            detailTopContentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            detailTopContentView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.3)
+        ])
     }
     
     private func setupDepictionImageView() {
         addSubview(depictionImageView)
         depictionImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            depictionImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            depictionImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
             depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
         ])
