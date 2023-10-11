@@ -25,13 +25,22 @@ class DetailMemberView: UIView {
         return view
     }()
     
-    
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColors.smallComponentsColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
+    }()
+    
+    public var nameLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    public var districtLabel: UILabel = {
+        let label = UILabel()
+        return label
     }()
     
     override init(frame: CGRect) {
