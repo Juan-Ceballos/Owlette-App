@@ -10,7 +10,7 @@ import UIKit
 class DetailMemberView: UIView {
     
     override func layoutSubviews() {
-        depictionImageView.layer.cornerRadius = 2
+        depictionImageView.layer.cornerRadius = depictionImageView.frame.size.height / 2
     }
     
     public var backgroundView: UIView = {
