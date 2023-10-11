@@ -47,8 +47,7 @@ class DetailMemberView: UIView {
     private func commonInit() {
         pinVCBackground(of: backgroundView)
         setupDetailTopContentView()
-        //pinAlignLeading(of: depictionImageView, refSubviewLeading: detailTopContentView, refSubviewTrailing: detailTopContentView, topPadding: AppSizes.smallPadding, trailingPadding: 0, width: widthAnchor, height: heightAnchor, multi: 0.3)
-        //setupDepictionImageView()
+        pinContentLeading(of: depictionImageView, refSubview: detailTopContentView, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.2)
     }
     
     private func setupDetailTopContentView() {
@@ -59,16 +58,6 @@ class DetailMemberView: UIView {
             detailTopContentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
             detailTopContentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
             detailTopContentView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.3)
-        ])
-    }
-    
-    private func setupDepictionImageView() {
-        addSubview(depictionImageView)
-        depictionImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            
-            depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
-            depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
         ])
     }
     

@@ -53,4 +53,15 @@ extension UIView {
             subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
         ])
     }
+    
+    func pinContentLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat, leadingPadding: CGFloat, width: NSLayoutDimension, height: NSLayoutDimension, multi: CGFloat) {
+        addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            subview.topAnchor.constraint(equalTo: refSubview.topAnchor, constant: topPadding),
+            subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding),
+            subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
+            subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
+        ])
+    }
 }
