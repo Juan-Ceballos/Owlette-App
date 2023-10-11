@@ -19,6 +19,13 @@ class DetailMemberView: UIView {
         return view
     }()
     
+    public var detailContentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.tertiaryColor
+        return view
+    }()
+    
+    
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColors.smallComponentsColor
