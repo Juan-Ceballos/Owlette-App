@@ -23,7 +23,7 @@ class DetailMemberView: UIView {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColors.smallComponentsColor
         imageView.contentMode = .scaleAspectFill
-        
+        imageView.clipsToBounds = true
         return imageView
     }()
     
