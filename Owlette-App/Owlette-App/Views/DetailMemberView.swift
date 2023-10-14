@@ -25,6 +25,7 @@ class DetailMemberView: UIView {
         return view
     }()
     
+    // loading?
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColors.smallComponentsColor
@@ -35,6 +36,13 @@ class DetailMemberView: UIView {
     
     public var nameLabel: UILabel = {
         let label = UILabel()
+        label.text = "Member"
+        return label
+    }()
+    
+    public lazy var websiteLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Member Website"
         return label
     }()
     
@@ -57,6 +65,8 @@ class DetailMemberView: UIView {
         pinVCBackground(of: backgroundView)
         setupDetailTopContentView()
         pinContentLeading(of: depictionImageView, refSubview: detailTopContentView, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.2)
+        setupNameLabelConstraints()
+        setupWebsiteLabelConstraints()
     }
     
     private func setupDetailTopContentView() {
@@ -67,6 +77,24 @@ class DetailMemberView: UIView {
             detailTopContentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
             detailTopContentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
             detailTopContentView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    private func setupNameLabelConstraints() {
+        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: depictionImageView.topAnchor, constant: AppSizes.medPadding),
+            nameLabel.leadingAnchor.constraint(equalTo: depictionImageView.trailingAnchor, constant: AppSizes.smallPadding)
+        ])
+    }
+    
+    private func setupWebsiteLabelConstraints() {
+        addSubview(websiteLabel)
+        websiteLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            websiteLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            websiteLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor)
         ])
     }
     

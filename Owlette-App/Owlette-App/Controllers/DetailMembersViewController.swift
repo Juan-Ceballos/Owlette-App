@@ -9,6 +9,8 @@ import UIKit
 
 class DetailMembersViewController: UIViewController {
     
+    let proPublicaAPI = ProPublicaAPI()
+    
     init(member: ProMemberState? = nil) {
         self.member = member
         super.init(nibName: nil, bundle: nil)
