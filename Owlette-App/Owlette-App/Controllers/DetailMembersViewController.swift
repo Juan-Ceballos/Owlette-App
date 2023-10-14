@@ -34,6 +34,11 @@ class DetailMembersViewController: UIViewController {
         }
     }
     
+    func fetchMemberById(memberId: String) {
+        Task {
+            proPublicaAPI.fetchParseData(pathComponent: "members\(memberId).json", responseType: <#T##(Decodable & Encodable).Protocol#>)
+        }
+    }
     // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
     // This has committes to consider, need for member website which is helpful for policy agenda
     // needs to implement votes, if votes and committes then consider like horizontal section cv
