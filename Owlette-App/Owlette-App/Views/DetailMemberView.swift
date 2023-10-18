@@ -44,7 +44,6 @@ class DetailMemberView: UIView {
         textView.isEditable = false
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
-        textView.text = "Website"
         let width = self.bounds.width * 0.3
         let height = self.bounds.width * 0.05
         textView.frame = CGRect(x: 0, y: 0, width: width, height: height)

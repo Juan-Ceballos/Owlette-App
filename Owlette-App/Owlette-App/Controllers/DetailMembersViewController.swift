@@ -29,6 +29,7 @@ class DetailMembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailMemberView.websiteTextView.delegate = self
         setupUI()
     }
     
@@ -37,8 +38,17 @@ class DetailMembersViewController: UIViewController {
         Task {
             await setMemberUrlLabel()
             await setupNameLabel()
-            detailMemberView.websiteTextView.delegate = self
         }
+    }
+    
+    func setupLinkText(url: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: "Website")
+        let linkRange = NSRange(location: 0, length: attributedString.length)
+        
+        attributedString.addAttribute(.link, value: url, range: linkRange)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.blue, range: linkRange)
+        
+        return attributedString
     }
     
     func setMemberImage() {
@@ -49,7 +59,8 @@ class DetailMembersViewController: UIViewController {
     
     func setMemberUrlLabel() async {
         let detailMember = await fetchMemberById(memberId: member?.id ?? "No Id")
-        detailMemberView.websiteTextView.text = detailMember!.results.first!.url
+        let webUrl = detailMember!.results.first!.url
+        detailMemberView.websiteTextView.attributedText = setupLinkText(url: webUrl)
     }
     
     func setupNameLabel() async {
