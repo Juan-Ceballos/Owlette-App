@@ -40,10 +40,13 @@ class DetailMemberView: UIView {
         return label
     }()
     
-    public lazy var websiteLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Member Website"
-        return label
+    public lazy var websiteTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.isSelectable = true
+        textView.dataDetectorTypes = .link
+        textView.text = "Website"
+        return textView
     }()
     
     public var districtLabel: UILabel = {
@@ -89,12 +92,12 @@ class DetailMemberView: UIView {
         ])
     }
     
-    private func setupWebsiteLabelConstraints() {
-        addSubview(websiteLabel)
-        websiteLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupWebsiteTextViewConstraints() {
+        addSubview(websiteTextView)
+        websiteTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            websiteLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
-            websiteLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor)
+            websiteTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor)
         ])
     }
     
