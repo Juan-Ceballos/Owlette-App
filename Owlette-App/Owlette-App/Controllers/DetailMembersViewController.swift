@@ -29,9 +29,14 @@ class DetailMembersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
         setMemberImage()
         Task {
-            await fetchMemberById(memberId: member?.id ?? "no website")
+            await setMemberUrlLabel()
+            await setupNameLabel()
         }
     }
     
@@ -41,16 +46,27 @@ class DetailMembersViewController: UIViewController {
         }
     }
     
-    func fetchMemberById(memberId: String) async {
+    func setMemberUrlLabel() async {
+        let detailMember = await fetchMemberById(memberId: member?.id ?? "No Id")
+        detailMemberView.websiteLabel.text = detailMember?.results.first!.url
+    }
+    
+    func setupNameLabel() async {
+        detailMemberView.nameLabel.text = member?.name ?? "No Name"
+    }
+    
+    func fetchMemberById(memberId: String) async -> MemberIdModelContainer? {
         do {
             let detailMember = try await proPublicaAPI.fetchParseData(pathComponent: "members/\(memberId.lowercased()).json", responseType: MemberIdModelContainer.self)
-            print(member?.id ?? "no id")
-            print(detailMember.results)
+            return detailMember
         }
         catch {
             print("error: \(error)")
         }
+        return nil
     }
+    
+    
     // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
     // This has committes to consider, need for member website which is helpful for policy agenda
     // needs to implement votes, if votes and committes then consider like horizontal section cv
