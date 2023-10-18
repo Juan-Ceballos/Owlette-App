@@ -36,7 +36,6 @@ class DetailMemberView: UIView {
     
     public var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Member"
         return label
     }()
     
@@ -46,6 +45,9 @@ class DetailMemberView: UIView {
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
         textView.text = "Website"
+        let width = self.bounds.width * 0.3
+        let height = self.bounds.width * 0.05
+        textView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         return textView
     }()
     
@@ -69,7 +71,7 @@ class DetailMemberView: UIView {
         setupDetailTopContentView()
         pinContentLeading(of: depictionImageView, refSubview: detailTopContentView, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.2)
         setupNameLabelConstraints()
-        setupWebsiteLabelConstraints()
+        setupWebsiteTextViewConstraints()
     }
     
     private func setupDetailTopContentView() {
@@ -97,7 +99,9 @@ class DetailMemberView: UIView {
         websiteTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             websiteTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
-            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor)
+            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05)
         ])
     }
     

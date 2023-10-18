@@ -37,6 +37,7 @@ class DetailMembersViewController: UIViewController {
         Task {
             await setMemberUrlLabel()
             await setupNameLabel()
+            detailMemberView.websiteTextView.delegate = self
         }
     }
     
@@ -48,7 +49,7 @@ class DetailMembersViewController: UIViewController {
     
     func setMemberUrlLabel() async {
         let detailMember = await fetchMemberById(memberId: member?.id ?? "No Id")
-        detailMemberView.websiteLabel.text = detailMember?.results.first!.url
+        detailMemberView.websiteTextView.text = detailMember!.results.first!.url
     }
     
     func setupNameLabel() async {
@@ -70,4 +71,11 @@ class DetailMembersViewController: UIViewController {
     // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
     // This has committes to consider, need for member website which is helpful for policy agenda
     // needs to implement votes, if votes and committes then consider like horizontal section cv
+}
+
+extension DetailMembersViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        UIApplication.shared.open(URL)
+        return false
+    }
 }
