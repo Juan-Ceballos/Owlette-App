@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct ProMemberIdModel: Codable {
-    let results: [ProMemberId]
+struct MemberIdModelContainer: Codable {
+    let results: [MemberIdModel]
 }
 
-struct ProMemberId: Codable {
+struct MemberIdModel: Codable {
     let url: String
-    
-    enum CodingKeys: String, CodingKey {
-        case url
-    }
 }

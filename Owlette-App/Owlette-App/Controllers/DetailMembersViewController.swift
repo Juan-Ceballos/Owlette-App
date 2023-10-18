@@ -30,6 +30,9 @@ class DetailMembersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setMemberImage()
+        Task {
+            await fetchMemberById(memberId: member?.id ?? "no website")
+        }
     }
     
     func setMemberImage() {
@@ -38,9 +41,14 @@ class DetailMembersViewController: UIViewController {
         }
     }
     
-    func fetchMemberById(memberId: String) {
-        Task {
-            let detailMember = try await proPublicaAPI.fetchParseData(pathComponent: "members\(memberId).json", responseType: ProMemberId.self)
+    func fetchMemberById(memberId: String) async {
+        do {
+            let detailMember = try await proPublicaAPI.fetchParseData(pathComponent: "members/\(memberId.lowercased()).json", responseType: MemberIdModelContainer.self)
+            print(member?.id ?? "no id")
+            print(detailMember.results)
+        }
+        catch {
+            print("error: \(error)")
         }
     }
     // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
