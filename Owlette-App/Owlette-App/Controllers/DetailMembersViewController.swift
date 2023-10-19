@@ -39,6 +39,18 @@ class DetailMembersViewController: UIViewController {
             await setMemberUrlLabel()
             await setupNameLabel()
         }
+        detailMemberView.partyTextView.backgroundColor = getPartyColor()
+    }
+    
+    func getPartyColor() -> UIColor {
+        switch member?.party.lowercased() {
+        case "r":
+            return UIColor.systemRed
+        case "d":
+            return UIColor.systemBlue
+        default:
+            return UIColor.systemGray
+        }
     }
     
     func setupLinkText(url: String) -> NSMutableAttributedString {

@@ -69,10 +69,36 @@ class DetailMemberView: UIView {
         return textView
     }()
     
-    public var districtLabel: UILabel = {
+    public lazy var titlePartyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Party"
+        label.textColor = AppColors.textColor
+        label.font = .boldSystemFont(ofSize: 18)
+        return label
+    }()
+    
+    public lazy var partyTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.isSelectable = false
+        let width = self.bounds.width * 0.05
+        let height = self.bounds.width * 0.05
+        textView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        textView.backgroundColor = AppColors.tertiaryColor
+        return textView
+    }()
+    
+    public var titleDistrictLabel: UILabel = {
         let label = UILabel()
         return label
     }()
+    
+    public lazy var districtLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -91,6 +117,17 @@ class DetailMemberView: UIView {
         setupNameLabelConstraints()
         setupTitleWebsiteLabel()
         setupWebsiteTextViewConstraints()
+        setupTitlePartyLabel()
+        pinContentLeading(of: partyTextView, refSubview: websiteTextView, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.05)
+    }
+    
+    private func setupTitlePartyLabel() {
+        addSubview(titlePartyLabel)
+        titlePartyLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titlePartyLabel.leadingAnchor.constraint(equalTo: titleWebsiteLabel.leadingAnchor),
+            titlePartyLabel.topAnchor.constraint(equalTo: titleWebsiteLabel.bottomAnchor, constant: AppSizes.medPadding)
+        ])
     }
     
     private func setupDepictionImageViewConstraints() {
@@ -136,7 +173,7 @@ class DetailMemberView: UIView {
         websiteTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             websiteTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
-            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -6),
             websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
             websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
