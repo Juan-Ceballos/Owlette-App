@@ -90,15 +90,33 @@ class DetailMemberView: UIView {
     
     public var titleDistrictLabel: UILabel = {
         let label = UILabel()
+        label.text = "Role/District"
+        label.textColor = AppColors.textColor
+        label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     
     public lazy var districtLabel: UILabel = {
         let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = .systemFont(ofSize: 18)
         return label
     }()
     
+    public lazy var titleSeniorityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Seniority"
+        label.textColor = AppColors.textColor
+        label.font = .boldSystemFont(ofSize: 18)
+        return label
+    }()
     
+    public lazy var seniorityLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = .systemFont(ofSize: 18)
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -119,6 +137,10 @@ class DetailMemberView: UIView {
         setupWebsiteTextViewConstraints()
         setupTitlePartyLabel()
         pinContentLeading(of: partyTextView, refSubview: websiteTextView, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.05)
+        pinLabelLeading(of: titleDistrictLabel, refSubview: titlePartyLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
+        pinLabelLeading(of: districtLabel, refSubview: partyTextView, topPadding: 9, leadingPadding: AppSizes.noPadding)
+        pinLabelLeading(of: titleSeniorityLabel, refSubview: titleDistrictLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
+        pinLabelLeading(of: seniorityLabel, refSubview: districtLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
     }
     
     private func setupTitlePartyLabel() {

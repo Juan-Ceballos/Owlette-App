@@ -40,6 +40,9 @@ class DetailMembersViewController: UIViewController {
             await setupNameLabel()
         }
         detailMemberView.partyTextView.backgroundColor = getPartyColor()
+        detailMemberView.districtLabel.text = "\(member?.role ?? "Third")/\(member?.district ?? "")"
+        detailMemberView.seniorityLabel.text = member?.seniority ?? "0"
+        
     }
     
     func getPartyColor() -> UIColor {
