@@ -34,8 +34,26 @@ class DetailMemberView: UIView {
         return imageView
     }()
     
+    public var titleNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.text = "Name"
+        label.font = .boldSystemFont(ofSize: 18)
+        return label
+    }()
+    
     public var nameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = .systemFont(ofSize: 18)
+        return label
+    }()
+    
+    public var titleWebsiteLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.text = "Website"
+        label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -45,8 +63,9 @@ class DetailMemberView: UIView {
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
         let width = self.bounds.width * 0.3
-        let height = self.bounds.width * 0.05
+        let height = self.bounds.width * 0.1
         textView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        textView.backgroundColor = AppColors.primaryColor
         return textView
     }()
     
@@ -67,20 +86,30 @@ class DetailMemberView: UIView {
     
     private func commonInit() {
         pinVCBackground(of: backgroundView)
-        setupDetailTopContentView()
-        pinContentLeading(of: depictionImageView, refSubview: detailTopContentView, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.2)
+        setupDepictionImageViewConstraints()
+        setupTitleNameLabelConstraints()
         setupNameLabelConstraints()
+        setupTitleWebsiteLabel()
         setupWebsiteTextViewConstraints()
     }
     
-    private func setupDetailTopContentView() {
-        addSubview(detailTopContentView)
-        detailTopContentView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupDepictionImageViewConstraints() {
+        addSubview(depictionImageView)
+        depictionImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailTopContentView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            detailTopContentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
-            detailTopContentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-            detailTopContentView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.3)
+            depictionImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            depictionImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
+            depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    private func setupTitleNameLabelConstraints() {
+        addSubview(titleNameLabel)
+        titleNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleNameLabel.topAnchor.constraint(equalTo: depictionImageView.bottomAnchor, constant: AppSizes.largePadding),
+            titleNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding)
         ])
     }
     
@@ -88,8 +117,17 @@ class DetailMemberView: UIView {
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: depictionImageView.topAnchor, constant: AppSizes.medPadding),
-            nameLabel.leadingAnchor.constraint(equalTo: depictionImageView.trailingAnchor, constant: AppSizes.smallPadding)
+            nameLabel.topAnchor.constraint(equalTo: titleNameLabel.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: depictionImageView.centerXAnchor)
+        ])
+    }
+    
+    private func setupTitleWebsiteLabel() {
+        addSubview(titleWebsiteLabel)
+        titleWebsiteLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleWebsiteLabel.topAnchor.constraint(equalTo: titleNameLabel.bottomAnchor, constant: AppSizes.medPadding),
+            titleWebsiteLabel.leadingAnchor.constraint(equalTo: titleNameLabel.leadingAnchor)
         ])
     }
     
@@ -100,7 +138,7 @@ class DetailMemberView: UIView {
             websiteTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
             websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
-            websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05)
+            websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
         ])
     }
     

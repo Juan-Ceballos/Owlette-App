@@ -42,11 +42,13 @@ class DetailMembersViewController: UIViewController {
     }
     
     func setupLinkText(url: String) -> NSMutableAttributedString {
-        let attributedString = NSMutableAttributedString(string: "Website")
+        let attributedString = NSMutableAttributedString(string: member?.firstName ?? "")
         let linkRange = NSRange(location: 0, length: attributedString.length)
+        let customFont = UIFont.systemFont(ofSize: 20)
         
         attributedString.addAttribute(.link, value: url, range: linkRange)
         attributedString.addAttribute(.foregroundColor, value: UIColor.blue, range: linkRange)
+        attributedString.addAttribute(.font, value: customFont, range: linkRange)
         
         return attributedString
     }
