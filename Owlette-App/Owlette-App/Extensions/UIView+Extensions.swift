@@ -30,56 +30,42 @@ extension UIView {
         ])
     }
     
-    func pinCenter(of subview: UIView, width: NSLayoutDimension, height: NSLayoutDimension, multi: CGFloat) {
+    func pinCenter(of subview: UIView, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subview.centerXAnchor.constraint(equalTo: centerXAnchor),
-            subview.centerYAnchor.constraint(equalTo: centerYAnchor),
-            subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
-            subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
-        ])
+        if let width = width, let height = height, let multi = multi {
+            NSLayoutConstraint.activate([
+                subview.centerXAnchor.constraint(equalTo: centerXAnchor),
+                subview.centerYAnchor.constraint(equalTo: centerYAnchor),
+                subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
+                subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                subview.centerXAnchor.constraint(equalTo: centerXAnchor),
+                subview.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ])
+        }
     }
     
-    func pinAlignLeading(of subview: UIView, refSubviewLeading: UIView, refSubviewTrailing: UIView, topPadding: CGFloat,
-                         trailingPadding: CGFloat, width: NSLayoutDimension, height: NSLayoutDimension, multi: CGFloat) {
+    func pinVerticalLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat, leadingPadding: CGFloat, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: refSubviewLeading.bottomAnchor, constant: topPadding),
-            subview.leadingAnchor.constraint(equalTo: refSubviewLeading.leadingAnchor),
-            subview.trailingAnchor.constraint(equalTo: refSubviewTrailing.trailingAnchor, constant: trailingPadding),
-            subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
-            subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
-        ])
+        
+        if let width = width, let height = height, let multi = multi {
+            NSLayoutConstraint.activate([
+                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding),
+                subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
+                subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding)
+            ])
+        }
+        
     }
     
-    func pinContentLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat, leadingPadding: CGFloat, width: NSLayoutDimension, height: NSLayoutDimension, multi: CGFloat) {
-        addSubview(subview)
-        subview.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
-            subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding),
-            subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
-            subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
-        ])
-    }
-    
-    func pinLabelVerticalLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat) {
-        addSubview(subview)
-        subview.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
-            subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor),
-        ])
-    }
-    
-    func pinLabelHorizontal(of subview: UIView, refSubview: UIView, leadingPadding: CGFloat) {
-        addSubview(subview)
-        subview.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subview.bottomAnchor.constraint(equalTo: refSubview.bottomAnchor),
-            subview.leadingAnchor.constraint(equalTo: refSubview.trailingAnchor, constant: leadingPadding)
-        ])
-    }
 }

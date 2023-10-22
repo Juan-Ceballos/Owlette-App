@@ -87,16 +87,7 @@ class MemberView: UIView {
         setupStateSearchTextField()
         setupSaveButtonConstraints()
         setupCollectionViewConstraints()
-        setupActivityIndicatorConstraints()
-    }
-    
-    private func setupActivityIndicatorConstraints() {
-        addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        pinCenter(of: activityIndicator)
     }
     
     private func setupTopContentView() {
