@@ -175,16 +175,17 @@ class DetailMemberView: UIView {
         setupContentStackViewConstraints()
         setupPartyTextViewConstraints()
         setupWebsiteTextViewConstraints()
-        //setupTitleNameLabelConstraints()
-        //setupNameLabelConstraints()
-        //pinLabelVerticalLeading(of: titleWebsiteLabel, refSubview: titleNameLabel, topPadding: AppSizes.medPadding)
-        //setupWebsiteTextViewConstraints()
-        //pinLabelVerticalLeading(of: titlePartyLabel, refSubview: titleWebsiteLabel, topPadding: AppSizes.medPadding)
-        //setupPartyTextViewConstraints()
-        //pinLabelVerticalLeading(of: titleDistrictLabel, refSubview: titlePartyLabel, topPadding: AppSizes.medPadding)
-        //pinLabelVerticalLeading(of: districtLabel, refSubview: partyTextView, topPadding: AppSizes.medPadding)
-        //pinLabelVerticalLeading(of: titleSeniorityLabel, refSubview: titleDistrictLabel, topPadding: AppSizes.medPadding)
-        //pinLabelVerticalLeading(of: seniorityLabel, refSubview: districtLabel, topPadding: 17)
+    }
+    
+    private func setupDepictionImageViewConstraints() {
+        addSubview(depictionImageView)
+        depictionImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            depictionImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            depictionImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
+            depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+        ])
     }
     
     private func setupTitleStackViewConstraints() {
@@ -209,6 +210,15 @@ class DetailMemberView: UIView {
         ])
     }
     
+    func setupPartyTextViewConstraints() {
+        contentStackView.addSubview(partyTextView) //addSubview(partyTextView)
+        partyTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            partyTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05),
+            partyTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05)
+        ])
+    }
+    
     private func setupWebsiteTextViewConstraints() {
         addSubview(websiteTextView) //addSubview(websiteTextView)
         websiteTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -219,45 +229,5 @@ class DetailMemberView: UIView {
             websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.07),
         ])
     }
-    
-    func setupPartyTextViewConstraints() {
-        contentStackView.addSubview(partyTextView) //addSubview(partyTextView)
-        partyTextView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            partyTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05),
-            partyTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05)
-        ])
-    }
-    
-    private func setupDepictionImageViewConstraints() {
-        addSubview(depictionImageView)
-        depictionImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            depictionImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            depictionImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
-            depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
-            depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
-        ])
-    }
-    
-    private func setupTitleNameLabelConstraints() {
-        addSubview(titleNameLabel)
-        titleNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleNameLabel.topAnchor.constraint(equalTo: depictionImageView.bottomAnchor, constant: AppSizes.largePadding),
-            titleNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding)
-        ])
-    }
-    
-    private func setupNameLabelConstraints() {
-        addSubview(nameLabel)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: titleNameLabel.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: depictionImageView.centerXAnchor)
-        ])
-    }
-    
-    
     
 }
