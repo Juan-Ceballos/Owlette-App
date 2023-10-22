@@ -55,7 +55,6 @@ class MemberCell: UICollectionViewCell {
         pinEdges(of: cellContentView)
         setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
-        //setupNextElectionLabelConstraints()
         pinVerticalLeading(of: nextElectionLabel, refSubview: memberLabel, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.noPadding)
         setupDetailRightChevronConstraints()
     }
@@ -77,15 +76,6 @@ class MemberCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             memberLabel.bottomAnchor.constraint(equalTo: partyUIImageView.centerYAnchor),
             memberLabel.leadingAnchor.constraint(equalTo: partyUIImageView.trailingAnchor, constant: AppSizes.medPadding)
-        ])
-    }
-    
-    private func setupNextElectionLabelConstraints() {
-        addSubview(nextElectionLabel)
-        nextElectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nextElectionLabel.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: AppSizes.smallPadding),
-            nextElectionLabel.leadingAnchor.constraint(equalTo: memberLabel.leadingAnchor)
         ])
     }
     
