@@ -63,9 +63,10 @@ class DetailMemberView: UIView {
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
         let width = self.bounds.width * 0.3
-        let height = self.bounds.width * 0.1
+        let height = self.bounds.width * 0.07
         textView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         textView.backgroundColor = AppColors.primaryColor
+        textView.contentMode = .bottom
         return textView
     }()
     
@@ -84,7 +85,6 @@ class DetailMemberView: UIView {
         let width = self.bounds.width * 0.05
         let height = self.bounds.width * 0.05
         textView.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        textView.backgroundColor = AppColors.tertiaryColor
         return textView
     }()
     
@@ -118,6 +118,46 @@ class DetailMemberView: UIView {
         return label
     }()
     
+    // add when add flag assets
+    public lazy var titleStateLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    // add when add flag assets
+    public lazy var stateLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    public lazy var titleNextElectionLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    public lazy var nextElectionLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    public lazy var titleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleNameLabel,
+                                                       titleDistrictLabel, titleSeniorityLabel, titlePartyLabel])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    
+    public lazy var contentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [nameLabel,
+                                                       districtLabel, seniorityLabel, partyTextView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -131,24 +171,61 @@ class DetailMemberView: UIView {
     private func commonInit() {
         pinVCBackground(of: backgroundView)
         setupDepictionImageViewConstraints()
-        setupTitleNameLabelConstraints()
-        setupNameLabelConstraints()
-        setupTitleWebsiteLabel()
+        setupTitleStackViewConstraints()
+        setupContentStackViewConstraints()
+        setupPartyTextViewConstraints()
         setupWebsiteTextViewConstraints()
-        setupTitlePartyLabel()
-        pinContentLeading(of: partyTextView, refSubview: websiteTextView, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.smallPadding, width: widthAnchor, height: widthAnchor, multi: 0.05)
-        pinLabelLeading(of: titleDistrictLabel, refSubview: titlePartyLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
-        pinLabelLeading(of: districtLabel, refSubview: partyTextView, topPadding: 9, leadingPadding: AppSizes.noPadding)
-        pinLabelLeading(of: titleSeniorityLabel, refSubview: titleDistrictLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
-        pinLabelLeading(of: seniorityLabel, refSubview: districtLabel, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.noPadding)
+        //setupTitleNameLabelConstraints()
+        //setupNameLabelConstraints()
+        //pinLabelVerticalLeading(of: titleWebsiteLabel, refSubview: titleNameLabel, topPadding: AppSizes.medPadding)
+        //setupWebsiteTextViewConstraints()
+        //pinLabelVerticalLeading(of: titlePartyLabel, refSubview: titleWebsiteLabel, topPadding: AppSizes.medPadding)
+        //setupPartyTextViewConstraints()
+        //pinLabelVerticalLeading(of: titleDistrictLabel, refSubview: titlePartyLabel, topPadding: AppSizes.medPadding)
+        //pinLabelVerticalLeading(of: districtLabel, refSubview: partyTextView, topPadding: AppSizes.medPadding)
+        //pinLabelVerticalLeading(of: titleSeniorityLabel, refSubview: titleDistrictLabel, topPadding: AppSizes.medPadding)
+        //pinLabelVerticalLeading(of: seniorityLabel, refSubview: districtLabel, topPadding: 17)
     }
     
-    private func setupTitlePartyLabel() {
-        addSubview(titlePartyLabel)
-        titlePartyLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupTitleStackViewConstraints() {
+        addSubview(titleStackView)
+        titleStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titlePartyLabel.leadingAnchor.constraint(equalTo: titleWebsiteLabel.leadingAnchor),
-            titlePartyLabel.topAnchor.constraint(equalTo: titleWebsiteLabel.bottomAnchor, constant: AppSizes.medPadding)
+            titleStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding),
+            titleStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            titleStackView.topAnchor.constraint(equalTo: depictionImageView.bottomAnchor, constant: AppSizes.largePadding),
+            titleStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.18)
+        ])
+    }
+    
+    private func setupContentStackViewConstraints() {
+        addSubview(contentStackView)
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentStackView.leadingAnchor.constraint(equalTo: centerXAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            contentStackView.topAnchor.constraint(equalTo: depictionImageView.bottomAnchor, constant: AppSizes.largePadding),
+            contentStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.18)
+        ])
+    }
+    
+    private func setupWebsiteTextViewConstraints() {
+        addSubview(websiteTextView) //addSubview(websiteTextView)
+        websiteTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            websiteTextView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: AppSizes.largePadding),
+            websiteTextView.leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor, constant: -5),
+            websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.07),
+        ])
+    }
+    
+    func setupPartyTextViewConstraints() {
+        contentStackView.addSubview(partyTextView) //addSubview(partyTextView)
+        partyTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            partyTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05),
+            partyTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05)
         ])
     }
     
@@ -181,24 +258,6 @@ class DetailMemberView: UIView {
         ])
     }
     
-    private func setupTitleWebsiteLabel() {
-        addSubview(titleWebsiteLabel)
-        titleWebsiteLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleWebsiteLabel.topAnchor.constraint(equalTo: titleNameLabel.bottomAnchor, constant: AppSizes.medPadding),
-            titleWebsiteLabel.leadingAnchor.constraint(equalTo: titleNameLabel.leadingAnchor)
-        ])
-    }
     
-    private func setupWebsiteTextViewConstraints() {
-        addSubview(websiteTextView)
-        websiteTextView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            websiteTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: AppSizes.smallPadding),
-            websiteTextView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -6),
-            websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
-            websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1)
-        ])
-    }
     
 }

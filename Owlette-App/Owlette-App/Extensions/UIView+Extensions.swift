@@ -65,12 +65,21 @@ extension UIView {
         ])
     }
     
-    func pinLabelLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat, leadingPadding: CGFloat) {
+    func pinLabelVerticalLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
-            subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding),
+            subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor),
+        ])
+    }
+    
+    func pinLabelHorizontal(of subview: UIView, refSubview: UIView, leadingPadding: CGFloat) {
+        addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            subview.bottomAnchor.constraint(equalTo: refSubview.bottomAnchor),
+            subview.leadingAnchor.constraint(equalTo: refSubview.trailingAnchor, constant: leadingPadding)
         ])
     }
 }
