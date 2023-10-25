@@ -22,6 +22,7 @@ struct AppFonts {
     static let headerTextFont = UIFont.boldSystemFont(ofSize: 22)
     static let boldLabelFont = UIFont.boldSystemFont(ofSize: 18)
     static let labelFont = UIFont.systemFont(ofSize: 18)
+    static let linkFont = UIFont.systemFont(ofSize: 17)
 }
 
 struct AppSizes {
