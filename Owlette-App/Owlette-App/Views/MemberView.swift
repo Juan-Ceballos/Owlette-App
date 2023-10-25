@@ -87,7 +87,7 @@ class MemberView: UIView {
         setupStateSearchTextField()
         setupSaveButtonConstraints()
         setupCollectionViewConstraints()
-        pinCenter(of: activityIndicator)
+        pinCenter(of: activityIndicator, to: self)
     }
     
     private func setupTopContentView() {

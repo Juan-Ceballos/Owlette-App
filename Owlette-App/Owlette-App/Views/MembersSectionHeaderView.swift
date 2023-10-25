@@ -37,16 +37,7 @@ class MembersSectionHeaderView: UICollectionReusableView {
     
     private func commonInit() {
         pinEdges(of: sectionHeaderBackgroundView)
-        setupSectionLabelConstraints()
-    }
-    
-    private func setupSectionLabelConstraints() {
-        addSubview(sectionLabel)
-        sectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            sectionLabel.centerXAnchor.constraint(equalTo: sectionHeaderBackgroundView.centerXAnchor),
-            sectionLabel.centerYAnchor.constraint(equalTo: sectionHeaderBackgroundView.centerYAnchor)
-        ])
+        pinCenter(of: sectionLabel, to: sectionHeaderBackgroundView)
     }
     
 }

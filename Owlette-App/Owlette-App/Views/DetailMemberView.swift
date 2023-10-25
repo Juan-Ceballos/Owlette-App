@@ -38,14 +38,14 @@ class DetailMemberView: UIView {
         let label = UILabel()
         label.textColor = AppColors.textColor
         label.text = "Name"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = AppFonts.boldLabelFont
         return label
     }()
     
     public var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = AppColors.textColor
-        label.font = .systemFont(ofSize: 18)
+        label.font = AppFonts.labelFont
         return label
     }()
     
@@ -53,7 +53,7 @@ class DetailMemberView: UIView {
         let label = UILabel()
         label.textColor = AppColors.textColor
         label.text = "Website"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = AppFonts.boldLabelFont
         return label
     }()
     
@@ -74,7 +74,7 @@ class DetailMemberView: UIView {
         let label = UILabel()
         label.text = "Party"
         label.textColor = AppColors.textColor
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = AppFonts.boldLabelFont
         return label
     }()
     
@@ -92,14 +92,14 @@ class DetailMemberView: UIView {
         let label = UILabel()
         label.text = "Role/District"
         label.textColor = AppColors.textColor
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = AppFonts.boldLabelFont
         return label
     }()
     
     public lazy var districtLabel: UILabel = {
         let label = UILabel()
         label.textColor = AppColors.textColor
-        label.font = .systemFont(ofSize: 18)
+        label.font = AppFonts.labelFont
         return label
     }()
     
@@ -107,14 +107,14 @@ class DetailMemberView: UIView {
         let label = UILabel()
         label.text = "Seniority"
         label.textColor = AppColors.textColor
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = AppFonts.boldLabelFont
         return label
     }()
     
     public lazy var seniorityLabel: UILabel = {
         let label = UILabel()
         label.textColor = AppColors.textColor
-        label.font = .systemFont(ofSize: 18)
+        label.font = AppFonts.labelFont
         return label
     }()
     
@@ -211,7 +211,7 @@ class DetailMemberView: UIView {
     }
     
     func setupPartyTextViewConstraints() {
-        contentStackView.addSubview(partyTextView) //addSubview(partyTextView)
+        contentStackView.addSubview(partyTextView) 
         partyTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             partyTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05),
@@ -220,7 +220,7 @@ class DetailMemberView: UIView {
     }
     
     private func setupWebsiteTextViewConstraints() {
-        addSubview(websiteTextView) //addSubview(websiteTextView)
+        addSubview(websiteTextView)
         websiteTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             websiteTextView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: AppSizes.largePadding),

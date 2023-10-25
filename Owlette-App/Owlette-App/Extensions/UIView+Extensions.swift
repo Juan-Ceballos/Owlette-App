@@ -30,20 +30,20 @@ extension UIView {
         ])
     }
     
-    func pinCenter(of subview: UIView, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
+    func pinCenter(of subview: UIView, to refView: UIView, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         if let width = width, let height = height, let multi = multi {
             NSLayoutConstraint.activate([
-                subview.centerXAnchor.constraint(equalTo: centerXAnchor),
-                subview.centerYAnchor.constraint(equalTo: centerYAnchor),
+                subview.centerXAnchor.constraint(equalTo: refView.centerXAnchor),
+                subview.centerYAnchor.constraint(equalTo: refView.centerYAnchor),
                 subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
                 subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
             ])
         } else {
             NSLayoutConstraint.activate([
-                subview.centerXAnchor.constraint(equalTo: centerXAnchor),
-                subview.centerYAnchor.constraint(equalTo: centerYAnchor)
+                subview.centerXAnchor.constraint(equalTo: refView.centerXAnchor),
+                subview.centerYAnchor.constraint(equalTo: refView.centerYAnchor)
             ])
         }
     }

@@ -20,6 +20,8 @@ struct AppColors {
 struct AppFonts {
     static let buttonTextFont = UIFont.systemFont(ofSize: 15, weight: .heavy)
     static let headerTextFont = UIFont.boldSystemFont(ofSize: 22)
+    static let boldLabelFont = UIFont.boldSystemFont(ofSize: 18)
+    static let labelFont = UIFont.systemFont(ofSize: 18)
 }
 
 struct AppSizes {
