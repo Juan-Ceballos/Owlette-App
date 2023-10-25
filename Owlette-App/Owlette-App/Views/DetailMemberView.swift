@@ -13,6 +13,14 @@ class DetailMemberView: UIView {
         depictionImageView.layer.cornerRadius = depictionImageView.frame.size.height / 2
     }
     
+    public lazy var voteCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        //let itemSize =
+        return cv
+    }()
+    
     public var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.primaryColor
