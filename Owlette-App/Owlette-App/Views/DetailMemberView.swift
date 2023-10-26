@@ -187,6 +187,7 @@ class DetailMemberView: UIView {
         setupContentStackViewConstraints()
         setupPartyTextViewConstraints()
         setupWebsiteTextViewConstraints()
+        setupVoteCVConstraints()
     }
     
     private func setupDepictionImageViewConstraints() {
@@ -239,6 +240,17 @@ class DetailMemberView: UIView {
             websiteTextView.leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor, constant: -5),
             websiteTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
             websiteTextView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.07),
+        ])
+    }
+    
+    private func setupVoteCVConstraints() {
+        addSubview(voteCV)
+        voteCV.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            voteCV.topAnchor.constraint(equalTo: websiteTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            voteCV.leadingAnchor.constraint(equalTo: leadingAnchor),
+            voteCV.trailingAnchor.constraint(equalTo: trailingAnchor),
+            voteCV.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor)
         ])
     }
     

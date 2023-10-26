@@ -11,6 +11,18 @@ class VoteCell: UICollectionViewCell {
     
     static let voteCellReuseId = "voteCell"
     
+    public lazy var cellBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.primaryColor
+        return view
+    }()
+    
+    public lazy var billTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Bill Name"
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -22,5 +34,8 @@ class VoteCell: UICollectionViewCell {
     }
     
     private func commonInit()   {
+        pinEdges(of: cellBackgroundView)
+        pinCenter(of: billTitleLabel, to: cellBackgroundView)
     }
+    
 }

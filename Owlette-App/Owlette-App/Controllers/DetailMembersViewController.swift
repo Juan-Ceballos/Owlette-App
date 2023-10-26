@@ -30,6 +30,8 @@ class DetailMembersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailMemberView.websiteTextView.delegate = self
+        detailMemberView.voteCV.dataSource = self
+        detailMemberView.voteCV.delegate = self
         setupUI()
     }
     
@@ -106,4 +108,24 @@ extension DetailMembersViewController: UITextViewDelegate {
         UIApplication.shared.open(URL)
         return false
     }
+}
+
+extension DetailMembersViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VoteCell.voteCellReuseId, for: indexPath) as? VoteCell else {
+            fatalError()
+        }
+        
+        return cell
+    }
+    
+    
+}
+
+extension DetailMembersViewController: UICollectionViewDelegate {
+    
 }
