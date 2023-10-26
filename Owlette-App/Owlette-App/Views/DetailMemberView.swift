@@ -12,12 +12,16 @@ class DetailMemberView: UIView {
     override func layoutSubviews() {
         depictionImageView.layer.cornerRadius = depictionImageView.frame.size.height / 2
     }
-    
+        
     public lazy var voteCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        let width = self.frame.size.width
+        let height = self.frame.size.height * 0.1
+        layout.itemSize = CGSize(width: width, height: height)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        //let itemSize =
+        cv.register(VoteCell.self, forCellWithReuseIdentifier: VoteCell.voteCellReuseId)
+        cv.backgroundColor = AppColors.primaryColor
         return cv
     }()
     
