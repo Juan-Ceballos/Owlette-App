@@ -12,16 +12,17 @@ struct ProVotesModel: Codable {
 }
 
 struct ProVotesContainer: Codable {
-    let numResults: Int
-    let votes: [ProVote]
     
-    enum CodingKeys: String, CodingKey {
-        case numResults = "num_results"
-        case votes
-    }
+    let votes: [ProVote]
 }
 
 struct ProVote: Codable {
-    let congress: Int
     let chamber: String
+    let congress: Int
+    let session: String
+    let bill: ProVoteBill
+}
+
+struct ProVoteBill: Codable {
+    let title: String
 }
