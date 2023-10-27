@@ -10,6 +10,7 @@ import UIKit
 class DetailMembersViewController: UIViewController {
     
     let proPublicaAPI = ProPublicaAPI()
+    var votingRecord = [ProVote]()
     
     init(member: ProMemberState? = nil) {
         self.member = member
@@ -33,6 +34,33 @@ class DetailMembersViewController: UIViewController {
         detailMemberView.voteCV.dataSource = self
         detailMemberView.voteCV.delegate = self
         setupUI()
+        print(member?.id.uppercased() ?? "")
+    }
+    
+    // GET https://api.propublica.org/congress/v1/members/{member-id}/votes.json
+    func fetchVoteModel(pathComponent: String) async -> ProVotesContainer? {
+        do {
+            let votesModel = try await proPublicaAPI.fetchParseData(pathComponent: pathComponent, responseType: ProVotesContainer.self)
+            return votesModel
+        }
+        catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    func populateVotes() async {
+        let votes = await fetchVoteModel(pathComponent: "members/\(member?.id.uppercased() ?? "")/votes.json")
+        votingRecord = votes?.results.first?.votes ?? [ProVote]()
+    }
+    
+    func updateVoteCV() {
+        Task {
+            await populateVotes()
+            DispatchQueue.main.async {
+                self.detailMemberView.voteCV.reloadData()
+            }
+        }
     }
     
     func setupUI() {
@@ -40,11 +68,11 @@ class DetailMembersViewController: UIViewController {
         Task {
             await setMemberUrlLabel()
             await setupNameLabel()
+            updateVoteCV()
         }
         detailMemberView.partyTextView.backgroundColor = getPartyColor()
         detailMemberView.districtLabel.text = "\(member?.role ?? "Third")/\(member?.district ?? "")"
         detailMemberView.seniorityLabel.text = member?.seniority ?? "0"
-        
     }
     
     func getPartyColor() -> UIColor {
@@ -112,20 +140,36 @@ extension DetailMembersViewController: UITextViewDelegate {
 
 extension DetailMembersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        votingRecord.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VoteCell.voteCellReuseId, for: indexPath) as? VoteCell else {
             fatalError()
         }
-        
+        let currentVoteRecord = votingRecord[indexPath.row]
+        cell.billTitleLabel.text = currentVoteRecord.bill.number
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MembersSectionHeaderView.reuseId, for: indexPath) as! MembersSectionHeaderView
+            
+            headerView.sectionLabel.text = "Voting Record"
+            return headerView
+            
+            
+        }
+        
+        return UICollectionReusableView()
     }
     
     
 }
 
-extension DetailMembersViewController: UICollectionViewDelegate {
-    
+extension DetailMembersViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: AppSizes.sectionHeaderHeight)
+    }
 }

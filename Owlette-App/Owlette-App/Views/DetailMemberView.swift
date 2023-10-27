@@ -21,6 +21,7 @@ class DetailMemberView: UIView {
         layout.itemSize = CGSize(width: width, height: height)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(VoteCell.self, forCellWithReuseIdentifier: VoteCell.voteCellReuseId)
+        cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         cv.backgroundColor = AppColors.primaryColor
         return cv
     }()

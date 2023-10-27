@@ -19,7 +19,7 @@ class VoteCell: UICollectionViewCell {
     
     public lazy var billTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Bill Name"
+        label.textColor = AppColors.textColor
         return label
     }()
     
