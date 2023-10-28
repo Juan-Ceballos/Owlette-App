@@ -48,21 +48,42 @@ extension UIView {
         }
     }
     
-    func pinVerticalLeading(of subview: UIView, refSubview: UIView, topPadding: CGFloat, leadingPadding: CGFloat, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
+    func pinVerticalLeading(of subview: UIView, to refSubview: UIView, topPadding: CGFloat? = 0, leadingPadding: CGFloat? = 0, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         
         if let width = width, let height = height, let multi = multi {
             NSLayoutConstraint.activate([
-                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
-                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding),
+                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding ?? 0),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding ?? 0),
                 subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
                 subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
             ])
         } else {
             NSLayoutConstraint.activate([
-                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding),
-                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding)
+                subview.topAnchor.constraint(equalTo: refSubview.bottomAnchor, constant: topPadding ?? 0),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding ?? 0)
+            ])
+        }
+        
+    }
+    
+    func pinToTopLeftCorner(of subview: UIView, to refSubview: UIView, topPadding: CGFloat? = 0, leadingPadding: CGFloat? = 0, width: NSLayoutDimension? = nil, height: NSLayoutDimension? = nil, multi: CGFloat? = nil) {
+        
+        addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let width = width, let height = height, let multi = multi {
+            NSLayoutConstraint.activate([
+                subview.topAnchor.constraint(equalTo: refSubview.topAnchor, constant: topPadding ?? 0),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding ?? 0),
+                subview.widthAnchor.constraint(equalTo: width, multiplier: multi),
+                subview.heightAnchor.constraint(equalTo: height, multiplier: multi)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                subview.topAnchor.constraint(equalTo: refSubview.topAnchor, constant: topPadding ?? 0),
+                subview.leadingAnchor.constraint(equalTo: refSubview.leadingAnchor, constant: leadingPadding ?? 0)
             ])
         }
         

@@ -55,7 +55,7 @@ class MemberCell: UICollectionViewCell {
         pinEdges(of: cellContentView)
         setupPartyImageViewConstraints()
         setupMemberLabelConstraints()
-        pinVerticalLeading(of: nextElectionLabel, refSubview: memberLabel, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.noPadding)
+        pinVerticalLeading(of: nextElectionLabel, to: memberLabel, topPadding: AppSizes.smallPadding, leadingPadding: AppSizes.noPadding)
         setupDetailRightChevronConstraints()
     }
     

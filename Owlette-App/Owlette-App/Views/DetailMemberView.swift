@@ -21,7 +21,7 @@ class DetailMemberView: UIView {
         layout.itemSize = CGSize(width: width, height: height)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(VoteCell.self, forCellWithReuseIdentifier: VoteCell.voteCellReuseId)
-        cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
+        //cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         cv.backgroundColor = AppColors.primaryColor
         return cv
     }()
@@ -171,6 +171,15 @@ class DetailMemberView: UIView {
         return stackView
     }()
     
+    public lazy var votingRecordTitleLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Voting Record"
+        label.textColor = AppColors.tertiaryColor
+        label.font = AppFonts.headerTextFont
+        label.textAlignment = .center
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -188,6 +197,7 @@ class DetailMemberView: UIView {
         setupContentStackViewConstraints()
         setupPartyTextViewConstraints()
         setupWebsiteTextViewConstraints()
+        setupVotingRecordTitleLabelConstraints()
         setupVoteCVConstraints()
     }
     
@@ -244,11 +254,21 @@ class DetailMemberView: UIView {
         ])
     }
     
+    private func setupVotingRecordTitleLabelConstraints() {
+        addSubview(votingRecordTitleLabel)
+        votingRecordTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            votingRecordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            votingRecordTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            votingRecordTitleLabel.topAnchor.constraint(equalTo: websiteTextView.bottomAnchor, constant: AppSizes.smallPadding)
+        ])
+    }
+    
     private func setupVoteCVConstraints() {
         addSubview(voteCV)
         voteCV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            voteCV.topAnchor.constraint(equalTo: websiteTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            voteCV.topAnchor.constraint(equalTo: votingRecordTitleLabel.bottomAnchor),
             voteCV.leadingAnchor.constraint(equalTo: leadingAnchor),
             voteCV.trailingAnchor.constraint(equalTo: trailingAnchor),
             voteCV.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor)

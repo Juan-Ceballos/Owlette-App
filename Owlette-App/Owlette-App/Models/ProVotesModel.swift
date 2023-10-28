@@ -17,6 +17,7 @@ struct ProVotesModel: Codable {
 
 struct ProVote: Codable {
     let bill: ProVoteBill
+    let position: String
 }
 
 struct ProVoteBill: Codable {

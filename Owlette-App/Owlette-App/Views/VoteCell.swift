@@ -17,10 +17,23 @@ class VoteCell: UICollectionViewCell {
         return view
     }()
     
-    public lazy var billTitleLabel: UILabel = {
+    public lazy var billNumberLabel: UILabel = {
         let label = UILabel()
         label.textColor = AppColors.textColor
         return label
+    }()
+    
+    public lazy var voteRecordLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        return label
+    }()
+    
+    public lazy var detailRightChevron: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.tintColor = AppColors.tertiaryColor
+        return imageView
     }()
     
     override init(frame: CGRect) {
@@ -35,7 +48,18 @@ class VoteCell: UICollectionViewCell {
     
     private func commonInit()   {
         pinEdges(of: cellBackgroundView)
-        pinCenter(of: billTitleLabel, to: cellBackgroundView)
+        pinToTopLeftCorner(of: billNumberLabel, to: cellBackgroundView, topPadding: AppSizes.medPadding, leadingPadding: AppSizes.medPadding)
+        pinVerticalLeading(of: voteRecordLabel, to: billNumberLabel)
+        setupDetailRightChevronConstraints()
+    }
+    
+    private func setupDetailRightChevronConstraints() {
+        addSubview(detailRightChevron)
+        detailRightChevron.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailRightChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: AppSizes.largeTrailingPadding),
+            detailRightChevron.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
 }

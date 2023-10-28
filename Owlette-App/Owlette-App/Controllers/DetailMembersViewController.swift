@@ -125,7 +125,6 @@ class DetailMembersViewController: UIViewController {
         return nil
     }
     
-    
     // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
     // This has committes to consider, need for member website which is helpful for policy agenda
     // needs to implement votes, if votes and committes then consider like horizontal section cv
@@ -148,28 +147,18 @@ extension DetailMembersViewController: UICollectionViewDataSource {
             fatalError()
         }
         let currentVoteRecord = votingRecord[indexPath.row]
-        cell.billTitleLabel.text = currentVoteRecord.bill.number
+        cell.billNumberLabel.text = currentVoteRecord.bill.number
+        cell.voteRecordLabel.text = currentVoteRecord.position
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MembersSectionHeaderView.reuseId, for: indexPath) as! MembersSectionHeaderView
-            
-            headerView.sectionLabel.text = "Voting Record"
-            return headerView
-            
-            
-        }
-        
-        return UICollectionReusableView()
-    }
-    
-    
 }
 
 extension DetailMembersViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: AppSizes.sectionHeaderHeight)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected")
+        let vc = DetailVoteViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
 }
