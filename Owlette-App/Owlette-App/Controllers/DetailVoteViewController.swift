@@ -17,7 +17,11 @@ class DetailVoteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        detailVoteView.closeButton.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func closeButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 
 }
