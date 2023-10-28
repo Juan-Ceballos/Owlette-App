@@ -19,6 +19,7 @@
 		3E371C8C2ADA7E600070470F /* ProMemberIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C8B2ADA7E5F0070470F /* ProMemberIdModel.swift */; };
 		3E371C8E2AEAB5F10070470F /* VoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C8D2AEAB5F10070470F /* VoteCell.swift */; };
 		3E371C902AEC991D0070470F /* DetailVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C8F2AEC991D0070470F /* DetailVoteViewController.swift */; };
+		3E371C922AECB89E0070470F /* DetailVoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C912AECB89E0070470F /* DetailVoteView.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
 		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
 		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
@@ -62,6 +63,7 @@
 		3E371C8B2ADA7E5F0070470F /* ProMemberIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMemberIdModel.swift; sourceTree = "<group>"; };
 		3E371C8D2AEAB5F10070470F /* VoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCell.swift; sourceTree = "<group>"; };
 		3E371C8F2AEC991D0070470F /* DetailVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVoteViewController.swift; sourceTree = "<group>"; };
+		3E371C912AECB89E0070470F /* DetailVoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVoteView.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				3E28CA632ACA3CC9001B0752 /* MembersSectionHeaderView.swift */,
 				3E28CAE52ACC27FE001B0752 /* DetailMemberView.swift */,
 				3E371C8D2AEAB5F10070470F /* VoteCell.swift */,
+				3E371C912AECB89E0070470F /* DetailVoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				3E0673D72AB0224A00F58832 /* ProPublicaAPI.swift in Sources */,
 				3ECDB71E2AC26CDE00A68AD8 /* MemberCell.swift in Sources */,
 				3E371C8E2AEAB5F10070470F /* VoteCell.swift in Sources */,
+				3E371C922AECB89E0070470F /* DetailVoteView.swift in Sources */,
 				3ECDB6C92AB9487500A68AD8 /* CGMembersModel.swift in Sources */,
 				3ECDB6C72AB9450400A68AD8 /* CongressGovAPI.swift in Sources */,
 				3EDAFD502A845C5800A2C276 /* MainTabBarViewController.swift in Sources */,
