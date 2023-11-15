@@ -17,11 +17,10 @@ class DetailMemberView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let width = self.frame.size.width
-        let height = self.frame.size.height * 0.1
+        let height = self.frame.size.height * 0.08
         layout.itemSize = CGSize(width: width, height: height)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(VoteCell.self, forCellWithReuseIdentifier: VoteCell.voteCellReuseId)
-        //cv.register(MembersSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MembersSectionHeaderView.reuseId)
         cv.backgroundColor = AppColors.primaryColor
         return cv
     }()
