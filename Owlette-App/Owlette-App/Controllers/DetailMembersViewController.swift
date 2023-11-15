@@ -147,8 +147,8 @@ extension DetailMembersViewController: UICollectionViewDataSource {
             fatalError()
         }
         let currentVoteRecord = votingRecord[indexPath.row]
-        cell.billNumberLabel.text = currentVoteRecord.bill.number
-        cell.voteRecordLabel.text = currentVoteRecord.position
+        cell.billNumberLabel.text = "Bill Number: \(currentVoteRecord.bill.number)"
+        cell.voteRecordLabel.text = "Position: \(currentVoteRecord.position)"
         return cell
     }
 }
