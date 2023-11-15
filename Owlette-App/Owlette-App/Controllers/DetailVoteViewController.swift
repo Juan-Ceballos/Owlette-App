@@ -11,6 +11,17 @@ class DetailVoteViewController: UIViewController {
     
     let detailVoteView = DetailVoteView()
     
+    init(voteDetails: ProVote? = nil) {
+        self.voteDetails = voteDetails
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var voteDetails: ProVote?
+    
     override func loadView() {
         view = detailVoteView
     }
