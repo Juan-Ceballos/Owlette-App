@@ -260,7 +260,7 @@ class DetailMemberView: UIView {
         NSLayoutConstraint.activate([
             votingRecordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             votingRecordTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            votingRecordTitleLabel.topAnchor.constraint(equalTo: websiteTextView.bottomAnchor, constant: AppSizes.smallPadding)
+            votingRecordTitleLabel.topAnchor.constraint(equalTo: websiteTextView.bottomAnchor, constant: AppSizes.largePadding)
         ])
     }
     
