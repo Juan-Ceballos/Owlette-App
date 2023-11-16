@@ -12,7 +12,7 @@ struct ProVotesContainer: Codable {
 }
 
 struct ProVotesModel: Codable {
-    let totalVotes: String
+    let totalVotes: String?
     let votes: [ProVote]
     
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,7 @@ struct ProVote: Codable {
     let result: String
     let date: String
     let time: String
-    let total: [ProTotal]
+    let total: ProTotal
     let position: String
     
     enum CodingKeys: String, CodingKey {
