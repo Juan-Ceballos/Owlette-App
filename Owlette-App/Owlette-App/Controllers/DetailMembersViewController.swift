@@ -155,8 +155,8 @@ extension DetailMembersViewController: UICollectionViewDataSource {
 
 extension DetailMembersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected")
-        let vc = DetailVoteViewController()
+        let currentVoteRecord = votingRecord[indexPath.row]
+        let vc = DetailVoteViewController(voteDetails: currentVoteRecord)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)

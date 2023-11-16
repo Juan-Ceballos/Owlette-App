@@ -29,6 +29,12 @@ class DetailVoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailVoteView.closeButton.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        detailVoteView.voteTitleTextView.text = voteDetails?.bill.title ?? "Nothing Here"
+        detailVoteView.billNumberLabel.text = voteDetails?.bill.number ?? "Nothing Here" 
     }
     
     @objc func closeButtonPressed(_ sender: UIButton) {
