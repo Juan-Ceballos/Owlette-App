@@ -33,8 +33,8 @@ class DetailVoteViewController: UIViewController {
     }
     
     private func setupUI() {
-        detailVoteView.voteTitleTextView.text = voteDetails?.bill.title ?? "Nothing Here"
-        detailVoteView.billNumberLabel.text = voteDetails?.bill.number ?? "Nothing Here" 
+        detailVoteView.voteTitleTextView.text = "\(voteDetails?.bill.title ?? "Nothing Here") \(voteDetails?.bill.number ?? "Nothing Here")."
+        detailVoteView.voteDescriptionTextView.text = voteDetails?.description ?? "Nothing Here"
     }
     
     @objc func closeButtonPressed(_ sender: UIButton) {

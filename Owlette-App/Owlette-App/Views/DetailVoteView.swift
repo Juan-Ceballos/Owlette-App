@@ -9,6 +9,13 @@ import UIKit
 
 class DetailVoteView: UIView {
     
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = AppColors.primaryColor
+        // content size
+        return sv
+    }()
+    
     let backgroundView: UIView = {
        let view = UIView()
         view.backgroundColor = AppColors.primaryColor
@@ -38,18 +45,25 @@ class DetailVoteView: UIView {
         return textView
     }()
     
-    let billNumberTitleLabel: UILabel = {
+    let voteDescriptionTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Bill Number"
+        label.text = "Description"
         label.textColor = AppColors.tertiaryColor
         label.font = AppFonts.headerTextFont
         return label
     }()
     
-    let billNumberLabel: UILabel = {
+    let voteDescriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = AppColors.primaryColor
+        textView.isEditable = false
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        return textView
+    }()
+    
+    let statusTitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = AppColors.textColor
-        label.font = AppFonts.labelFont
         return label
     }()
     
@@ -64,20 +78,32 @@ class DetailVoteView: UIView {
     }
     
     private func commonInit() {
-        pinVCBackground(of: backgroundView)
+        pinVCBackground(of: scrollView) // background view is not scroll view, go through safelayout
+        setupBackgroundViewConstraints()
         setupCloseButtonConstraints()
         setupTitleLabelConstraints()
         setupVoteTitleTextViewConstraints()
-        setupBillNumberLabelTitle()
-        setupBillNumberLabel()
+        setupVoteDescriptionTitleLabelConstraints()
+        setupVoteDescriptionTextViewConstraints()
+    }
+    
+    private func setupBackgroundViewConstraints() {
+        scrollView.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor), //
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor) //
+        ])
     }
     
     private func setupCloseButtonConstraints() {
         addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
-            closeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -AppSizes.medPadding),
+            closeButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: AppSizes.medPadding),
+            closeButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -AppSizes.medPadding),
             closeButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
             closeButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2)
         ])
@@ -104,21 +130,28 @@ class DetailVoteView: UIView {
         ])
     }
     
-    private func setupBillNumberLabelTitle() {
-        addSubview(billNumberTitleLabel)
-        billNumberTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupVoteDescriptionTitleLabelConstraints() {
+        addSubview(voteDescriptionTitleLabel)
+        voteDescriptionTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            billNumberTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            billNumberTitleLabel.topAnchor.constraint(equalTo: voteTitleTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            voteDescriptionTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            voteDescriptionTitleLabel.topAnchor.constraint(equalTo: voteTitleTextView.bottomAnchor, constant: AppSizes.smallPadding),
         ])
     }
     
-    private func setupBillNumberLabel() {
-        addSubview(billNumberLabel)
-        billNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupVoteDescriptionTextViewConstraints() {
+        addSubview(voteDescriptionTextView)
+        voteDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            billNumberLabel.topAnchor.constraint(equalTo: billNumberTitleLabel.bottomAnchor, constant: AppSizes.largePadding),
-            billNumberLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            voteDescriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            voteDescriptionTextView.topAnchor.constraint(equalTo: voteDescriptionTitleLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            voteDescriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding),
+            voteDescriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.largePadding),
+            voteDescriptionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
+    }
+    
+    private func setupStatusTitleLabelConstraints() {
+        addSubview(<#T##view: UIView##UIView#>)
     }
 }
