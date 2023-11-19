@@ -64,6 +64,67 @@ class DetailVoteView: UIView {
     
     let statusTitleLabel: UILabel = {
         let label = UILabel()
+        label.text = "Status"
+        label.textColor = AppColors.tertiaryColor
+        label.font = AppFonts.headerTextFont
+        return label
+    }()
+    
+    let latestActionTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = AppColors.primaryColor
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        return textView
+    }()
+    
+    let positionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = AppFonts.labelFont
+        return label
+    }()
+    
+    let resultLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        return label
+    }()
+    
+    public lazy var totalVotesStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [yesVotesLabel, noVotesLabel, presentVotesLabel, notVotingVotesLabel])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    
+    let yesVotesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = AppFonts.labelFont
+        return label
+    }()
+    
+    let noVotesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = AppFonts.labelFont
+        return label
+    }()
+    
+    let presentVotesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = AppFonts.labelFont
+        return label
+    }()
+    
+    let notVotingVotesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColors.textColor
+        label.font = AppFonts.labelFont
         return label
     }()
     
@@ -85,6 +146,11 @@ class DetailVoteView: UIView {
         setupVoteTitleTextViewConstraints()
         setupVoteDescriptionTitleLabelConstraints()
         setupVoteDescriptionTextViewConstraints()
+        setupStatusTitleLabelConstraints()
+        setupLatestActionTextViewConstraints()
+        setupPositionLabelConstraints()
+        setupResultLabelConstraints()
+        setupTotalVotesStackViewConstraints()
     }
     
     private func setupBackgroundViewConstraints() {
@@ -114,7 +180,7 @@ class DetailVoteView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: AppSizes.largePadding),
+            titleLabel.topAnchor.constraint(equalTo: closeButton.bottomAnchor),
         ])
     }
     
@@ -123,7 +189,7 @@ class DetailVoteView: UIView {
         voteTitleTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             voteTitleTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            voteTitleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: AppSizes.largePadding),
+            voteTitleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: AppSizes.smallPadding),
             voteTitleTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding),
             voteTitleTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.largePadding),
             voteTitleTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
@@ -147,11 +213,57 @@ class DetailVoteView: UIView {
             voteDescriptionTextView.topAnchor.constraint(equalTo: voteDescriptionTitleLabel.bottomAnchor, constant: AppSizes.smallPadding),
             voteDescriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding),
             voteDescriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.largePadding),
-            voteDescriptionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+            voteDescriptionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
         ])
     }
     
     private func setupStatusTitleLabelConstraints() {
-        addSubview(<#T##view: UIView##UIView#>)
+        addSubview(statusTitleLabel)
+        statusTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statusTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            statusTitleLabel.topAnchor.constraint(equalTo: voteDescriptionTextView.bottomAnchor, constant: AppSizes.smallPadding)
+        ])
+    }
+    
+    private func setupLatestActionTextViewConstraints() {
+        addSubview(latestActionTextView)
+        latestActionTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            latestActionTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            latestActionTextView.topAnchor.constraint(equalTo: statusTitleLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            latestActionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.largePadding),
+            latestActionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.largePadding),
+            latestActionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
+        ])
+    }
+    
+    private func setupPositionLabelConstraints() {
+        addSubview(positionLabel)
+        positionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            positionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            positionLabel.topAnchor.constraint(equalTo: latestActionTextView.bottomAnchor)
+        ])
+    }
+    
+    private func setupResultLabelConstraints() {
+        addSubview(resultLabel)
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            resultLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            resultLabel.topAnchor.constraint(equalTo: positionLabel.bottomAnchor, constant: AppSizes.smallPadding)
+        ])
+    }
+    
+    private func setupTotalVotesStackViewConstraints() {
+        addSubview(totalVotesStackView)
+        totalVotesStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            totalVotesStackView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            totalVotesStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            totalVotesStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            totalVotesStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
+        ])
     }
 }
