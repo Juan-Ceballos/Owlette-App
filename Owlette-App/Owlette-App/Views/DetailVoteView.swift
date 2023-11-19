@@ -9,10 +9,13 @@ import UIKit
 
 class DetailVoteView: UIView {
     
-    let scrollView: UIScrollView = {
+    public lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = AppColors.primaryColor
         // content size
+        sv.contentInset = UIEdgeInsets.zero
+        sv.contentOffset = CGPoint(x: 0.0, y: 0.0)
+        sv.contentInsetAdjustmentBehavior = .never
         return sv
     }()
     
@@ -139,7 +142,8 @@ class DetailVoteView: UIView {
     }
     
     private func commonInit() {
-        pinVCBackground(of: scrollView) // background view is not scroll view, go through safelayout
+        setupScrollViewConstraints()
+        //pinVCBackground(of: scrollView) // background view is not scroll view, go through safelayout
         setupBackgroundViewConstraints()
         setupCloseButtonConstraints()
         setupTitleLabelConstraints()
@@ -153,6 +157,17 @@ class DetailVoteView: UIView {
         setupTotalVotesStackViewConstraints()
     }
     
+    private func setupScrollViewConstraints() {
+        addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     private func setupBackgroundViewConstraints() {
         scrollView.addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,23 +175,24 @@ class DetailVoteView: UIView {
             backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor), //
-            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor) //
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor), //
+            backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
     }
     
     private func setupCloseButtonConstraints() {
-        addSubview(closeButton)
+        backgroundView.addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: AppSizes.medPadding),
-            closeButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -AppSizes.medPadding),
+            closeButton.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
+            closeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -AppSizes.medPadding),
             closeButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
             closeButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2)
         ])
     }
     
     private func setupTitleLabelConstraints() {
-        addSubview(titleLabel)
+        backgroundView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -185,7 +201,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupVoteTitleTextViewConstraints() {
-        addSubview(voteTitleTextView)
+        backgroundView.addSubview(voteTitleTextView)
         voteTitleTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             voteTitleTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -197,7 +213,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupVoteDescriptionTitleLabelConstraints() {
-        addSubview(voteDescriptionTitleLabel)
+        backgroundView.addSubview(voteDescriptionTitleLabel)
         voteDescriptionTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             voteDescriptionTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -206,7 +222,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupVoteDescriptionTextViewConstraints() {
-        addSubview(voteDescriptionTextView)
+        backgroundView.addSubview(voteDescriptionTextView)
         voteDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             voteDescriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -218,7 +234,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupStatusTitleLabelConstraints() {
-        addSubview(statusTitleLabel)
+        backgroundView.addSubview(statusTitleLabel)
         statusTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             statusTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -227,7 +243,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupLatestActionTextViewConstraints() {
-        addSubview(latestActionTextView)
+        backgroundView.addSubview(latestActionTextView)
         latestActionTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             latestActionTextView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -239,7 +255,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupPositionLabelConstraints() {
-        addSubview(positionLabel)
+        backgroundView.addSubview(positionLabel)
         positionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             positionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -248,7 +264,7 @@ class DetailVoteView: UIView {
     }
     
     private func setupResultLabelConstraints() {
-        addSubview(resultLabel)
+        backgroundView.addSubview(resultLabel)
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             resultLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -257,13 +273,14 @@ class DetailVoteView: UIView {
     }
     
     private func setupTotalVotesStackViewConstraints() {
-        addSubview(totalVotesStackView)
+        backgroundView.addSubview(totalVotesStackView)
         totalVotesStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             totalVotesStackView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: AppSizes.smallPadding),
             totalVotesStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             totalVotesStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
-            totalVotesStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
+            totalVotesStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1),
+            totalVotesStackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -11)
         ])
     }
 }
