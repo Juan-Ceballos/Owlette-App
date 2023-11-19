@@ -42,8 +42,8 @@ struct ProVote: Codable {
 
 struct ProVoteBill: Codable {
     let number: String
-    let title: String
-    let latestAction: String
+    let title: String?
+    let latestAction: String?
     
     enum CodingKeys: String, CodingKey {
         case number
