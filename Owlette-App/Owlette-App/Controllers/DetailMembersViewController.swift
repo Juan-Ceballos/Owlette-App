@@ -65,6 +65,8 @@ class DetailMembersViewController: UIViewController {
     
     func setupUI() {
         setMemberImage()
+        detailMemberView.imageActivityIndicator.stopAnimating()
+
         Task {
             await setMemberUrlLabel()
             await setupNameLabel()
@@ -99,9 +101,12 @@ class DetailMembersViewController: UIViewController {
     }
     
     func setMemberImage() {
+        detailMemberView.imageActivityIndicator.startAnimating()
         Task {
             try await detailMemberView.depictionImageView.setImage(from: URL(string: "https://www.congress.gov/img/member/\(member!.id.lowercased())_200.jpg")!)
         }
+        //detailMemberView.imageActivityIndicator.stopAnimating()
+        // here
     }
     
     func setMemberUrlLabel() async {

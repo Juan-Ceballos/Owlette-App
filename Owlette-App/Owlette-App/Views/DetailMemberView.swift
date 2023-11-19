@@ -25,6 +25,12 @@ class DetailMemberView: UIView {
         return cv
     }()
     
+    public var imageActivityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = AppColors.smallComponentsColor
+        return indicator
+    }()
+    
     public var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.primaryColor
@@ -40,7 +46,7 @@ class DetailMemberView: UIView {
     // loading?
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = AppColors.smallComponentsColor
+        imageView.backgroundColor = AppColors.tertiaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -192,6 +198,7 @@ class DetailMemberView: UIView {
     private func commonInit() {
         pinVCBackground(of: backgroundView)
         setupDepictionImageViewConstraints()
+        setupImageActivityIndicatorConstraints()
         setupTitleStackViewConstraints()
         setupContentStackViewConstraints()
         setupPartyTextViewConstraints()
@@ -208,6 +215,15 @@ class DetailMemberView: UIView {
             depictionImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.medPadding),
             depictionImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
             depictionImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    private func setupImageActivityIndicatorConstraints() {
+        addSubview(imageActivityIndicator)
+        imageActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageActivityIndicator.centerXAnchor.constraint(equalTo: depictionImageView.centerXAnchor),
+            imageActivityIndicator.centerYAnchor.constraint(equalTo: depictionImageView.centerYAnchor)
         ])
     }
     
