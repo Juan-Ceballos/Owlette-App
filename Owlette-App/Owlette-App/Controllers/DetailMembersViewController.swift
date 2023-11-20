@@ -45,6 +45,8 @@ class DetailMembersViewController: UIViewController {
         }
         catch {
             print(error)
+            showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
+            detailMemberView.activityIndicator.stopAnimating()
         }
         return nil
     }
@@ -64,13 +66,14 @@ class DetailMembersViewController: UIViewController {
     }
     
     func setupUI() {
+        detailMemberView.activityIndicator.startAnimating()
         setMemberImage()
-        detailMemberView.activityIndicator.stopAnimating()
+        updateVoteCV()
 
         Task {
-            await setMemberUrlLabel()
             await setupNameLabel()
-            updateVoteCV()
+            await setMemberUrlLabel()
+            detailMemberView.activityIndicator.stopAnimating()
         }
         detailMemberView.partyTextView.backgroundColor = getPartyColor()
         detailMemberView.districtLabel.text = "\(member?.role ?? "Third")/\(member?.district ?? "")"
@@ -101,18 +104,15 @@ class DetailMembersViewController: UIViewController {
     }
     
     func setMemberImage() {
-        detailMemberView.activityIndicator.startAnimating()
         Task {
             try await detailMemberView.depictionImageView.setImage(from: URL(string: "https://www.congress.gov/img/member/\(member!.id.lowercased())_200.jpg")!)
         }
-        //detailMemberView.imageActivityIndicator.stopAnimating()
-        // here
     }
     
     func setMemberUrlLabel() async {
         let detailMember = await fetchMemberById(memberId: member?.id ?? "No Id")
-        let webUrl = detailMember!.results.first!.url
-        detailMemberView.websiteTextView.attributedText = setupLinkText(url: webUrl)
+        let webUrl = detailMember?.results.first?.url
+        detailMemberView.websiteTextView.attributedText = setupLinkText(url: webUrl ?? "URL Unavailable")
     }
     
     func setupNameLabel() async {
@@ -126,6 +126,8 @@ class DetailMembersViewController: UIViewController {
         }
         catch {
             print("error: \(error)")
+            showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
+            detailMemberView.activityIndicator.stopAnimating()
         }
         return nil
     }
