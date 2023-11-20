@@ -25,7 +25,7 @@ class DetailMemberView: UIView {
         return cv
     }()
     
-    public var imageActivityIndicator: UIActivityIndicatorView = {
+    public var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = AppColors.smallComponentsColor
         return indicator
@@ -198,7 +198,7 @@ class DetailMemberView: UIView {
     private func commonInit() {
         pinVCBackground(of: backgroundView)
         setupDepictionImageViewConstraints()
-        setupImageActivityIndicatorConstraints()
+        setupActivityIndicatorConstraints()
         setupTitleStackViewConstraints()
         setupContentStackViewConstraints()
         setupPartyTextViewConstraints()
@@ -218,12 +218,12 @@ class DetailMemberView: UIView {
         ])
     }
     
-    private func setupImageActivityIndicatorConstraints() {
-        addSubview(imageActivityIndicator)
-        imageActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
+    private func setupActivityIndicatorConstraints() {
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageActivityIndicator.centerXAnchor.constraint(equalTo: depictionImageView.centerXAnchor),
-            imageActivityIndicator.centerYAnchor.constraint(equalTo: depictionImageView.centerYAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
