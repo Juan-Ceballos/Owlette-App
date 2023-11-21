@@ -16,7 +16,7 @@ class MainTabBarViewController: UITabBarController {
     }()
     
     public lazy var pollViewController: UIViewController = {
-        let vc = UIViewController()
+        let vc = PollViewController()
         vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 0)
         return vc
     }()

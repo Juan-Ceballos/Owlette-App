@@ -41,11 +41,12 @@ class DetailMembersViewController: UIViewController {
     func fetchVoteModel(pathComponent: String) async -> ProVotesContainer? {
         do {
             let votesModel = try await proPublicaAPI.fetchParseData(pathComponent: pathComponent, responseType: ProVotesContainer.self)
+            detailMemberView.activityIndicator.stopAnimating()
             return votesModel
         }
         catch {
             print(error)
-            showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
+            showAlert(title: "Error \u{1f622}", message: "Missing info, please go back to try again")
             detailMemberView.activityIndicator.stopAnimating()
         }
         return nil
@@ -73,7 +74,6 @@ class DetailMembersViewController: UIViewController {
         Task {
             await setupNameLabel()
             await setMemberUrlLabel()
-            detailMemberView.activityIndicator.stopAnimating()
         }
         detailMemberView.partyTextView.backgroundColor = getPartyColor()
         detailMemberView.districtLabel.text = "\(member?.role ?? "Third")/\(member?.district ?? "")"
@@ -126,7 +126,7 @@ class DetailMembersViewController: UIViewController {
         }
         catch {
             print("error: \(error)")
-            showAlert(title: "Error \u{1f622}", message: "Failed to load tab, please try again")
+            showAlert(title: "Error \u{1f622}", message: "Missing info, please go back to try again")
             detailMemberView.activityIndicator.stopAnimating()
         }
         return nil
