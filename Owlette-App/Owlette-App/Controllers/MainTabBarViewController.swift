@@ -11,6 +11,12 @@ class MainTabBarViewController: UITabBarController {
     
     public lazy var membersViewController: UIViewController = {
         let vc = MembersViewController()
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "building.columns.fill"), tag: 0)
+        return vc
+    }()
+    
+    public lazy var pollViewController: UIViewController = {
+        let vc = UIViewController()
         vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 0)
         return vc
     }()
@@ -18,7 +24,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewControllers = [UINavigationController(rootViewController: membersViewController)]
+        viewControllers = [UINavigationController(rootViewController: membersViewController), pollViewController]
     }
 
 }

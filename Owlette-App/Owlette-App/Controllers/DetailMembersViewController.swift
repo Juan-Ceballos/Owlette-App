@@ -112,7 +112,7 @@ class DetailMembersViewController: UIViewController {
     func setMemberUrlLabel() async {
         let detailMember = await fetchMemberById(memberId: member?.id ?? "No Id")
         let webUrl = detailMember?.results.first?.url
-        detailMemberView.websiteTextView.attributedText = setupLinkText(url: webUrl ?? "URL Unavailable")
+        detailMemberView.websiteTextView.attributedText = setupLinkText(url: webUrl ?? "Reload for URL")
     }
     
     func setupNameLabel() async {
