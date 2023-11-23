@@ -15,16 +15,16 @@ class MainTabBarViewController: UITabBarController {
         return vc
     }()
     
-    public lazy var pollViewController: UIViewController = {
-        let vc = PollViewController()
-        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 0)
+    public lazy var statementsViewController: UIViewController = {
+        let vc = StatementsViewController()
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "megaphone"), tag: 1)
         return vc
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewControllers = [UINavigationController(rootViewController: membersViewController), pollViewController]
+        viewControllers = [UINavigationController(rootViewController: membersViewController), statementsViewController]
     }
 
 }
