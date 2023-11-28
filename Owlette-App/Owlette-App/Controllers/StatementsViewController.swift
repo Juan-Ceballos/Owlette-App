@@ -8,10 +8,15 @@
 import UIKit
 
 class StatementsViewController: UIViewController {
+    
+    let statementsView = StatementsView()
+    
+    override func loadView() {
+        view = statementsView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
     }
 
 }
