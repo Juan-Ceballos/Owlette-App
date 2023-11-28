@@ -20,8 +20,18 @@ class StatementsView: UIView {
         return cv
     }()
     
+    let statementLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Latest Congressional Statements"
+        label.textColor = AppColors.tertiaryColor
+        label.font = AppFonts.headerTextFont
+        label.textAlignment = .center
+        return label
+    }()
+    
     let backgroundView: UIView = {
         let view = UIView()
+        view.backgroundColor = AppColors.primaryColor
         return view
     }()
     
@@ -37,5 +47,17 @@ class StatementsView: UIView {
     
     private func commonInit() {
         pinVCBackground(of: backgroundView)
+        setupStatementLabelConstraints()
+    }
+    
+    private func setupStatementLabelConstraints() {
+        addSubview(statementLabel)
+        statementLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statementLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+            statementLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            statementLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            statementLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
+        ])
     }
 }

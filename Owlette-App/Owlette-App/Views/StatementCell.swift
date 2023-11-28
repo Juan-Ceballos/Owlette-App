@@ -17,10 +17,6 @@ class StatementCell: UICollectionViewCell {
         return view
     }()
     
-    
-    
-    
-    
     public lazy var detailRightChevron: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.right")
