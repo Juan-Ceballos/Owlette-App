@@ -9,11 +9,17 @@ import UIKit
 
 class StatementCell: UICollectionViewCell {
     
-    static let statementCellReuseId = "statementCell"
+    static let reuseId = "statementCell"
+    override func layoutSubviews() {
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = CGColor.init(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+    }
     
     public lazy var cellBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = AppColors.primaryColor
+        view.backgroundColor = AppColors.tertiaryColor
         return view
     }()
     
