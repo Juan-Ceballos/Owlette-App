@@ -23,17 +23,27 @@ class StatementCell: UICollectionViewCell {
         return view
     }()
     
+    let statementTextView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = AppColors.tertiaryColor
+        return textView
+    }()
+    
+    let fromLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let fullStatementLinkTextView: UITextView = {
+        let textView = UITextView()
+        return textView
+    }()
+    
     public lazy var detailRightChevron: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.right")
         imageView.tintColor = AppColors.tertiaryColor
         return imageView
-    }()
-    
-    let statementTextView: UITextView = {
-        let textView = UITextView()
-        textView.backgroundColor = AppColors.tertiaryColor
-        return textView
     }()
     
     override init(frame: CGRect) {
