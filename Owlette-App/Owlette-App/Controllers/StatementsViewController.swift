@@ -10,6 +10,7 @@ import UIKit
 class StatementsViewController: UIViewController {
     
     let statementsView = StatementsView()
+    var statements = [ProStatement]()
     
     override func loadView() {
         view = statementsView
@@ -19,6 +20,10 @@ class StatementsViewController: UIViewController {
         super.viewDidLoad()
         statementsView.collectionView.delegate = self
         statementsView.collectionView.dataSource = self
+    }
+    
+    private func fetchStatements() {
+        
     }
 
 }

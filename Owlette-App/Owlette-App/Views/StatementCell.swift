@@ -30,6 +30,12 @@ class StatementCell: UICollectionViewCell {
         return imageView
     }()
     
+    let statementTextView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = AppColors.tertiaryColor
+        return textView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -42,7 +48,19 @@ class StatementCell: UICollectionViewCell {
     
     private func commonInit()   {
         pinEdges(of: cellBackgroundView)
+        setupStatementTextViewConstraints()
         //setupDetailRightChevronConstraints()
+    }
+    
+    private func setupStatementTextViewConstraints() {
+        addSubview(statementTextView)
+        statementTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statementTextView.topAnchor.constraint(equalTo: topAnchor, constant: AppSizes.smallPadding),
+            statementTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            statementTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            statementTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7)
+        ])
     }
     
 //    private func setupDetailRightChevronConstraints() {
