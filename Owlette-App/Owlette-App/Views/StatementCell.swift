@@ -11,10 +11,10 @@ class StatementCell: UICollectionViewCell {
     
     static let reuseId = "statementCell"
     override func layoutSubviews() {
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = CGColor.init(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+        cellBackgroundView.layer.cornerRadius = 10
+        cellBackgroundView.layer.masksToBounds = true
+        cellBackgroundView.layer.borderWidth = 1.0
+        cellBackgroundView.layer.borderColor = CGColor.init(srgbRed: 1, green: 1, blue: 1, alpha: 1)
     }
     
     public lazy var cellBackgroundView: UIView = {
