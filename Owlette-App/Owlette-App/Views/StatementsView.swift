@@ -14,7 +14,7 @@ class StatementsView: UIView {
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(StatementCell.self, forCellWithReuseIdentifier: StatementCell.reuseId)
-        layout.itemSize = CGSize(width: self.bounds.width * 0.7, height: self.bounds.height * 0.11)
+        layout.itemSize = CGSize(width: self.bounds.width * 0.7, height: self.bounds.height * 0.22)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
         
         cv.backgroundColor = AppColors.primaryColor

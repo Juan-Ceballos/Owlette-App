@@ -45,6 +45,18 @@ class StatementsViewController: UIViewController {
             }
         }
     }
+    
+    func setupLinkText(url: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: "Full Statement")
+        let linkRange = NSRange(location: 0, length: attributedString.length)
+        let customFont = AppFonts.linkFont
+        
+        attributedString.addAttribute(.link, value: url, range: linkRange)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.blue, range: linkRange)
+        attributedString.addAttribute(.font, value: customFont, range: linkRange)
+        
+        return attributedString
+    }
 
 }
 
@@ -63,6 +75,9 @@ extension StatementsViewController: UICollectionViewDataSource {
         }
         let currentStatement = statements[indexPath.row]
         cell.statementTextView.text = currentStatement.title
+        cell.fromLabel.text = "From: \(currentStatement.name)(\(currentStatement.state))"
+        let linkText = setupLinkText(url: currentStatement.url)
+        cell.fullStatementLinkTextView.attributedText = linkText
         return cell
     }
     

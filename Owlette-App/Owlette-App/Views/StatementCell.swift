@@ -26,16 +26,19 @@ class StatementCell: UICollectionViewCell {
     let statementTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = AppColors.tertiaryColor
+        textView.font = AppFonts.labelFont
         return textView
     }()
     
     let fromLabel: UILabel = {
         let label = UILabel()
+        label.font = AppFonts.labelFont
         return label
     }()
     
     let fullStatementLinkTextView: UITextView = {
         let textView = UITextView()
+        textView.text = "Full Statement"
         return textView
     }()
     
@@ -59,7 +62,8 @@ class StatementCell: UICollectionViewCell {
     private func commonInit()   {
         pinEdges(of: cellBackgroundView)
         setupStatementTextViewConstraints()
-        //setupDetailRightChevronConstraints()
+        setupFromLabelConstraints()
+        setupFullStatementLinkTextViewConstraints()
     }
     
     private func setupStatementTextViewConstraints() {
@@ -69,17 +73,29 @@ class StatementCell: UICollectionViewCell {
             statementTextView.topAnchor.constraint(equalTo: topAnchor, constant: AppSizes.smallPadding),
             statementTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
             statementTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
-            statementTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7)
+            statementTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
         ])
     }
     
-//    private func setupDetailRightChevronConstraints() {
-//        addSubview(detailRightChevron)
-//        detailRightChevron.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            detailRightChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: AppSizes.largeTrailingPadding),
-//            detailRightChevron.centerYAnchor.constraint(equalTo: centerYAnchor)
-//        ])
-//    }
+    private func setupFromLabelConstraints() {
+        addSubview(fromLabel)
+        fromLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fromLabel.topAnchor.constraint(equalTo: statementTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            fromLabel.leadingAnchor.constraint(equalTo: statementTextView.leadingAnchor)
+        ])
+    }
+    
+    private func setupFullStatementLinkTextViewConstraints() {
+        addSubview(fullStatementLinkTextView)
+        fullStatementLinkTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fullStatementLinkTextView.topAnchor.constraint(equalTo: fromLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            fullStatementLinkTextView.leadingAnchor.constraint(equalTo: statementTextView.leadingAnchor),
+            fullStatementLinkTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.135),
+            fullStatementLinkTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -AppSizes.smallPadding),
+            fullStatementLinkTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
+        ])
+    }
     
 }
