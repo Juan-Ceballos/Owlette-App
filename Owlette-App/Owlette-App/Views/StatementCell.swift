@@ -39,6 +39,7 @@ class StatementCell: UICollectionViewCell {
     let fullStatementLinkTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Full Statement"
+        textView.backgroundColor = AppColors.tertiaryColor
         return textView
     }()
     
