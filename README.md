@@ -2,7 +2,7 @@
 
 ## Overview
 
-An app for politcal awareness and education.Outlet for political Knowledge.
+Your Outlet for Political Knowledge.
 
 ## Built With
 
