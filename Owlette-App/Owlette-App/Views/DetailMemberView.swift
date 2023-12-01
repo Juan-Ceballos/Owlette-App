@@ -43,7 +43,6 @@ class DetailMemberView: UIView {
         return view
     }()
     
-    // loading?
     public lazy var depictionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColors.tertiaryColor
@@ -136,13 +135,11 @@ class DetailMemberView: UIView {
         return label
     }()
     
-    // add when add flag assets
     public lazy var titleStateLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    // add when add flag assets
     public lazy var stateLabel: UILabel = {
         let label = UILabel()
         return label

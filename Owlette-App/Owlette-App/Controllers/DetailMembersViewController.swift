@@ -37,7 +37,6 @@ class DetailMembersViewController: UIViewController {
         print(member?.id.uppercased() ?? "")
     }
     
-    // GET https://api.propublica.org/congress/v1/members/{member-id}/votes.json
     func fetchVoteModel(pathComponent: String) async -> ProVotesContainer? {
         do {
             let votesModel = try await proPublicaAPI.fetchParseData(pathComponent: pathComponent, responseType: ProVotesContainer.self)
@@ -132,9 +131,6 @@ class DetailMembersViewController: UIViewController {
         return nil
     }
     
-    // TODO: Use ApiUri from Member model, sample: "https://api.propublica.org/congress/v1/members/K000388.json"
-    // This has committes to consider, need for member website which is helpful for policy agenda
-    // needs to implement votes, if votes and committes then consider like horizontal section cv
 }
 
 extension DetailMembersViewController: UITextViewDelegate {

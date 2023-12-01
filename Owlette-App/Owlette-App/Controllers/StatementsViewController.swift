@@ -60,10 +60,6 @@ class StatementsViewController: UIViewController {
 
 }
 
-extension StatementsViewController: UICollectionViewDelegateFlowLayout {
-    
-}
-
 extension StatementsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         statements.count
@@ -80,6 +76,5 @@ extension StatementsViewController: UICollectionViewDataSource {
         cell.fullStatementLinkTextView.attributedText = linkText
         return cell
     }
-    
     
 }

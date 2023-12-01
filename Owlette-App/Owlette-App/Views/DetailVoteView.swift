@@ -12,7 +12,6 @@ class DetailVoteView: UIView {
     public lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = AppColors.primaryColor
-        // content size
         sv.contentInset = UIEdgeInsets.zero
         sv.contentOffset = CGPoint(x: 0.0, y: 0.0)
         sv.contentInsetAdjustmentBehavior = .never
@@ -143,7 +142,6 @@ class DetailVoteView: UIView {
     
     private func commonInit() {
         setupScrollViewConstraints()
-        //pinVCBackground(of: scrollView) // background view is not scroll view, go through safelayout
         setupBackgroundViewConstraints()
         setupCloseButtonConstraints()
         setupTitleLabelConstraints()
@@ -174,8 +172,8 @@ class DetailVoteView: UIView {
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor), //
-            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor), //
+            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor), 
             backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
     }
