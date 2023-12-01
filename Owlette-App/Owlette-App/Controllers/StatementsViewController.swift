@@ -19,7 +19,6 @@ class StatementsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        statementsView.collectionView.delegate = self
         statementsView.collectionView.dataSource = self
         Task {
             await setupUI()
