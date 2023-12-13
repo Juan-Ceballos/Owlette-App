@@ -14,7 +14,8 @@ extension UIImageView {
             let image = UIImage(data: data) ?? UIImage()
             self.image = image
         } catch {
-            print("\(error)")
+            print("Error loading image: \(error)")
+            self.image = UIImage(named: "person.fill")
         }
     }
 }

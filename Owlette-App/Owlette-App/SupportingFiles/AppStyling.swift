@@ -34,6 +34,10 @@ struct AppSizes {
     static let buttonHeight: CGFloat = 44
     static let largeTrailingPadding: CGFloat = -36
     static let sectionHeaderHeight: CGFloat = 55
+    
+    func setViewSize(for view: UIView) {
+        
+    }
 }
 
 struct AppText {

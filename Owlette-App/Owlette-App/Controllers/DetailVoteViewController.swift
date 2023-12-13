@@ -33,9 +33,9 @@ class DetailVoteViewController: UIViewController {
     }
     
     private func setupUI() {
-        detailVoteView.voteTitleTextView.text = "\(voteDetails?.bill.title ?? "Nothing Here") \(voteDetails?.bill.number ?? "Nothing Here")."
+        detailVoteView.voteTitleTextView.text = "\(voteDetails?.bill.title ?? "Bill Title Currently Unavailable or Missing") \(voteDetails?.bill.number ?? "Nothing Here")."
         detailVoteView.voteDescriptionTextView.text = voteDetails?.description ?? "Nothing Here"
-        detailVoteView.latestActionTextView.text = voteDetails?.bill.latestAction ?? "Nothing Here"
+        detailVoteView.latestActionTextView.text = voteDetails?.bill.latestAction ?? "Latest Status Currently Unavailable or Missing"
         detailVoteView.positionLabel.text = "Position: \(voteDetails?.position ?? "Nothing Here")"
         detailVoteView.resultLabel.text = "Result: \(voteDetails?.result ?? "Nothing Here")"
         detailVoteView.yesVotesLabel.text = "Yes: \(String(voteDetails?.total.yes ?? 0))"
