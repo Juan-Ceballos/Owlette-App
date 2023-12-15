@@ -25,6 +25,8 @@
 		3E371C9A2B0EF0C30070470F /* StatementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C992B0EF0C30070470F /* StatementsView.swift */; };
 		3E371C9C2B1694870070470F /* StatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371C9B2B1694870070470F /* StatementCell.swift */; };
 		3E3DF2AF2A96F48D007B8877 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */; };
+		3EBA859A2B2C257300C18C62 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBA85992B2C257300C18C62 /* AboutViewController.swift */; };
+		3EBA859C2B2C258900C18C62 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBA859B2B2C258900C18C62 /* AboutView.swift */; };
 		3ECDB6C02AB40BFF00A68AD8 /* ProMembersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */; };
 		3ECDB6C22AB40C7100A68AD8 /* ProBillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */; };
 		3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */; };
@@ -73,6 +75,8 @@
 		3E371C992B0EF0C30070470F /* StatementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsView.swift; sourceTree = "<group>"; };
 		3E371C9B2B1694870070470F /* StatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCell.swift; sourceTree = "<group>"; };
 		3E3DF2AE2A96F48D007B8877 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		3EBA85992B2C257300C18C62 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		3EBA859B2B2C258900C18C62 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		3ECDB6BF2AB40BFF00A68AD8 /* ProMembersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembersModel.swift; sourceTree = "<group>"; };
 		3ECDB6C12AB40C7100A68AD8 /* ProBillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProBillsModel.swift; sourceTree = "<group>"; };
 		3ECDB6C42AB40C8D00A68AD8 /* ProVotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVotesModel.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				3E28CAE32ACC220D001B0752 /* DetailMembersViewController.swift */,
 				3E371C8F2AEC991D0070470F /* DetailVoteViewController.swift */,
 				3E371C952B0C4A720070470F /* StatementsViewController.swift */,
+				3EBA85992B2C257300C18C62 /* AboutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				3E371C912AECB89E0070470F /* DetailVoteView.swift */,
 				3E371C992B0EF0C30070470F /* StatementsView.swift */,
 				3E371C9B2B1694870070470F /* StatementCell.swift */,
+				3EBA859B2B2C258900C18C62 /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EBA859C2B2C258900C18C62 /* AboutView.swift in Sources */,
 				3ECDB7162ABE54C300A68AD8 /* MemberView.swift in Sources */,
 				3E28CAE42ACC220D001B0752 /* DetailMembersViewController.swift in Sources */,
 				3ECDB7182ABE5B2B00A68AD8 /* StatesModel.swift in Sources */,
@@ -341,6 +348,7 @@
 				3E28CAE82ACFF66C001B0752 /* UIImageView+Extensions.swift in Sources */,
 				3E28CAE62ACC27FE001B0752 /* DetailMemberView.swift in Sources */,
 				3ECDB6C52AB40C8D00A68AD8 /* ProVotesModel.swift in Sources */,
+				3EBA859A2B2C257300C18C62 /* AboutViewController.swift in Sources */,
 				3ECDB71A2ABEB88C00A68AD8 /* ProMembersStateModel.swift in Sources */,
 				3E371C8C2ADA7E600070470F /* ProMemberIdModel.swift in Sources */,
 				3E371C902AEC991D0070470F /* DetailVoteViewController.swift in Sources */,

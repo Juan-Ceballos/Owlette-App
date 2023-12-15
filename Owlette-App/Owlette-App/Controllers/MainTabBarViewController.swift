@@ -20,11 +20,17 @@ class MainTabBarViewController: UITabBarController {
         vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "megaphone"), tag: 1)
         return vc
     }()
+    
+    public lazy var aboutViewController: UIViewController = {
+        let vc = AboutViewController()
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle.fill"), tag: 2)
+        return vc
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewControllers = [UINavigationController(rootViewController: membersViewController), statementsViewController]
+        viewControllers = [UINavigationController(rootViewController: membersViewController), statementsViewController, aboutViewController]
     }
 
 }
