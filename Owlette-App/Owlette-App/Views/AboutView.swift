@@ -42,6 +42,42 @@ class AboutView: UIView {
         return textView
     }()
     
+    let proPublicaAPILabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = AppFonts.headerTextFont
+        label.textColor = AppColors.tertiaryColor
+        return label
+    }()
+    
+    let proPublicaAPIAttributionTextView: UITextView  = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = AppColors.primaryColor
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        textView.text = ""
+        return textView
+    }()
+    
+    let CGAPILabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = AppFonts.headerTextFont
+        label.textColor = AppColors.tertiaryColor
+        return label
+    }()
+    
+    let CGAPIAttributionTextView: UITextView  = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = AppColors.primaryColor
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        textView.text = ""
+        return textView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -101,5 +137,7 @@ class AboutView: UIView {
             craiyonAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
     }
+    
+    
     
 }
