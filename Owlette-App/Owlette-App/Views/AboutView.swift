@@ -24,6 +24,24 @@ class AboutView: UIView {
         return sv
     }()
     
+    let craiyonTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Thanks Craiyon"
+        label.font = AppFonts.headerTextFont
+        label.textColor = AppColors.tertiaryColor
+        return label
+    }()
+    
+    let craiyonAttributionTextView: UITextView  = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = AppColors.primaryColor
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        textView.text = "This App's logo includes AI-generated art created by Craiyon. We would like to thank Craiyon for providing this creative resource. For more information about Craiyon and their AI art generation platform, please visit craiyon.com."
+        return textView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -37,6 +55,8 @@ class AboutView: UIView {
     private func commonInit() {
         setupScrollViewConstraints()
         setupBackgroundViewConstraints()
+        setupCraiyonLabelConstraints()
+        setupCraiyonAttributionTextviewConstraints()
     }
     
     private func setupScrollViewConstraints() {
@@ -59,6 +79,26 @@ class AboutView: UIView {
             backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        ])
+    }
+    
+    private func setupCraiyonLabelConstraints() {
+        backgroundView.addSubview(craiyonTitleLabel)
+        craiyonTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            craiyonTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: AppSizes.smallPadding),
+            craiyonTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    private func setupCraiyonAttributionTextviewConstraints() {
+        backgroundView.addSubview(craiyonAttributionTextView)
+        craiyonAttributionTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            craiyonAttributionTextView.topAnchor.constraint(equalTo: craiyonTitleLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            craiyonAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            craiyonAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            craiyonAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
     }
     
