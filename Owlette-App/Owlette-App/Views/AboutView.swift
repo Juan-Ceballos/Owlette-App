@@ -15,6 +15,15 @@ class AboutView: UIView {
         return view
     }()
     
+    public lazy var scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = AppColors.primaryColor
+        sv.contentInset = UIEdgeInsets.zero
+        sv.contentOffset = CGPoint(x: 0.0, y: 0.0)
+        sv.contentInsetAdjustmentBehavior = .never
+        return sv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -26,7 +35,31 @@ class AboutView: UIView {
     }
     
     private func commonInit() {
-        pinVCBackground(of: backgroundView)
+        setupScrollViewConstraints()
+        setupBackgroundViewConstraints()
+    }
+    
+    private func setupScrollViewConstraints() {
+        addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    private func setupBackgroundViewConstraints() {
+        scrollView.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        ])
     }
     
 }
