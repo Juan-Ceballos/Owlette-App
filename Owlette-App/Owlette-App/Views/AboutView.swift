@@ -178,7 +178,7 @@ class AboutView: UIView {
             CGAPIAttributionTextView.topAnchor.constraint(equalTo: CGAPILabel.bottomAnchor, constant: AppSizes.smallPadding),
             CGAPIAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
             CGAPIAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
-            CGAPIAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            CGAPIAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
             CGAPIAttributionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -AppSizes.smallPadding)
         ])
     }
