@@ -78,6 +78,24 @@ class AboutView: UIView {
         return textView
     }()
     
+    let usersAttributionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Thanks!"
+        label.font = AppFonts.headerTextFont
+        label.textColor = AppColors.tertiaryColor
+        return label
+    }()
+    
+    let usersAttributionTextView: UITextView  = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = AppColors.primaryColor
+        textView.textColor = AppColors.textColor
+        textView.font = AppFonts.labelFont
+        textView.text = "Thank You for using Owlette! All feedback, and comments are welcomed. I create free to use apps, if you would like to see all my released apps or upcoming projects visit: https://juan-ceballos.github.io. /n If you're a fellow developer you can look at my portfolio at: https://github.com/Juan-Ceballos, /n For professional communication visit my LinkedIn Here: https://www.linkedin.com/in/juan-ceballos-55b49647/. /n Finally if you would like to support me, Owlette and future projects please consider donating through Venmo: @Juan-Ceballos-4 or CashApp: $angrycicada or contact me through above links. Thanks again, Juan Ceballos"
+        return textView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -97,6 +115,8 @@ class AboutView: UIView {
         setupproPublicaAPIAttributionTextViewConstraints()
         setupCGAPILabelConstraints()
         setupCGAPIAttributionTextViewConstraints()
+        setupUsersAttributionLabelConstraints()
+        setupUsersAttributionTextViewConstraints()
     }
     
     private func setupScrollViewConstraints() {
@@ -179,7 +199,27 @@ class AboutView: UIView {
             CGAPIAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
             CGAPIAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
             CGAPIAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
-            CGAPIAttributionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -AppSizes.smallPadding)
+        ])
+    }
+    
+    private func setupUsersAttributionLabelConstraints() {
+        backgroundView.addSubview(usersAttributionLabel)
+        usersAttributionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usersAttributionLabel.topAnchor.constraint(equalTo: CGAPIAttributionTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            usersAttributionLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    private func setupUsersAttributionTextViewConstraints() {
+        backgroundView.addSubview(usersAttributionTextView)
+        usersAttributionTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usersAttributionTextView.topAnchor.constraint(equalTo: usersAttributionLabel.bottomAnchor, constant: AppSizes.smallPadding),
+            usersAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            usersAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            usersAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45),
+            usersAttributionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -AppSizes.smallPadding)
         ])
     }
     
