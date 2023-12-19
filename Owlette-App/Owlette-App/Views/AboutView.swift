@@ -38,7 +38,7 @@ class AboutView: UIView {
         textView.backgroundColor = AppColors.primaryColor
         textView.textColor = AppColors.textColor
         textView.font = AppFonts.labelFont
-        textView.text = "This App's logo includes AI-generated art created by Craiyon. We would like to thank Craiyon for providing this creative resource. For more information about Craiyon and their AI art generation platform, please visit: craiyon.com."
+        textView.text = "This App's logo includes AI-generated art created by Craiyon. We would like to thank Craiyon for providing this creative resource. For more information about Craiyon and their AI art generation platform, please visit: craiyon.com"
         return textView
     }()
     
@@ -56,7 +56,7 @@ class AboutView: UIView {
         textView.backgroundColor = AppColors.primaryColor
         textView.textColor = AppColors.textColor
         textView.font = AppFonts.labelFont
-        textView.text = "Owlette utilizes the ProPublica Congress API to provide all of the data within the app with the exception of the images portraying congress members. We would like to express our gratitude to the ProPublica Congress API for making this valulabe service available. This API allows one to retrieve legislative data from the House of Representatives, the Senate and the Library of Congress. The API, which originated at The New York Times in 2009, includes details about members, votes, bills, nominations and other aspects of congressional activity. For more information about the ProPublica Congress API you can visit: https://projects.propublica.org/api-docs/congress-api. Thank you for being a part of Owlette"
+        textView.text = "Owlette utilizes the ProPublica Congress API to provide all of the data within the app with the exception of the images portraying congress members. We would like to express our gratitude to the ProPublica Congress API for making this valulabe service available. This API allows one to retrieve legislative data from the House of Representatives, the Senate and the Library of Congress. The API, which originated at The New York Times in 2009, includes details about members, votes, bills, nominations and other aspects of congressional activity. For more information about the ProPublica Congress API you can visit: https://projects.propublica.org/api-docs/congress-api Thank you for being a part of Owlette"
         return textView
     }()
     
