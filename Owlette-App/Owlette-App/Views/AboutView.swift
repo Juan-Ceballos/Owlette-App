@@ -44,7 +44,7 @@ class AboutView: UIView {
     
     let proPublicaAPILabel: UILabel = {
         let label = UILabel()
-        label.text = ""
+        label.text = "Thanks ProPublica"
         label.font = AppFonts.headerTextFont
         label.textColor = AppColors.tertiaryColor
         return label
@@ -56,13 +56,13 @@ class AboutView: UIView {
         textView.backgroundColor = AppColors.primaryColor
         textView.textColor = AppColors.textColor
         textView.font = AppFonts.labelFont
-        textView.text = ""
+        textView.text = "Owlette utilizes the ProPublica Congress API to provide all of the data within the app with the exception of the images portraying congress members. We would like to express our gratitude to the ProPublica Congress API for making this valulabe service available. This API allows one to retrieve legislative data from the House of Representatives, the Senate and the Library of Congress. The API, which originated at The New York Times in 2009, includes details about members, votes, bills, nominations and other aspects of congressional activity. For more information about the ProPublica Congress API you can visit https://projects.propublica.org/api-docs/congress-api. Thank you for being a part of Owlette"
         return textView
     }()
     
     let CGAPILabel: UILabel = {
         let label = UILabel()
-        label.text = ""
+        label.text = "Thanks Congress.gov"
         label.font = AppFonts.headerTextFont
         label.textColor = AppColors.tertiaryColor
         return label
@@ -74,7 +74,7 @@ class AboutView: UIView {
         textView.backgroundColor = AppColors.primaryColor
         textView.textColor = AppColors.textColor
         textView.font = AppFonts.labelFont
-        textView.text = ""
+        textView.text = "Owlette utilizes the Congress.gov API to provide the images portraying congress members within this app. We would like to express our gratitude to the Congress.gov API for making this valulabe service available. This API provides a method for Congress and the public to view, retrieve, and re-use machine-readable data from collections available on Congress.gov. For more information about the Congress.gov API you can visit https://gpo.congress.gov. Thank you for being a part of Owlette"
         return textView
     }()
     
@@ -93,6 +93,10 @@ class AboutView: UIView {
         setupBackgroundViewConstraints()
         setupCraiyonLabelConstraints()
         setupCraiyonAttributionTextviewConstraints()
+        setupProPublicaAPILabelConstraints()
+        setupproPublicaAPIAttributionTextViewConstraints()
+        setupCGAPILabelConstraints()
+        setupCGAPIAttributionTextViewConstraints()
     }
     
     private func setupScrollViewConstraints() {
@@ -138,6 +142,45 @@ class AboutView: UIView {
         ])
     }
     
+    private func setupProPublicaAPILabelConstraints() {
+        addSubview(proPublicaAPILabel)
+        proPublicaAPILabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            proPublicaAPILabel.topAnchor.constraint(equalTo: craiyonAttributionTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            proPublicaAPILabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
     
+    private func setupproPublicaAPIAttributionTextViewConstraints() {
+        backgroundView.addSubview(proPublicaAPIAttributionTextView)
+        proPublicaAPIAttributionTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            proPublicaAPIAttributionTextView.topAnchor.constraint(equalTo: proPublicaAPILabel.bottomAnchor, constant: AppSizes.smallPadding),
+            proPublicaAPIAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            proPublicaAPIAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            proPublicaAPIAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+        ])
+    }
+    
+    private func setupCGAPILabelConstraints() {
+        addSubview(CGAPILabel)
+        CGAPILabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            CGAPILabel.topAnchor.constraint(equalTo: proPublicaAPIAttributionTextView.bottomAnchor, constant: AppSizes.smallPadding),
+            CGAPILabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    private func setupCGAPIAttributionTextViewConstraints() {
+        backgroundView.addSubview(CGAPIAttributionTextView)
+        CGAPIAttributionTextView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            CGAPIAttributionTextView.topAnchor.constraint(equalTo: CGAPILabel.bottomAnchor, constant: AppSizes.smallPadding),
+            CGAPIAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
+            CGAPIAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
+            CGAPIAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
+            CGAPIAttributionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -AppSizes.smallPadding)
+        ])
+    }
     
 }
