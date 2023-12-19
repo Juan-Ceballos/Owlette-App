@@ -92,7 +92,7 @@ class AboutView: UIView {
         textView.backgroundColor = AppColors.primaryColor
         textView.textColor = AppColors.textColor
         textView.font = AppFonts.labelFont
-        textView.text = "Thank You for using Owlette! All feedback, and comments are welcomed. I create free to use apps, if you would like to see all my released apps or upcoming projects visit: https://juan-ceballos.github.io. /n If you're a fellow developer you can look at my portfolio at: https://github.com/Juan-Ceballos, /n For professional communication visit my LinkedIn Here: https://www.linkedin.com/in/juan-ceballos-55b49647/. /n Finally if you would like to support me, Owlette and future projects please consider donating through Venmo: @Juan-Ceballos-4 or CashApp: $angrycicada or contact me through above links. Thanks again, Juan Ceballos"
+        textView.text = "Thank You for using Owlette! All feedback, and comments are welcomed. I create free to use apps, if you would like to see all my released apps or upcoming projects visit: https://juan-ceballos.github.io \n If you're a fellow developer you can look at my portfolio at: \n https://github.com/Juan-Ceballos \n For professional communication visit my LinkedIn Here: \n https://www.linkedin.com/in/juan-ceballos-55b49647 \n Finally if you would like to support me, Owlette and future projects please consider donating through Venmo: @Juan-Ceballos-4 or CashApp: $angrycicada or contact me through above links. Thanks again, Juan Ceballos"
         return textView
     }()
     
@@ -218,7 +218,7 @@ class AboutView: UIView {
             usersAttributionTextView.topAnchor.constraint(equalTo: usersAttributionLabel.bottomAnchor, constant: AppSizes.smallPadding),
             usersAttributionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppSizes.smallPadding),
             usersAttributionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppSizes.smallPadding),
-            usersAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45),
+            usersAttributionTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
             usersAttributionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -AppSizes.smallPadding)
         ])
     }
