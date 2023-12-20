@@ -4,8 +4,6 @@
 
 Your Outlet for Political Knowledge. Search for congressmembers by state. View their voting record, and congressional statements.
 
-## Apple Store
-
 ## Features 
 
 Search Congressmembers | Congressmember Details/Record | Voting Record          
@@ -16,8 +14,6 @@ Search Congressmembers | Congressmember Details/Record | Voting Record
 Statements |
 ---------- |
 ![Statements](Owlette-App/Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-Statements.png)
-
-## Installation
 
 ## Built With
 
