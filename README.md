@@ -2,7 +2,7 @@
 
 ## Overview
 
-Your Outlet for Political Knowledge.
+Your Outlet for Political Knowledge. Search for congressmembers by state. View their voting record, and congressional statements.
 
 ## Apple Store
 
