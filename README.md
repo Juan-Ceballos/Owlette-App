@@ -13,8 +13,8 @@ Your Outlet for Political Knowledge. Search for congressmembers by state. View t
 Search Congressmembers | Congressmember Details/Record | Voting Record
 ---------------------- | ----------------------------- | -----------------------
 ![Search](Owlette-App/Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-Search.png) | 
-![Details](Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-MemberAndRecord.png) |
-![Voting](Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-RecordDetails.png)
+![Details](Owlette-App/Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-MemberAndRecord.png) |
+![Voting](Owlette-App/Owlette-App/Assets.xcassets/AppFeatureImages/Owlette-RecordDetails.png)
 
 ## Installation
 
